@@ -1,0 +1,1071 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Data Science | Vishnu Bharadwaj</title>
+    <link>https://vishnubharadwaj00.github.io/tag/data-science/</link>
+      <atom:link href="https://vishnubharadwaj00.github.io/tag/data-science/index.xml" rel="self" type="application/rss+xml" />
+    <description>Data Science</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 28 Jul 2020 13:49:43 +0000</lastBuildDate>
+    <image>
+      <url>https://vishnubharadwaj00.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <title>Data Science</title>
+      <link>https://vishnubharadwaj00.github.io/tag/data-science/</link>
+    </image>
+    
+    <item>
+      <title>How NOT to Build a Data Science Project</title>
+      <link>https://vishnubharadwaj00.github.io/post/datascienceprojectmistakes/</link>
+      <pubDate>Tue, 28 Jul 2020 13:49:43 +0000</pubDate>
+      <guid>https://vishnubharadwaj00.github.io/post/datascienceprojectmistakes/</guid>
+      <description>&lt;p&gt;(Originally published on 
+&lt;a href=&#34;https://towardsdatascience.com/how-not-to-build-a-data-science-project-baa494d98da4&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Towards Data Science&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;I knew I was doing something wrong.&lt;/p&gt;
+&lt;p&gt;I had built up a repertoire of interesting, practical projects. I had a couple of online courses to showcase what I had learnt. I even built a portfolio website to showcase all my projects and articles (which you can access 
+&lt;a href=&#34;https://vishnubharadwaj00.github.io&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;But, I still felt a gaping hole in the knowledge I had. A huge, gaping, chasm-sized hole. I felt like something major was missing from the equation.&lt;/p&gt;
+&lt;p&gt;That’s when I came across some absolutely amazing playlists on YouTube on building an End-to-End Data Science project from scratch. Some great examples are 
+&lt;a href=&#34;https://www.youtube.com/watch?v=MpF9HENQjDo&amp;amp;list=PL2zq7klxX5ASFejJj80ob9ZAnBHdz5O1t&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;this one&lt;/a&gt; by Ken Jee, 
+&lt;a href=&#34;https://www.youtube.com/watch?v=C_lIenSJb3c&amp;amp;list=PL6vjgQ2-qJFeMrZ0sBjmnUBZNX9xaqKuM&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;this one&lt;/a&gt; by Daniel Bourke and 
+&lt;a href=&#34;https://www.youtube.com/watch?v=ZZ4B0QUHuNc&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;this one&lt;/a&gt; by Data Professor. (Shout out to all of them for some absolutely brilliant content!)&lt;/p&gt;
+&lt;p&gt;I realized I needed to get started on an End-to-End Data Science project, stat (pun very much intended). Getting hands-on and diving right in, though uncomfortable at first, is the best way to learn something new.&lt;/p&gt;
+&lt;p&gt;And so I dove straight in.&lt;/p&gt;
+&lt;p&gt;Until I got stuck. Again.&lt;/p&gt;
+&lt;p&gt;And again.&lt;/p&gt;
+&lt;p&gt;And again.&lt;/p&gt;
+&lt;p&gt;But finally, after hours of toiling, a couple dozen Stack Overflow searches (thank the heavens for Stack Overflow) and a lot of banging my head against the wall out of frustration after running into a wall of errors (this didn’t help as much), I was done.&lt;/p&gt;
+&lt;p&gt;You can check out my final project 
+&lt;a href=&#34;http://ds-salary-predictor.herokuapp.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt;. It’s a Data Science Salary Predictor (inspired and guided by Ken Jee’s 
+&lt;a href=&#34;https://www.youtube.com/watch?v=MpF9HENQjDo&amp;amp;list=PL2zq7klxX5ASFejJj80ob9ZAnBHdz5O1t&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;playlist&lt;/a&gt;). I’m also working on a couple more of my own, this time with no reference or guidance, to really push myself beyond the perceived limits of my understanding.&lt;/p&gt;
+&lt;p&gt;During the process of building these projects, I learnt a whole lot, not only from a Data Science point of view, but also about how to tackle the problem of structuring such a project in the first place; by making a lot of mistakes and learning from them, again and again.&lt;/p&gt;
+&lt;p&gt;Here are some of the mistakes I had made before, and what you can do to avoid these mistakes in your next project:&lt;/p&gt;
+&lt;h3 id=&#34;mistake-1-not-making-my-projects-end-to-end&#34;&gt;Mistake #1: Not making my projects End-to-End.&lt;/h3&gt;
+&lt;p&gt;Typically, most of the time spent on real-life applications of Data Science is on Data Cleaning and Preparation. In fact, it’s widely been acknowledged that &lt;strong&gt;about 80% of the time&lt;/strong&gt; spent is on cleaning the data and transforming into a form suitable for further analysis.&lt;/p&gt;
+&lt;p&gt;As annoying as it may be, Data Cleaning is an essential step in the Data Science life cycle. Not all the datasets you might work with in a real job or internship will be as cleaned and ready to use as a Kaggle dataset.&lt;/p&gt;
+&lt;p&gt;It might be very messy, and it might possibly be your job to clean it up and make it ready-to-use.&lt;/p&gt;
+&lt;p&gt;And an equally important part of the project is productionizing and deploying projects. There’s a quote I’m seeing more and more of these days:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Your project shouldn’t end its life in a Jupyter Notebook.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Building projects and products that can be &lt;strong&gt;accessed by other people&lt;/strong&gt; is one of the main uses of Data Science.&lt;/p&gt;
+&lt;p&gt;A bunch of code in a Jupyter Notebook is typically of no practical use, but building a simple Web Application using a powerful and easy-to-use tool like 
+&lt;a href=&#34;https://www.streamlit.io/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Streamlit&lt;/a&gt; or a slightly more complex tool like 
+&lt;a href=&#34;https://flask.palletsprojects.com/en/1.1.x/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Flask&lt;/a&gt;, to showcase what you built, just that little bit of extra effort, makes it a lot easier for people to see what you’ve built.&lt;/p&gt;
+&lt;p&gt;It’s very important to start with strong foundations and end with a tangible, practical product.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Pro Tip: Get your own data (web scrape if you have to). Clean it, preprocess it, do some feature engineering. And don’t forget to productionize your project with Streamlit or Flask.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;mistake-2-not-spending-time-on-the-things-that-mattermost&#34;&gt;Mistake #2: Not spending time on the things that matter most.&lt;/h3&gt;
+&lt;p&gt;Pareto’s principle (also known as the &lt;strong&gt;80–20 rule&lt;/strong&gt;) states that, for many events, around 80% of the effects come from 20% of the causes. Similarly, in a project, around 80% of the value comes from just 20% of the things you do. Equivalently, what this also means is that around 80% of the things you might do don’t really add a whole lot of value (around 20% only).&lt;/p&gt;
+&lt;p&gt;I used to spend a lot of my time thinking and analyzing about the different options or different paths I could take with my project.&lt;/p&gt;
+&lt;p&gt;I shouldn’t have.&lt;/p&gt;
+&lt;p&gt;I should have just gotten started with something. I could have dealt with the after-effect of having chosen the wrong option, later.&lt;/p&gt;
+&lt;p&gt;A simple example of where I’ve wasted a lot of time: &lt;strong&gt;Cloud providers&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;If you’re with me so far, productionizing a project using Streamlit or Flask is very important. But also, deploying that project so that it can be accessed by everyone is also equally important.&lt;/p&gt;
+&lt;p&gt;And there are a lot of options out there to do this.&lt;/p&gt;
+&lt;p&gt;I started obsessively analyzing and researching all the different options to help deploy my project. Looking up all the differences between AWS and GCP, the pros and cons for each, what instances they provide, what costs I might have to incur, and so on.&lt;/p&gt;
+&lt;p&gt;Until I realized the mistake I was making. I just had to deploy it, period. It didn’t matter where.&lt;/p&gt;
+&lt;p&gt;So, I deployed it on 
+&lt;a href=&#34;https://www.heroku.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Heroku&lt;/a&gt; for free. (They allow one free deployment, which I graciously used).&lt;/p&gt;
+&lt;p&gt;Next time, I’ll deploy it on whatever I find to be the easiest. No second thoughts.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Pro Tip: Stop thinking, start doing. Use the 80–20 rule to your advantage.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;mistake-3-not-planning-what-the-end-result-will-looklike&#34;&gt;Mistake #3: Not planning what the end result will look like.&lt;/h3&gt;
+&lt;p&gt;If I’ve managed to convince you by now that productionization and deployment are invaluable steps in your project life cycle and about the power of the 80–20 rule, then another equally important and frequently overlooked step is planning what the final result is going to look like.&lt;/p&gt;
+&lt;p&gt;Okay, let’s assume you’ve agreed with my logic so far and you’ve decided you want to build a web application showcasing your project.&lt;/p&gt;
+&lt;p&gt;But what is that application going to do?&lt;/p&gt;
+&lt;p&gt;Ask yourself questions about the UI, such as:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;What are the &lt;strong&gt;inputs&lt;/strong&gt; it takes from the user?&lt;/li&gt;
+&lt;li&gt;In &lt;strong&gt;what form&lt;/strong&gt; are you going to take in the inputs?&lt;/li&gt;
+&lt;li&gt;What’s the &lt;strong&gt;end result&lt;/strong&gt; your model is gonna spew out?&lt;/li&gt;
+&lt;li&gt;What form is the &lt;strong&gt;output&lt;/strong&gt; going to be in?&lt;/li&gt;
+&lt;li&gt;Are there any &lt;strong&gt;additional features&lt;/strong&gt; that I could add that will make the user experience better?&lt;/li&gt;
+&lt;li&gt;Are there some things I should &lt;strong&gt;avoid&lt;/strong&gt; at all costs?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;During my Data Science Salary Predictor project, I made the grave mistake of not thinking about the final interface and its layout. When I finally got to that stage, I saw that the user’s categorical inputs would make no sense to my model, so I had to go back and change certain categorical variables into ordinal variables, wasting some valuable time in the process.&lt;/p&gt;
+&lt;p&gt;Answering these questions at the beginning will save a whole lot of time later on, and it will avoid you having to go back and forth between the different steps &lt;strong&gt;unnecessarily&lt;/strong&gt;. I use the word ‘unnecessarily’ here for a reason, which brings me to Mistake #4.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Pro Tip: Have a rough idea of the end-result when you start, in whatever form it may be. Sketch it out somewhere if you have to.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;mistake-4-not-circling-back-to-previousstages&#34;&gt;Mistake #4: Not circling back to previous stages.&lt;/h3&gt;
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-the-data-science-life-cycle-credits-chanin-nantasenamatdata-professor&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://vishnubharadwaj00.github.io/img/0__SgzHN6H7R46HAtPa.jpeg&#34; data-caption=&#34;The Data Science Life Cycle (Credits: Chanin Nantasenamat/Data Professor)&#34;&gt;
+
+
+  &lt;img src=&#34;https://vishnubharadwaj00.github.io/img/0__SgzHN6H7R46HAtPa.jpeg&#34; alt=&#34;&#34;  &gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    The Data Science Life Cycle (Credits: Chanin Nantasenamat/Data Professor)
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;Typically, any project can be categorized into these 5 major stages: Data Collection, Data Cleaning, Exploratory Data Analysis, Model Building and Model Deployment.&lt;/p&gt;
+&lt;p&gt;But a major mistake I made was thinking that the process was a linear series of steps, when in fact, it’s an iterative and often, cyclical process.&lt;/p&gt;
+&lt;p&gt;As an example, during my Data Science Salary Predictor project, when I was at the Model Building stage, I thought of a couple more interesting features that I could have added, to give as inputs to my model.&lt;/p&gt;
+&lt;p&gt;So what did I do?&lt;/p&gt;
+&lt;p&gt;I went all the way back to the Data Cleaning and Preprocessing step, had to do some additional feature engineering, and had to perform some Exploratory Data Analysis on the new data, and build another model with the additional features.&lt;/p&gt;
+&lt;p&gt;Sometimes, these circling backs might be completely unnecessary, such as in Mistake #3.&lt;/p&gt;
+&lt;p&gt;But sometimes, you might have a new insight after having worked with the data for a while and in that case, circling back is the right thing to do.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Pro Tip: Plan as much as necessary before hand, but circle back if needed. That little effort might make your project a lot better, for all you know.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;mistake-5-not-introspecting-and-evaluating-after-the-project-isdeployed&#34;&gt;Mistake #5: Not introspecting and evaluating after the project is deployed&lt;/h3&gt;
+&lt;p&gt;A step I neglected completely, and what might actually be the most important step of them all, is evaluating your project after you’re done.&lt;/p&gt;
+&lt;p&gt;Seeing what went right, what went wrong, and how to improve next time.&lt;/p&gt;
+&lt;p&gt;I learnt this about this very important step from Daniel Bourke’s 
+&lt;a href=&#34;https://www.youtube.com/watch?v=aBkUE5OJ8u8&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;video&lt;/a&gt; after the Airbnb project he had embarked upon.&lt;/p&gt;
+&lt;p&gt;Take some time, analyze all the steps of your project, introspect, learn from them and move on.&lt;/p&gt;
+&lt;p&gt;This article wouldn’t exist without this step. The mistakes listed here are those that I learnt from my projects, and I’m almost sure that anyone embarking on a project of their own will commit certain mistakes along the way. Learn from them, make sure you don’t repeat them next time, move on.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Pro Tip: Go back and see what went right and wrong, and learn from them.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;“It is okay to mistakes, as long as you learn from them.” — Anonymous&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;And most importantly: don’t forget to have fun along the way.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Feel free to reach out to me on&lt;/em&gt; 
+&lt;a href=&#34;https://www.linkedin.com/in/vishnu-bharadwaj-796877175/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;em&gt;LinkedIn&lt;/em&gt;&lt;/a&gt;&lt;em&gt;, check out my&lt;/em&gt; 
+&lt;a href=&#34;https://github.com/vishnubharadwaj00&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;em&gt;GitHub&lt;/em&gt;&lt;/a&gt; &lt;em&gt;for the projects I’ve done, or my personal&lt;/em&gt; 
+&lt;a href=&#34;https://vishnubharadwaj00.github.io&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;em&gt;website&lt;/em&gt;&lt;/a&gt; &lt;em&gt;for all my work.&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>10 Unique Visualizations of the NBA</title>
+      <link>https://vishnubharadwaj00.github.io/post/nbaviz/</link>
+      <pubDate>Sat, 06 Jun 2020 09:07:47 +0000</pubDate>
+      <guid>https://vishnubharadwaj00.github.io/post/nbaviz/</guid>
+      <description>&lt;p&gt;(Originally published on 
+&lt;a href=&#34;https://towardsdatascience.com/10-unique-visualizations-of-the-nba-b981cfdb78bf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Towards Data Science&lt;/a&gt;)&lt;/p&gt;
+&lt;h3 id=&#34;i-miss-thenba&#34;&gt;I miss the NBA.&lt;/h3&gt;
+&lt;p&gt;The suspension of the NBA due to the COVID-19 pandemic is just one of the small disruptions in the world today. But like many other sports enthusiasts, I miss the thrill of watching live sports.&lt;/p&gt;
+&lt;p&gt;So I dealt with it, the same way any Data-loving, basketball enthusiast would: &lt;strong&gt;I dove into the stats, and built some graphs.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;I used &lt;strong&gt;Tableau&lt;/strong&gt; (something I only recently learnt how to use, but absolutely love already) to build these plots, and a 
+&lt;a href=&#34;https://www.kaggle.com/justinas/nba-players-data&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;dataset&lt;/a&gt; I found on Kaggle, which contains information about all players who’ve played in the NBA from the 1996–97 season to 2019–20 season.&lt;/p&gt;
+&lt;p&gt;Before I even started, without creating a single graph, I immediately stumbled upon my first interesting insight:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;There have been only 2235 unique players in the NBA since 1996.&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;That’s an insanely low number, for 24 years of basketball. And that’s why we keep hearing experts say that getting into the NBA is like “winning the lottery”.&lt;/p&gt;
+&lt;h3 id=&#34;before-thenba&#34;&gt;Before the NBA&lt;/h3&gt;
+&lt;p&gt;College basketball is the typical recruitment point for the NBA, with most players turning pro after a successful college basketball career. Tournaments like NCAA March Madness are extremely popular, and players who shine in these tournaments catch the eye of NBA recruiters.&lt;/p&gt;
+&lt;h4 id=&#34;1-what-are-the-most-successful-colleges-in-terms-of-getting-players-to-thenba&#34;&gt;1. What are the most successful colleges, in terms of getting players to the NBA?&lt;/h4&gt;
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-number-of-players-from-each-college-whove-played-in-thenba&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://vishnubharadwaj00.github.io/img/1__jbDeKg469x6AO8FAjmE9CQ.png&#34; data-caption=&#34;Number of Players from each College who’ve played in the NBA&#34;&gt;
+
+
+  &lt;img src=&#34;https://vishnubharadwaj00.github.io/img/1__jbDeKg469x6AO8FAjmE9CQ.png&#34; alt=&#34;&#34;  &gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    Number of Players from each College who’ve played in the NBA
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;These are the top 20 colleges in the US in terms of players who have gone on to play in the NBA.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The top 3 colleges are &lt;strong&gt;The University of Kentucky, Duke University and the UCLA&lt;/strong&gt; are the most successful colleges with 168 players going on to play in the NBA.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Players are typically drafted from colleges in different draft rounds. Being a first-round draft pick, means you’re the best of the best.&lt;/p&gt;
+&lt;h4 id=&#34;2-but-does-the-draft-round-affect-how-many-games-the-player-ends-up-playing-perseason&#34;&gt;&lt;strong&gt;2. But does the draft round affect how many games the player ends up playing per season?&lt;/strong&gt;&lt;/h4&gt;
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-draft-round-vs-average-games-played-per-season&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://vishnubharadwaj00.github.io/img/1__pKRHxrVqgwC5g6ulRoNEvw.png&#34; data-caption=&#34;Draft Round vs Average Games Played per Season&#34;&gt;
+
+
+  &lt;img src=&#34;https://vishnubharadwaj00.github.io/img/1__pKRHxrVqgwC5g6ulRoNEvw.png&#34; alt=&#34;&#34;  &gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    Draft Round vs Average Games Played per Season
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;Not necessarily.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;1st round picks only play the 3rd most number of games, while 7th and 3rd round picks play more games on average per season.&lt;/p&gt;
+&lt;p&gt;But in terms of average points per season (the colors in the plot), the 1st round picks contribute the most points. Could this be because 1st round picks are rested a bit more to score more efficiently in crucial and important games for the team?&lt;/p&gt;
+&lt;p&gt;Another interesting insight, &lt;strong&gt;being undrafted helps you&lt;/strong&gt; play more games than being a 4th, 6th or 8th round pick. Surprising.&lt;/p&gt;
+&lt;h3 id=&#34;the-biggest-of-thebiggest&#34;&gt;The Biggest of the Biggest&lt;/h3&gt;
+&lt;p&gt;So the player has been drafted. Chances are he’s really tall and really strong. The NBA’s known for having the tallest and strongest players, real athletic specimens.&lt;/p&gt;
+&lt;p&gt;In fact, the average height and weight of the players since 1996 are 200.8 cm (6&#39;5&amp;rsquo;’) and 100.6 kg (221.7 lbs).&lt;/p&gt;
+&lt;h4 id=&#34;3-who-were-the-biggest-players-out-of-all-ofthem&#34;&gt;3. Who were the biggest players out of all of them?&lt;/h4&gt;
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-nbas-biggest-players-in-terms-of-height-cm-and-weight-kg&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://vishnubharadwaj00.github.io/img/1__5L9t9imjrLqwCuwJXdWHvw.png&#34; data-caption=&#34;NBA’s biggest players, in terms of Height (cm) and Weight (kg)&#34;&gt;
+
+
+  &lt;img src=&#34;https://vishnubharadwaj00.github.io/img/1__5L9t9imjrLqwCuwJXdWHvw.png&#34; alt=&#34;&#34;  &gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    NBA’s biggest players, in terms of Height (cm) and Weight (kg)
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;As most of the players in the NBA do come from the USA, it’s definitely no surprise that some of the biggest players are from the USA as well.&lt;/p&gt;
+&lt;p&gt;But it looks like one of the biggest ever was 
+&lt;a href=&#34;https://en.wikipedia.org/wiki/Sim_Bhullar&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;Sim Bhullar&lt;/strong&gt;&lt;/a&gt; from Canada (who was actually the first Indian-origin player in the NBA), who was 2.26m (7’5’’) and 163 kg (359 lbs).&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&#34;https://en.wikipedia.org/wiki/Shaquille_O%27Neal&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;Shaquille O’Neal&lt;/strong&gt;&lt;/a&gt;, known as one of the best “big guys” in the NBA, was 2.15m (7’1’’) and 145 kg (319 lbs). 
+&lt;a href=&#34;https://en.wikipedia.org/wiki/Yao_Ming&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;Yao Ming&lt;/strong&gt;&lt;/a&gt; (the unlabeled orange icon in the graph) was also one of the best “big guys”, and was 2.29m (7&#39;6&amp;rsquo;’) and 141 kg (310 lbs)&lt;/p&gt;
+&lt;h3 id=&#34;the-most-important-team-statistic&#34;&gt;The Most Important Team Statistic?&lt;/h3&gt;
+&lt;p&gt;Teams can be measured in many different ways, each bringing out different insights. But arguably, one of the most important is “Net Rating”. Net rating refers to the team’s point differential per 100 possessions.&lt;/p&gt;
+&lt;h4 id=&#34;4-which-team-has-the-best-and-worst-netrating&#34;&gt;4. Which team has the best and worst Net Rating?&lt;/h4&gt;
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-average-net-rating-for-all-teams-since-1996&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://vishnubharadwaj00.github.io/img/1__2esyA2thxLOcaMY__rhSbFw.png&#34; data-caption=&#34;Average Net Rating for all teams since 1996&#34;&gt;
+
+
+  &lt;img src=&#34;https://vishnubharadwaj00.github.io/img/1__2esyA2thxLOcaMY__rhSbFw.png&#34; alt=&#34;&#34;  &gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    Average Net Rating for all teams since 1996
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;Turns out, the &lt;strong&gt;San Antonio Spurs have the best Net Rating on average, since 1996, with +3.24&lt;/strong&gt;, meaning on average, for every 100 possessions, they’re ahead by 3 points. Only 2 other teams have positive Net Ratings, the Miami Heat and Oklahoma City Thunder. The &lt;strong&gt;worst team is the now defunct Vancouver Grizzlies, with -8.39&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Another surprising insight is that the &lt;strong&gt;San Antonio Spurs were also the oldest team on average&lt;/strong&gt;, over all the seasons. Does experience, in the form of having an older team, actually work? That’s probably the basis for another analysis.&lt;/p&gt;
+&lt;h3 id=&#34;the-best-offensive-players&#34;&gt;The Best Offensive Players&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;(Disclaimer: These statistics are from 1996 onwards, so with only about half of Michael Jordan’s career recorded here, he’s not on&lt;/em&gt; &lt;strong&gt;&lt;em&gt;these&lt;/em&gt;&lt;/strong&gt; &lt;em&gt;lists, but with a bigger dataset, you can be sure he’d be right up there.)&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;There are so many metrics that individual players can be measured by. For an offensive player, the player in charge of trying to create as many baskets as possible, the most used and analyzed metrics are Points and Assists.&lt;/p&gt;
+&lt;h4 id=&#34;5-which-players-have-the-most-points-andassists&#34;&gt;5. Which players have the most Points and Assists?&lt;/h4&gt;
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-total-points-vs-total-assists-color-indicates-total-gamesplayed&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://vishnubharadwaj00.github.io/img/1__H2__qI8wfkXE7AYxBsSyd8w.png&#34; data-caption=&#34;Total Points vs Total Assists (Color indicates Total Games Played)&#34;&gt;
+
+
+  &lt;img src=&#34;https://vishnubharadwaj00.github.io/img/1__H2__qI8wfkXE7AYxBsSyd8w.png&#34; alt=&#34;&#34;  &gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    Total Points vs Total Assists (Color indicates Total Games Played)
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;LeBron James&lt;/strong&gt;, in a complete league of his own, a complete outlier, well above the rest of the pack with a whopping 34,027 points and 9,280 assists. &lt;strong&gt;Kobe Bryant&lt;/strong&gt; (RIP Mamba) is the only one who can come close to LBJ with 33,633 points and 6,319 assists. (I Googled Michael Jordan’s stats for completeness and he would come somewhere around third, with 32,292 points and 5,633 assists)&lt;/p&gt;
+&lt;p&gt;Other notable players on the list are &lt;strong&gt;Dirk Nowitzki&lt;/strong&gt;, with 31,561 points, and 3,667 assists, and &lt;strong&gt;Allen Iverson&lt;/strong&gt;, who’s played the least number of games out of everyone on this graph, with 24,380 points and 5,622 assists in just 914 games. (In comparison, LeBron’s played 1,256 games, Kobe’s played 1,346 games and Dirk’s played 1,522 games).&lt;/p&gt;
+&lt;p&gt;— — — — — — — — — — — — — — — — — — — — — — — — — —&lt;/p&gt;
+&lt;p&gt;Using points and assists in a different way can bring out more insights. Using total shooting efficiency of a player and the percentage of assists by the player while on the floor, a completely different set of players show up.&lt;/p&gt;
+&lt;h4 id=&#34;6-which-players-had-the-highest-shooting-efficiency-and-assist-percentage&#34;&gt;6. Which players had the highest Shooting Efficiency and Assist Percentage?&lt;/h4&gt;
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-scoring-efficiency--vs--of-assists-contributed-color-indicates-average-games-played-perseason&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://vishnubharadwaj00.github.io/img/1__LoH8Mml8qN6j97fDkeS__AA.png&#34; data-caption=&#34;Scoring Efficiency % vs % of Assists Contributed (Color indicates Average games played per Season)&#34;&gt;
+
+
+  &lt;img src=&#34;https://vishnubharadwaj00.github.io/img/1__LoH8Mml8qN6j97fDkeS__AA.png&#34; alt=&#34;&#34;  &gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    Scoring Efficiency % vs % of Assists Contributed (Color indicates Average games played per Season)
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;John Stockton&lt;/strong&gt; seems almost like an outlier, with a high shooting efficiency and high average assist percentage. But the repetition of certain players in this graph, such as &lt;strong&gt;Steph Curry, James Harden, LeBron James and Chris Paul&lt;/strong&gt;, showcases their superior shooting ability. Also younger, current players like &lt;strong&gt;Ben Simmons&lt;/strong&gt; and &lt;strong&gt;Nikola Jokic&lt;/strong&gt;, are definitely on the rise and will soon dominate these statistics with consistent perfomances.&lt;/p&gt;
+&lt;p&gt;— — — — — — — — — — — — — — — — — — — — — — — — — —&lt;/p&gt;
+&lt;p&gt;Play usage percentage is an estimate of the percentage of team plays used by a player while he was on the floor. Typically, when the play usage percentage increases, the scoring efficiency decreases for a player. The real superstar players are those who can keep both these numbers up, turning into very efficient shooters.&lt;/p&gt;
+&lt;h4 id=&#34;7-who-were-the-most-effective-shooters&#34;&gt;&lt;strong&gt;7. Who were the most effective shooters?&lt;/strong&gt;&lt;/h4&gt;
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-scoring-efficiency--vs-play-usage--color-indicates-average-games-played-perseason&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://vishnubharadwaj00.github.io/img/1__L8m__h4qAeyf2L1hX9uq6mQ.png&#34; data-caption=&#34;Scoring Efficiency % vs Play Usage % (Color indicates Average games played per Season)&#34;&gt;
+
+
+  &lt;img src=&#34;https://vishnubharadwaj00.github.io/img/1__L8m__h4qAeyf2L1hX9uq6mQ.png&#34; alt=&#34;&#34;  &gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    Scoring Efficiency % vs Play Usage % (Color indicates Average games played per Season)
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;Joel Embiid&lt;/strong&gt; has the highest average play usage percentage, while &lt;strong&gt;Boban Marjanovic&lt;/strong&gt; has the highest average shooting percentage.&lt;/p&gt;
+&lt;p&gt;But the most effective superstar shooters seem to be &lt;strong&gt;Kevin Durant, James Harden and LeBron James,&lt;/strong&gt; due to their all-round ability in using plays and having a high shooting efficiency.&lt;/p&gt;
+&lt;p&gt;Closely following them are &lt;strong&gt;Anthony Davis, Shaquille O’Neal and Steph Curry.&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;the-best-defensive-players&#34;&gt;The Best Defensive Players&lt;/h3&gt;
+&lt;p&gt;Although typically overlooked, defensive players are those who do most of the grunt work and actively contribute to the success of a team. Without a great defensive player, no matter how many great offensive players you might have, you’ll end up on the worse side of things.&lt;/p&gt;
+&lt;p&gt;Rebounds are another important metric for measuring the efficiency of these defensive, lockdown players. A Rebound refers to a player retrieving the ball after a missed field goal or free throw.&lt;/p&gt;
+&lt;p&gt;There are 2 types of rebounds, offensive and defensive. A superstar defensive player ideally has a high number of both types of rebounds.&lt;/p&gt;
+&lt;h4 id=&#34;8-who-were-the-best-players-defensively-in-terms-of-rebounds&#34;&gt;8. Who were the best players defensively, in terms of rebounds?&lt;/h4&gt;
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-average-offensive-rebound--vs-average-defensive-rebound--color-indicates-average-games-played-perseason&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://vishnubharadwaj00.github.io/img/1__J__bshpoWo7kVCuVHRheu8w.png&#34; data-caption=&#34;Average Offensive Rebound % vs Average Defensive Rebound % (Color indicates Average Games played per Season)&#34;&gt;
+
+
+  &lt;img src=&#34;https://vishnubharadwaj00.github.io/img/1__J__bshpoWo7kVCuVHRheu8w.png&#34; alt=&#34;&#34;  &gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    Average Offensive Rebound % vs Average Defensive Rebound % (Color indicates Average Games played per Season)
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;With at least 10 games played per season on average, and a minimum of 2 seasons, these were the top 10 defensive players in terms of rebounds.&lt;/p&gt;
+&lt;p&gt;The best defensive rebounder was &lt;strong&gt;Chris Boucher&lt;/strong&gt;, and the best offensive rebounders were &lt;strong&gt;J.R Giddens&lt;/strong&gt; and &lt;strong&gt;Torraye Braggs&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;But what matters most in a defender is their all-round ability, and the best players in terms of both offensive and defensive rebounds are &lt;strong&gt;Dennis Rodman&lt;/strong&gt; and &lt;strong&gt;Andre Drummond&lt;/strong&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;double-double-troubletrouble&#34;&gt;Double Double Trouble Trouble&lt;/h3&gt;
+&lt;p&gt;Another metric used very often is the “Double Double”, when a player has more than 10 points in 2 of the following metrics: points, assists, rebounds, steals and blocks.&lt;/p&gt;
+&lt;p&gt;Most Doubles Doubles are typically made of points, assists and rebounds, which I’ve referred to here as “Most Common Double Double”.&lt;/p&gt;
+&lt;h4 id=&#34;9-which-players-had-the-most-seasons-averaging-the-most-common-doubledouble&#34;&gt;9. Which players had the most seasons averaging the “Most Common” Double Double?&lt;/h4&gt;
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-number-of-seasons-averaging-the-most-common-doubledouble&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://vishnubharadwaj00.github.io/img/1__uu6YsO4n2nOQo3N3__3prHw.png&#34; data-caption=&#34;Number of Seasons averaging the “Most Common” Double Double&#34;&gt;
+
+
+  &lt;img src=&#34;https://vishnubharadwaj00.github.io/img/1__uu6YsO4n2nOQo3N3__3prHw.png&#34; alt=&#34;&#34;  &gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    Number of Seasons averaging the “Most Common” Double Double
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;Dwight Howard&lt;/strong&gt; (14 Double Double seasons) narrowly edges over &lt;strong&gt;Tim Duncan&lt;/strong&gt; (13 Double Double seasons) to have the highest number of seasons averaging the “Most Common” Double Double.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Anthony Davis&lt;/strong&gt;, a younger and current player, also being on this list indicates that with a couple of great seasons, he has a very good chance of moving up this list.&lt;/p&gt;
+&lt;p&gt;And it’s amazing how &lt;strong&gt;Chris Paul&lt;/strong&gt; features in this graph as well, showcasing his brilliant shooting ability as well as his all-rounded abilities.&lt;/p&gt;
+&lt;h3 id=&#34;the-evolvinggame&#34;&gt;The Evolving Game?&lt;/h3&gt;
+&lt;p&gt;There have been many conversations on how the game has changed over time. Many people think the aggressiveness and intensity has decreased over time, while others believe that the game has evolved into a more graceful and watchable format.&lt;/p&gt;
+&lt;p&gt;Arguably, some of the most important metrics used so far were Points, Assists and Rebounds.&lt;/p&gt;
+&lt;h4 id=&#34;10-how-much-have-these-important-metrics-points-assists-rebounds-actually-changed-overtime&#34;&gt;10. How much have these important metrics (Points, Assists, Rebounds) actually changed over time?&lt;/h4&gt;
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-points-rebounds-and-assists-over-time-199697-to201920&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://vishnubharadwaj00.github.io/img/1__UJ1vqbbMDBGjc11__2qBdRQ.png&#34; data-caption=&#34;Points, Rebounds and Assists Over Time (1996–97 to 2019–20)&#34;&gt;
+
+
+  &lt;img src=&#34;https://vishnubharadwaj00.github.io/img/1__UJ1vqbbMDBGjc11__2qBdRQ.png&#34; alt=&#34;&#34;  &gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    Points, Rebounds and Assists Over Time (1996–97 to 2019–20)
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;Total assists per season&lt;/strong&gt; and &lt;strong&gt;total rebounds per season&lt;/strong&gt; seem &lt;strong&gt;constant&lt;/strong&gt; for the most part, with a slightly increasing tendency.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Total points per season&lt;/strong&gt;, on the other hand, has &lt;strong&gt;significantly increased&lt;/strong&gt;. The 1996–97 season had a total of 3,540 points whereas the 2018–19 season had 4,565 points. Even the incomplete 2019–20 season already has 4,434 points, well on track to go past the 2018–19 season, becoming the highest scoring season of all time (whenever and however the season resumes). &lt;br&gt;
+This increase in points could be attributed to the rise of the 3-Pointer revolution, with more and more 3-Pointers being scored now than ever before. It could also be due to the fact that there are a lot more high scoring matches now than before.&lt;/p&gt;
+&lt;h3 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h3&gt;
+&lt;p&gt;I hope you were able to take away some kind of insight from these graphs, because I certainly did. It’s just another way of showing that &lt;strong&gt;the best way to learn is by doing.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;I’m open to any kind of suggestions or modifications to these visualizations, or ideas for new ones. Definitely do use them in whatever basketball conversations and arguments you have, as you see fit.&lt;/p&gt;
+&lt;p&gt;And I hope it helps fill the void left by the lack of sports right now. (Come back soon, normal life)&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Feel free to reach out to me on&lt;/em&gt; 
+&lt;a href=&#34;https://www.linkedin.com/in/vishnu-bharadwaj-796877175/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;em&gt;LinkedIn&lt;/em&gt;&lt;/a&gt;&lt;em&gt;, or check out my&lt;/em&gt; 
+&lt;a href=&#34;https://github.com/vishnubharadwaj00&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;em&gt;GitHub&lt;/em&gt;&lt;/a&gt; &lt;em&gt;for other projects I’ve done.&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>The Football Revolution and Why It’s Almost Here</title>
+      <link>https://vishnubharadwaj00.github.io/post/footballrevolution/</link>
+      <pubDate>Mon, 02 Jul 2018 12:10:02 +0000</pubDate>
+      <guid>https://vishnubharadwaj00.github.io/post/footballrevolution/</guid>
+      <description>&lt;p&gt;This World Cup season, the whole world, football fans or not, are abuzz about the ongoing tournament being held in Russia. (Ah yes, that football.) So why not learn a bit more about ‘The Beautiful Game’ to try and show off to your die-hard football friends and family members, eh?&lt;/p&gt;
+&lt;p&gt;Let’s start somewhere completely unrelated.&lt;/p&gt;
+&lt;p&gt;Brad Pitt.&lt;/p&gt;
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure &gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://vishnubharadwaj00.github.io/img/0__hYYRCQ0jHL32T5WG.jpg&#34; &gt;
+
+
+  &lt;img src=&#34;https://vishnubharadwaj00.github.io/img/0__hYYRCQ0jHL32T5WG.jpg&#34; alt=&#34;&#34;  &gt;
+&lt;/a&gt;
+
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;Do I have your attention now?&lt;/p&gt;
+&lt;p&gt;Now, what does this annoyingly good-looking specimen have to do with football? I’ll get to that.&lt;/p&gt;
+&lt;p&gt;You may know him as the lead actor in some of those iconic movies you’ve seen, such as Fight Club, Inglourious Basterds, the Ocean’s trilogy, Se7en, Mr and Mrs. Smith, to name a few.&lt;/p&gt;
+&lt;p&gt;Or you may know him as the person who has been in relationships with Hollywood’s most famous actresses like Jennifer Aniston and Angelina Jolie. Whatever the means, chances are you’ve heard of him.&lt;/p&gt;
+&lt;p&gt;Speaking of chances, Brad Pitt has also acted in a lesser known 2011 film called Moneyball.&lt;/p&gt;
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-brad-pitt-in-moneyball-2011&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://vishnubharadwaj00.github.io/img/1__CrOuAJrcAi__5D5mwMNA9FQ.jpeg&#34; data-caption=&#34;Brad Pitt in Moneyball (2011)&#34;&gt;
+
+
+  &lt;img src=&#34;https://vishnubharadwaj00.github.io/img/1__CrOuAJrcAi__5D5mwMNA9FQ.jpeg&#34; alt=&#34;&#34;  &gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    Brad Pitt in Moneyball (2011)
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;He plays Billy Beane, the General Manager of the Oakland Athletics’, a baseball team in the Major League Baseball in the USA. &lt;strong&gt;The story revolves around his role in reinventing the team using an experimental technique based on statistics, with the help of a Yale economics graduate, to help them win the league with a significantly lesser amount of money.&lt;/strong&gt; The movie, nominated for an Oscar, is actually based on a book, written about the events which actually transpired during the 2002 season, during which (spoiler alert) &lt;strong&gt;the Oakland A’s defied all odds to win the league with a record breaking 20 game winning streak.&lt;/strong&gt;&lt;/p&gt;
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-the-record-breaking-2002-oaklandas&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://vishnubharadwaj00.github.io/img/1__oHTrEKZeP85WYQcC7L3Uxg.jpeg&#34; data-caption=&#34;The record breaking 2002 Oakland A’s&#34;&gt;
+
+
+  &lt;img src=&#34;https://vishnubharadwaj00.github.io/img/1__oHTrEKZeP85WYQcC7L3Uxg.jpeg&#34; alt=&#34;&#34;  &gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    The record breaking 2002 Oakland A’s
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;What did Billy Beane do? He threw the old methods of intuition and expertise in the trash and built a team from scratch purely using statistics for the 2002 season. He knew he didn’t have the budget that the bigger teams such as the Boston Red Sox ($108 million) and the New York Yankees ($125 million). In fact, they had the 3rd lowest budget for that season with just $39 million.&lt;/p&gt;
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-oakland-as-had-the-3rd-lowest-budget-in-theleague&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://vishnubharadwaj00.github.io/img/1__801pKgbYtI1GoZqtYf4fDQ.png&#34; data-caption=&#34;Oakland A’s had the 3rd lowest budget in the league&#34;&gt;
+
+
+  &lt;img src=&#34;https://vishnubharadwaj00.github.io/img/1__801pKgbYtI1GoZqtYf4fDQ.png&#34; alt=&#34;&#34;  &gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    Oakland A’s had the 3rd lowest budget in the league
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;But they used that to their advantage and bought players that scouts had previously overlooked because of their physical quirks such as throwing the ball an unconventional way or having a weird batting stance, but in fact had excellent statistics. He trusted in the statistics despite opposition from almost everyone else managing the team.&lt;/p&gt;
+&lt;p&gt;And mind you, this was in 2002, before computers and technology was as prevalent as it is now. But he preserved, and he built a dream team to win the league, with minimal financial aid.&lt;/p&gt;
+&lt;p&gt;And this started a revolution in the sports world.&lt;/p&gt;
+&lt;p&gt;Soon, teams from all different sports began to adopt this “Moneyball” technique. It became a commonly used term within sporting professionals, referring to using statistics to revamp a team. And with advancements in technology, this began to be more and more of a trend, popping up all over the world in all different sports.&lt;/p&gt;
+&lt;p&gt;Currently, the leading field in statistical analytics has to be machine learning. Machine learning is a prerequisite to Artificial Intelligence, a term you’re sure to have heard of, thanks to Siri, Google Assistant and Cortana. Machine learning is basically defined as the subfield in computer science to give computers the ability to learn without being programmed explicitly, which is basically what Artificial Intelligence deals with.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;So what do Siri and Cortana have to do with sports?&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Right now, everything.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;To give a few examples, the Kolkata Knight Riders, in the Indian Premier League which is a cricket tournament held in India annually, used the help of SAP Labs and an auction analytics tool to give insights on impact players to buy during the 2014 season, which they then went on to win.&lt;/p&gt;
+&lt;p&gt;Most teams in the National Football League (NFL) in the USA use machine learning algorithms to pick players during the drafts.&lt;/p&gt;
+&lt;p&gt;Predicting match outcomes using such algorithms is becoming a huge trend, with big players such as Microsoft getting into the act and becoming a frontrunner in predicting NBA and NFL matches.&lt;/p&gt;
+&lt;p&gt;But one sport almost seemingly untouched by this revolution is football (yes yes, soccer). The reason being that is a much more complicated sport with a larger number of variables, making it more and more difficult to implement the same tactics used in other sports.&lt;/p&gt;
+&lt;p&gt;Predicting football games using the complex data and getting successful outcomes has become a trend, with many using it to bet on games based on the results of various simulations. UK sports betting company Stratagem is using artificial intelligence (deep neural networks, to be precise) to analyze patterns found in football matches, use them to predict outcomes of matches using the proprietary data, and possibly, earn a bit more than usual.&lt;/p&gt;
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure &gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://vishnubharadwaj00.github.io/img/1__uSlhcWavKzce5XIAqZDmrQ.jpeg&#34; &gt;
+
+
+  &lt;img src=&#34;https://vishnubharadwaj00.github.io/img/1__uSlhcWavKzce5XIAqZDmrQ.jpeg&#34; alt=&#34;&#34;  &gt;
+&lt;/a&gt;
+
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;For such a money driven sport, it’s a surprise that statistical analysis hasn’t yet been implemented on a large scale.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Despite all the negative criticism of using a statistical intervention in football clubs, it is evident that the sport will soon be turning towards that direction and there are clear signs showcasing exactly that. There have been many attempts in the past, but none effective enough to make a big enough impact.&lt;/p&gt;
+&lt;p&gt;Immediately after the release of the movie, John W. Henry, who had implemented this “Moneyball” technique in the Boston Red Sox as its owner (the beginning of which are showcased at the end of the movie) and had a huge success, looked to do that with his investment in the English Premier League, Liverpool FC. As owner of Liverpool FC, he had hopes of making Liverpool the Boston Red Sox of the Premier League. He even tried to bring on the legendary Billy Beane himself as an advisor.&lt;/p&gt;
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-john-w-henry-owner-of-the-boston-red-sox-and-liverpool-fc&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://vishnubharadwaj00.github.io/img/1__Fzv0LD7__0KxJnsICC9LuaA.jpeg&#34; data-caption=&#34;John W. Henry, owner of the Boston Red Sox and Liverpool FC&#34;&gt;
+
+
+  &lt;img src=&#34;https://vishnubharadwaj00.github.io/img/1__Fzv0LD7__0KxJnsICC9LuaA.jpeg&#34; alt=&#34;&#34;  &gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    John W. Henry, owner of the Boston Red Sox and Liverpool FC
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;He brought in Sabermetrics analysts at Anfield, Liverpool’s home, scrutinising every aspect of the team’s game, from current player performances to tactical moves. Liverpool immediately signed on Jose Enrique, a left full-back, only for the reason that he had a high pass completion rate and that he was one of the best players in the league to break into the attacking third of the field. But this soon turned into a highly expensive campaign and after about 18 unsuccessful months, this system was called off&lt;/p&gt;
+&lt;p&gt;Even smaller teams in the Premier League, like Stoke City FC, who had been trying to implement similar tactics, gave in and the method became a distant reality for the game of football and people soon forgot about such methods.&lt;/p&gt;
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-jose-enrique-had-a-disappointing-spell-at-liverpool&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://vishnubharadwaj00.github.io/img/1__deEVoKILe4VP__yGRHIe7hw.jpeg&#34; data-caption=&#34;Jose Enrique had a disappointing spell at Liverpool&#34;&gt;
+
+
+  &lt;img src=&#34;https://vishnubharadwaj00.github.io/img/1__deEVoKILe4VP__yGRHIe7hw.jpeg&#34; alt=&#34;&#34;  &gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    Jose Enrique had a disappointing spell at Liverpool
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;Enter FC Midtjylland.&lt;/p&gt;
+&lt;p&gt;Can’t even pronounce it, can you? (It’s Mid-Jee-Lund)&lt;/p&gt;
+&lt;p&gt;A small Danish club, on the brink of relegation to lower leagues, was bought and revamped by Matthew Benham. Matthew Benham is not your typical football club owner. He made himself a fortune by using mathematical models to bet on football matches, and eventually bought him childhood team, Brentford, a lowly League One team, languishing in the lower leagues of English Football. A strong believer in the “Moneyball” technique, he revamped the entire team based on his pure belief in statistics, very similar to Billy Beane. Brentford were promoted to the Championship that season and very nearly clinched promotion into the Premier League the very next season.&lt;/p&gt;
+&lt;p&gt;Matthew Benham then went on to buy FC Midtjylland, a team barely even heard of. He used the same techniques there, and had an even greater success. In a fairytale story (very similar to the Oakland A’s of 2002), within a matter of a season, FC Midtjylland went on to win the Danish Superliga title, their very first major trophy. &lt;strong&gt;The match which sealed the deal, a 2–0 win against FC Copenhagen, is said to have been the one of the best matches ever played tactically and was a true testament to the statistical revolution they underwent.&lt;/strong&gt; Their story went viral when they were matched up with Premier League team Southampton FC, who were strong contenders, in the Europa League of 2015, and beat them convincingly.&lt;/p&gt;
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-fc-midtjylland-pulled-off-an-impossible-feat-purely-with-statistics&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://vishnubharadwaj00.github.io/img/1__w79V1PhJkboWmSYzFKRtLw.jpeg&#34; data-caption=&#34;FC Midtjylland pulled off an impossible feat purely with statistics&#34;&gt;
+
+
+  &lt;img src=&#34;https://vishnubharadwaj00.github.io/img/1__w79V1PhJkboWmSYzFKRtLw.jpeg&#34; alt=&#34;&#34;  &gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    FC Midtjylland pulled off an impossible feat purely with statistics
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;At Brentford, Benham’s team identified underrated players and transformed them into superstars for the team. As an example, they made a staggering profit on striker Andre Grey, who was signed for just £500,000, and was eventually sold for a massive £9,000,000. Andre Grey was identified by Benham’s statistical team.&lt;/p&gt;
+&lt;p&gt;Rasmus Ankersen, who works alongside Benham at both clubs, said: “I met Matthew a few years ago. At the time, Brentford were third in League One and there were a couple of games to go. &lt;strong&gt;I said to him, ‘What are the chances of getting promoted?’ When you ask that question you expect an emotional ‘yes’ or ‘no’ from a football owner. But he just said rationally, ‘At the moment, there’s a 42.3 per cent chance we will get promoted’.&lt;/strong&gt; I knew then he was a guy who was thinking very differently about football than I have ever ­experienced before.”&lt;/p&gt;
+&lt;p&gt;Matthew Benham has been hailed as the Billy Beane of modern day football.&lt;/p&gt;
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-matthew-benhamleft-with-rasmusankersen&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://vishnubharadwaj00.github.io/img/1____jY5rV9U__L9DaZ9zIBWGXQ.jpeg&#34; data-caption=&#34;Matthew Benham(left) with Rasmus Ankersen&#34;&gt;
+
+
+  &lt;img src=&#34;https://vishnubharadwaj00.github.io/img/1____jY5rV9U__L9DaZ9zIBWGXQ.jpeg&#34; alt=&#34;&#34;  &gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    Matthew Benham(left) with Rasmus Ankersen
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;Next, a team you’ve probably heard of.&lt;/p&gt;
+&lt;p&gt;Leicester City FC.&lt;/p&gt;
+&lt;p&gt;I’m disappointed if you can’t pronounce this one.&lt;/p&gt;
+&lt;p&gt;Surprise winners of the Premier League title in the 2015/16 season who didn’t use the exact same tactics as Matthew Benham but they did have possibly the greatest underdog story of all time. At 5000–1 odds of winning the Premier League at the start of the season, they pulled off one of the greatest upsets in football history.&lt;/p&gt;
+&lt;p&gt;Their best players were bought at terribly low prices and were previously unheard of. N’Golo Kante, who was playing for a team called Caen in France, was bought for a meagre £5.8 million. Later, he was sold to Chelsea FC for a whopping £30 million. The team’s top two scorers, Jaime Vardy and Riyad Mahrez were bought for £1 million from a non league team in 2012 and £400,000 from a French Ligue 2 team in 2014 respectively. Now, Vardy has a £20 million transfer value and Mahrez with £15 million.&lt;/p&gt;
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-the-trio-that-won-leicester-the-premier-leaguel-to-r-kante-vardymahrez&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://vishnubharadwaj00.github.io/img/1__U5xkYHZ__lcZda6g5aFFz__w.jpeg&#34; data-caption=&#34;The trio that won Leicester the Premier League(L to R: Kante, Vardy, Mahrez)&#34;&gt;
+
+
+  &lt;img src=&#34;https://vishnubharadwaj00.github.io/img/1__U5xkYHZ__lcZda6g5aFFz__w.jpeg&#34; alt=&#34;&#34;  &gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    The trio that won Leicester the Premier League(L to R: Kante, Vardy, Mahrez)
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;Even though it doesn’t follow the same statistical beliefs that Brentford and FC Midtjylland used, it is a very similar approach and eventually, had an even more successful result. These are all small-time examples of how statistics and analytics can influence the game of football. But it has not been implemented on a large scale yet.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Then the question must arise; if small teams with a lesser amount of money can get significant gains, why don’t the bigger teams with larger amounts of money do the same and get an even bigger profit?&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Because they have a lot more to lose. By injecting a lot of money, the owners of the big teams are afraid of using experimental methods which don’t have a guaranteed success rate.&lt;/p&gt;
+&lt;p&gt;Recently, private equity firm Vista invested a huge amount into STATS, a leading sports data and technology company. STATS is at the forefront of football revolution, providing newer methods to efficiently and accurately track player performance as well as make predictions and suggest tactics which could help teams get an edge over one another. They recently used Spatiotemporal data to track teams in the Premier League, and published a paper on the same, which has reached critical acclaim in the footballing world.&lt;/p&gt;
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-image-of-ball-movement-patterns-in-the-20-premier-league-teams-in-the-201011season&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://vishnubharadwaj00.github.io/img/1__dtZE__VuNFKfsEF5t184PXQ.png&#34; data-caption=&#34;Image of ball movement patterns in the 20 Premier League teams in the 2010–11 season&#34;&gt;
+
+
+  &lt;img src=&#34;https://vishnubharadwaj00.github.io/img/1__dtZE__VuNFKfsEF5t184PXQ.png&#34; alt=&#34;&#34;  &gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    Image of ball movement patterns in the 20 Premier League teams in the 2010–11 season
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;With more and more advancements in technology itself, it’s a given that there has been a major improvement in the field of football analytics and there have been substantial results to show for it. Perhaps it is time for the teams, big and small, to adapt with the times and give in to this wave of reform. It is without a doubt that the way football itself is viewed will undergo a drastic shift over the next decade.&lt;/p&gt;
+&lt;p&gt;And who knows what the future holds? Maybe Brad Pitt will be playing the role of a young football manager on the big screen soon enough.&lt;/p&gt;
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure &gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://vishnubharadwaj00.github.io/img/1__YAu__sgUdlSSg5qnEQlMwMg.jpeg&#34; &gt;
+
+
+  &lt;img src=&#34;https://vishnubharadwaj00.github.io/img/1__YAu__sgUdlSSg5qnEQlMwMg.jpeg&#34; alt=&#34;&#34;  &gt;
+&lt;/a&gt;
+
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;Or maybe not.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
