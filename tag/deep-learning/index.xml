@@ -1,0 +1,2060 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Deep Learning | Vishnu Bharadwaj</title>
+    <link>https://vishnubharadwaj00.github.io/tag/deep-learning/</link>
+      <atom:link href="https://vishnubharadwaj00.github.io/tag/deep-learning/index.xml" rel="self" type="application/rss+xml" />
+    <description>Deep Learning</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Mon, 03 Aug 2020 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://vishnubharadwaj00.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <title>Deep Learning</title>
+      <link>https://vishnubharadwaj00.github.io/tag/deep-learning/</link>
+    </image>
+    
+    <item>
+      <title>Satellite Image Classifier</title>
+      <link>https://vishnubharadwaj00.github.io/project/satelliteimage/</link>
+      <pubDate>Mon, 03 Aug 2020 00:00:00 +0000</pubDate>
+      <guid>https://vishnubharadwaj00.github.io/project/satelliteimage/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tesla Stock Prediction using Web Scraping and Recurrent Neural Networks</title>
+      <link>https://vishnubharadwaj00.github.io/project/tesla-stock-predictor/</link>
+      <pubDate>Mon, 20 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>https://vishnubharadwaj00.github.io/project/tesla-stock-predictor/</guid>
+      <description>&lt;hr&gt;
+&lt;p&gt;Stock Prediction is a versatile and extensive field on its own. With increasingly sophisticated computational capabilities, Stock Prediction is becoming a more and more important application of fields like Machine Learning, Deep Learning and AI.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;This project deals with web scraping Tesla stock prices from the Yahoo Finance page, using Beautiful Soup and Selenium, and using Recurrent Neural Networks (particularly LSTMs) to build a Deep Learning model to predict future stock prices.&lt;/p&gt;
+&lt;p&gt;Importing the necessary libraries:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;import os
+import tensorflow as tf
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib import style
+import matplotlib
+import pandas as pd
+from datetime import datetime
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Since this is executed in Google Colab, the Google Drive containing the web-scraped data is contained here.&lt;/p&gt;
+&lt;p&gt;The code for the webscraping, executed with BeautifulSoup and Selenium, can be found 
+&lt;a href=&#34;https://github.com/rmacaraeg/yahoo_finance&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;from google.colab import drive
+drive.mount(&#39;/content/gdrive&#39;, force_remount=True)
+root_dir = &amp;quot;/content/gdrive/My Drive/&amp;quot;
+data_dir=os.path.join(root_dir,&amp;quot;tsla.csv&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;Go to this URL in a browser: https://accounts.google.com/o/oauth2/auth?client_id=947318989803-6bn6qk8qdgf4n4g3pfee6491hc0brc4i.apps.googleusercontent.com&amp;amp;redirect_uri=urn%3aietf%3awg%3aoauth%3a2.0%3aoob&amp;amp;response_type=code&amp;amp;scope=email%20https%3a%2f%2fwww.googleapis.com%2fauth%2fdocs.test%20https%3a%2f%2fwww.googleapis.com%2fauth%2fdrive%20https%3a%2f%2fwww.googleapis.com%2fauth%2fdrive.photos.readonly%20https%3a%2f%2fwww.googleapis.com%2fauth%2fpeopleapi.readonly
+
+Enter your authorization code:
+··········
+Mounted at /content/gdrive
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Creating a function to plot Time Series Data:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;def plot_series(time, series, format=&amp;quot;-&amp;quot;, start=0, end=None):
+    plt.plot(time[start:end], series[start:end], format)
+    plt.xlabel(&amp;quot;Time&amp;quot;)
+    plt.ylabel(&amp;quot;Value&amp;quot;)
+    plt.grid(True)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Reading in the data, using Pandas:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;df=pd.read_csv(data_dir)
+df
+&lt;/code&gt;&lt;/pre&gt;
+&lt;div&gt;
+&lt;style scoped&gt;
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+&lt;pre&gt;&lt;code&gt;.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;/style&gt;&lt;/p&gt;
+&lt;table border=&#34;1&#34; class=&#34;dataframe&#34;&gt;
+  &lt;thead&gt;
+    &lt;tr style=&#34;text-align: right;&#34;&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;Unnamed: 0&lt;/th&gt;
+      &lt;th&gt;Date&lt;/th&gt;
+      &lt;th&gt;Open&lt;/th&gt;
+      &lt;th&gt;High&lt;/th&gt;
+      &lt;th&gt;Low&lt;/th&gt;
+      &lt;th&gt;Close*&lt;/th&gt;
+      &lt;th&gt;Adj Close**&lt;/th&gt;
+      &lt;th&gt;Volume&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;th&gt;0&lt;/th&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;Apr 29, 2020&lt;/td&gt;
+      &lt;td&gt;790.17&lt;/td&gt;
+      &lt;td&gt;803.20&lt;/td&gt;
+      &lt;td&gt;783.16&lt;/td&gt;
+      &lt;td&gt;800.51&lt;/td&gt;
+      &lt;td&gt;800.51&lt;/td&gt;
+      &lt;td&gt;15812100&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;1&lt;/th&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;Apr 28, 2020&lt;/td&gt;
+      &lt;td&gt;795.64&lt;/td&gt;
+      &lt;td&gt;805.00&lt;/td&gt;
+      &lt;td&gt;756.69&lt;/td&gt;
+      &lt;td&gt;769.12&lt;/td&gt;
+      &lt;td&gt;769.12&lt;/td&gt;
+      &lt;td&gt;15222000&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;2&lt;/th&gt;
+      &lt;td&gt;2&lt;/td&gt;
+      &lt;td&gt;Apr 27, 2020&lt;/td&gt;
+      &lt;td&gt;737.61&lt;/td&gt;
+      &lt;td&gt;799.49&lt;/td&gt;
+      &lt;td&gt;735.00&lt;/td&gt;
+      &lt;td&gt;798.75&lt;/td&gt;
+      &lt;td&gt;798.75&lt;/td&gt;
+      &lt;td&gt;20681400&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;3&lt;/th&gt;
+      &lt;td&gt;3&lt;/td&gt;
+      &lt;td&gt;Apr 24, 2020&lt;/td&gt;
+      &lt;td&gt;710.81&lt;/td&gt;
+      &lt;td&gt;730.73&lt;/td&gt;
+      &lt;td&gt;698.18&lt;/td&gt;
+      &lt;td&gt;725.15&lt;/td&gt;
+      &lt;td&gt;725.15&lt;/td&gt;
+      &lt;td&gt;13237600&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;4&lt;/th&gt;
+      &lt;td&gt;4&lt;/td&gt;
+      &lt;td&gt;Apr 23, 2020&lt;/td&gt;
+      &lt;td&gt;727.60&lt;/td&gt;
+      &lt;td&gt;734.00&lt;/td&gt;
+      &lt;td&gt;703.13&lt;/td&gt;
+      &lt;td&gt;705.63&lt;/td&gt;
+      &lt;td&gt;705.63&lt;/td&gt;
+      &lt;td&gt;13236700&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;...&lt;/th&gt;
+      &lt;td&gt;...&lt;/td&gt;
+      &lt;td&gt;...&lt;/td&gt;
+      &lt;td&gt;...&lt;/td&gt;
+      &lt;td&gt;...&lt;/td&gt;
+      &lt;td&gt;...&lt;/td&gt;
+      &lt;td&gt;...&lt;/td&gt;
+      &lt;td&gt;...&lt;/td&gt;
+      &lt;td&gt;...&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;248&lt;/th&gt;
+      &lt;td&gt;248&lt;/td&gt;
+      &lt;td&gt;May 06, 2019&lt;/td&gt;
+      &lt;td&gt;250.02&lt;/td&gt;
+      &lt;td&gt;258.35&lt;/td&gt;
+      &lt;td&gt;248.50&lt;/td&gt;
+      &lt;td&gt;255.34&lt;/td&gt;
+      &lt;td&gt;255.34&lt;/td&gt;
+      &lt;td&gt;10833900&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;249&lt;/th&gt;
+      &lt;td&gt;249&lt;/td&gt;
+      &lt;td&gt;May 03, 2019&lt;/td&gt;
+      &lt;td&gt;243.86&lt;/td&gt;
+      &lt;td&gt;256.61&lt;/td&gt;
+      &lt;td&gt;243.49&lt;/td&gt;
+      &lt;td&gt;255.03&lt;/td&gt;
+      &lt;td&gt;255.03&lt;/td&gt;
+      &lt;td&gt;23706800&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;250&lt;/th&gt;
+      &lt;td&gt;250&lt;/td&gt;
+      &lt;td&gt;May 02, 2019&lt;/td&gt;
+      &lt;td&gt;245.52&lt;/td&gt;
+      &lt;td&gt;247.13&lt;/td&gt;
+      &lt;td&gt;237.72&lt;/td&gt;
+      &lt;td&gt;244.10&lt;/td&gt;
+      &lt;td&gt;244.10&lt;/td&gt;
+      &lt;td&gt;18159300&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;251&lt;/th&gt;
+      &lt;td&gt;251&lt;/td&gt;
+      &lt;td&gt;May 01, 2019&lt;/td&gt;
+      &lt;td&gt;238.85&lt;/td&gt;
+      &lt;td&gt;240.00&lt;/td&gt;
+      &lt;td&gt;231.50&lt;/td&gt;
+      &lt;td&gt;234.01&lt;/td&gt;
+      &lt;td&gt;234.01&lt;/td&gt;
+      &lt;td&gt;10704400&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;252&lt;/th&gt;
+      &lt;td&gt;252&lt;/td&gt;
+      &lt;td&gt;Apr 30, 2019&lt;/td&gt;
+      &lt;td&gt;242.06&lt;/td&gt;
+      &lt;td&gt;244.21&lt;/td&gt;
+      &lt;td&gt;237.00&lt;/td&gt;
+      &lt;td&gt;238.69&lt;/td&gt;
+      &lt;td&gt;238.69&lt;/td&gt;
+      &lt;td&gt;9464600&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;253 rows × 8 columns&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;There&amp;rsquo;s a year&amp;rsquo;s worth of stock prices here, from April 30, 2019 to April 29, 2020, with a few days&amp;rsquo; data missing.&lt;/p&gt;
+&lt;p&gt;But first, there is some Data Cleaning that needs to be done:&lt;/p&gt;
+&lt;p&gt;The columns &amp;ldquo;Close&amp;rdquo; and &amp;ldquo;Adj Close&amp;rdquo; have additional * symbols which have to be removed:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;df.drop(labels=&amp;quot;Unnamed: 0&amp;quot;, axis=1, inplace=True)
+df.rename(columns={&amp;quot;Close*&amp;quot;: &amp;quot;Close&amp;quot;, &amp;quot;Adj Close**&amp;quot;: &amp;quot;Adj Close&amp;quot;},inplace=True)
+df
+&lt;/code&gt;&lt;/pre&gt;
+&lt;div&gt;
+&lt;style scoped&gt;
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+&lt;pre&gt;&lt;code&gt;.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;/style&gt;&lt;/p&gt;
+&lt;table border=&#34;1&#34; class=&#34;dataframe&#34;&gt;
+  &lt;thead&gt;
+    &lt;tr style=&#34;text-align: right;&#34;&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;Date&lt;/th&gt;
+      &lt;th&gt;Open&lt;/th&gt;
+      &lt;th&gt;High&lt;/th&gt;
+      &lt;th&gt;Low&lt;/th&gt;
+      &lt;th&gt;Close&lt;/th&gt;
+      &lt;th&gt;Adj Close&lt;/th&gt;
+      &lt;th&gt;Volume&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;th&gt;0&lt;/th&gt;
+      &lt;td&gt;Apr 29, 2020&lt;/td&gt;
+      &lt;td&gt;790.17&lt;/td&gt;
+      &lt;td&gt;803.20&lt;/td&gt;
+      &lt;td&gt;783.16&lt;/td&gt;
+      &lt;td&gt;800.51&lt;/td&gt;
+      &lt;td&gt;800.51&lt;/td&gt;
+      &lt;td&gt;15812100&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;1&lt;/th&gt;
+      &lt;td&gt;Apr 28, 2020&lt;/td&gt;
+      &lt;td&gt;795.64&lt;/td&gt;
+      &lt;td&gt;805.00&lt;/td&gt;
+      &lt;td&gt;756.69&lt;/td&gt;
+      &lt;td&gt;769.12&lt;/td&gt;
+      &lt;td&gt;769.12&lt;/td&gt;
+      &lt;td&gt;15222000&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;2&lt;/th&gt;
+      &lt;td&gt;Apr 27, 2020&lt;/td&gt;
+      &lt;td&gt;737.61&lt;/td&gt;
+      &lt;td&gt;799.49&lt;/td&gt;
+      &lt;td&gt;735.00&lt;/td&gt;
+      &lt;td&gt;798.75&lt;/td&gt;
+      &lt;td&gt;798.75&lt;/td&gt;
+      &lt;td&gt;20681400&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;3&lt;/th&gt;
+      &lt;td&gt;Apr 24, 2020&lt;/td&gt;
+      &lt;td&gt;710.81&lt;/td&gt;
+      &lt;td&gt;730.73&lt;/td&gt;
+      &lt;td&gt;698.18&lt;/td&gt;
+      &lt;td&gt;725.15&lt;/td&gt;
+      &lt;td&gt;725.15&lt;/td&gt;
+      &lt;td&gt;13237600&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;4&lt;/th&gt;
+      &lt;td&gt;Apr 23, 2020&lt;/td&gt;
+      &lt;td&gt;727.60&lt;/td&gt;
+      &lt;td&gt;734.00&lt;/td&gt;
+      &lt;td&gt;703.13&lt;/td&gt;
+      &lt;td&gt;705.63&lt;/td&gt;
+      &lt;td&gt;705.63&lt;/td&gt;
+      &lt;td&gt;13236700&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;...&lt;/th&gt;
+      &lt;td&gt;...&lt;/td&gt;
+      &lt;td&gt;...&lt;/td&gt;
+      &lt;td&gt;...&lt;/td&gt;
+      &lt;td&gt;...&lt;/td&gt;
+      &lt;td&gt;...&lt;/td&gt;
+      &lt;td&gt;...&lt;/td&gt;
+      &lt;td&gt;...&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;248&lt;/th&gt;
+      &lt;td&gt;May 06, 2019&lt;/td&gt;
+      &lt;td&gt;250.02&lt;/td&gt;
+      &lt;td&gt;258.35&lt;/td&gt;
+      &lt;td&gt;248.50&lt;/td&gt;
+      &lt;td&gt;255.34&lt;/td&gt;
+      &lt;td&gt;255.34&lt;/td&gt;
+      &lt;td&gt;10833900&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;249&lt;/th&gt;
+      &lt;td&gt;May 03, 2019&lt;/td&gt;
+      &lt;td&gt;243.86&lt;/td&gt;
+      &lt;td&gt;256.61&lt;/td&gt;
+      &lt;td&gt;243.49&lt;/td&gt;
+      &lt;td&gt;255.03&lt;/td&gt;
+      &lt;td&gt;255.03&lt;/td&gt;
+      &lt;td&gt;23706800&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;250&lt;/th&gt;
+      &lt;td&gt;May 02, 2019&lt;/td&gt;
+      &lt;td&gt;245.52&lt;/td&gt;
+      &lt;td&gt;247.13&lt;/td&gt;
+      &lt;td&gt;237.72&lt;/td&gt;
+      &lt;td&gt;244.10&lt;/td&gt;
+      &lt;td&gt;244.10&lt;/td&gt;
+      &lt;td&gt;18159300&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;251&lt;/th&gt;
+      &lt;td&gt;May 01, 2019&lt;/td&gt;
+      &lt;td&gt;238.85&lt;/td&gt;
+      &lt;td&gt;240.00&lt;/td&gt;
+      &lt;td&gt;231.50&lt;/td&gt;
+      &lt;td&gt;234.01&lt;/td&gt;
+      &lt;td&gt;234.01&lt;/td&gt;
+      &lt;td&gt;10704400&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;252&lt;/th&gt;
+      &lt;td&gt;Apr 30, 2019&lt;/td&gt;
+      &lt;td&gt;242.06&lt;/td&gt;
+      &lt;td&gt;244.21&lt;/td&gt;
+      &lt;td&gt;237.00&lt;/td&gt;
+      &lt;td&gt;238.69&lt;/td&gt;
+      &lt;td&gt;238.69&lt;/td&gt;
+      &lt;td&gt;9464600&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;253 rows × 7 columns&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Next, it would be much easier if the order of the data was reversed, since the data was originally arranged as latest to earliest.&lt;/p&gt;
+&lt;p&gt;This would make it easier to use the earlier data for training and the later data for validation/testing.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;df=pd.DataFrame(df.values[::-1], df.index, df.columns)
+df
+&lt;/code&gt;&lt;/pre&gt;
+&lt;div&gt;
+&lt;style scoped&gt;
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+&lt;pre&gt;&lt;code&gt;.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;/style&gt;&lt;/p&gt;
+&lt;table border=&#34;1&#34; class=&#34;dataframe&#34;&gt;
+  &lt;thead&gt;
+    &lt;tr style=&#34;text-align: right;&#34;&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;Date&lt;/th&gt;
+      &lt;th&gt;Open&lt;/th&gt;
+      &lt;th&gt;High&lt;/th&gt;
+      &lt;th&gt;Low&lt;/th&gt;
+      &lt;th&gt;Close&lt;/th&gt;
+      &lt;th&gt;Adj Close&lt;/th&gt;
+      &lt;th&gt;Volume&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;th&gt;0&lt;/th&gt;
+      &lt;td&gt;Apr 30, 2019&lt;/td&gt;
+      &lt;td&gt;242.06&lt;/td&gt;
+      &lt;td&gt;244.21&lt;/td&gt;
+      &lt;td&gt;237&lt;/td&gt;
+      &lt;td&gt;238.69&lt;/td&gt;
+      &lt;td&gt;238.69&lt;/td&gt;
+      &lt;td&gt;9464600&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;1&lt;/th&gt;
+      &lt;td&gt;May 01, 2019&lt;/td&gt;
+      &lt;td&gt;238.85&lt;/td&gt;
+      &lt;td&gt;240&lt;/td&gt;
+      &lt;td&gt;231.5&lt;/td&gt;
+      &lt;td&gt;234.01&lt;/td&gt;
+      &lt;td&gt;234.01&lt;/td&gt;
+      &lt;td&gt;10704400&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;2&lt;/th&gt;
+      &lt;td&gt;May 02, 2019&lt;/td&gt;
+      &lt;td&gt;245.52&lt;/td&gt;
+      &lt;td&gt;247.13&lt;/td&gt;
+      &lt;td&gt;237.72&lt;/td&gt;
+      &lt;td&gt;244.1&lt;/td&gt;
+      &lt;td&gt;244.1&lt;/td&gt;
+      &lt;td&gt;18159300&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;3&lt;/th&gt;
+      &lt;td&gt;May 03, 2019&lt;/td&gt;
+      &lt;td&gt;243.86&lt;/td&gt;
+      &lt;td&gt;256.61&lt;/td&gt;
+      &lt;td&gt;243.49&lt;/td&gt;
+      &lt;td&gt;255.03&lt;/td&gt;
+      &lt;td&gt;255.03&lt;/td&gt;
+      &lt;td&gt;23706800&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;4&lt;/th&gt;
+      &lt;td&gt;May 06, 2019&lt;/td&gt;
+      &lt;td&gt;250.02&lt;/td&gt;
+      &lt;td&gt;258.35&lt;/td&gt;
+      &lt;td&gt;248.5&lt;/td&gt;
+      &lt;td&gt;255.34&lt;/td&gt;
+      &lt;td&gt;255.34&lt;/td&gt;
+      &lt;td&gt;10833900&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;...&lt;/th&gt;
+      &lt;td&gt;...&lt;/td&gt;
+      &lt;td&gt;...&lt;/td&gt;
+      &lt;td&gt;...&lt;/td&gt;
+      &lt;td&gt;...&lt;/td&gt;
+      &lt;td&gt;...&lt;/td&gt;
+      &lt;td&gt;...&lt;/td&gt;
+      &lt;td&gt;...&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;248&lt;/th&gt;
+      &lt;td&gt;Apr 23, 2020&lt;/td&gt;
+      &lt;td&gt;727.6&lt;/td&gt;
+      &lt;td&gt;734&lt;/td&gt;
+      &lt;td&gt;703.13&lt;/td&gt;
+      &lt;td&gt;705.63&lt;/td&gt;
+      &lt;td&gt;705.63&lt;/td&gt;
+      &lt;td&gt;13236700&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;249&lt;/th&gt;
+      &lt;td&gt;Apr 24, 2020&lt;/td&gt;
+      &lt;td&gt;710.81&lt;/td&gt;
+      &lt;td&gt;730.73&lt;/td&gt;
+      &lt;td&gt;698.18&lt;/td&gt;
+      &lt;td&gt;725.15&lt;/td&gt;
+      &lt;td&gt;725.15&lt;/td&gt;
+      &lt;td&gt;13237600&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;250&lt;/th&gt;
+      &lt;td&gt;Apr 27, 2020&lt;/td&gt;
+      &lt;td&gt;737.61&lt;/td&gt;
+      &lt;td&gt;799.49&lt;/td&gt;
+      &lt;td&gt;735&lt;/td&gt;
+      &lt;td&gt;798.75&lt;/td&gt;
+      &lt;td&gt;798.75&lt;/td&gt;
+      &lt;td&gt;20681400&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;251&lt;/th&gt;
+      &lt;td&gt;Apr 28, 2020&lt;/td&gt;
+      &lt;td&gt;795.64&lt;/td&gt;
+      &lt;td&gt;805&lt;/td&gt;
+      &lt;td&gt;756.69&lt;/td&gt;
+      &lt;td&gt;769.12&lt;/td&gt;
+      &lt;td&gt;769.12&lt;/td&gt;
+      &lt;td&gt;15222000&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;252&lt;/th&gt;
+      &lt;td&gt;Apr 29, 2020&lt;/td&gt;
+      &lt;td&gt;790.17&lt;/td&gt;
+      &lt;td&gt;803.2&lt;/td&gt;
+      &lt;td&gt;783.16&lt;/td&gt;
+      &lt;td&gt;800.51&lt;/td&gt;
+      &lt;td&gt;800.51&lt;/td&gt;
+      &lt;td&gt;15812100&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;253 rows × 7 columns&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Creating a seperate Data Frame to visualize the stock prices better:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;adj_close=df[&#39;Adj Close&#39;]
+adj_close.index = df[&#39;Date&#39;]
+
+adj_close.head()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;Date
+Apr 30, 2019    238.69
+May 01, 2019    234.01
+May 02, 2019     244.1
+May 03, 2019    255.03
+May 06, 2019    255.34
+Name: Adj Close, dtype: object
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;type(df[&#39;Date&#39;][0])
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;str
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The &amp;ldquo;Date&amp;rdquo; column in the original Data Frame is of type &amp;ldquo;String&amp;rdquo;, but it has to be of &amp;ldquo;Datetime&amp;rdquo; format, to make it easier to plot it in the x-axis.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;dates=df[&#39;Date&#39;]
+dates1=[]
+for date in dates:
+    dates1.append(datetime.strptime(date, &#39;%b %d, %Y&#39;))
+dates=pd.core.series.Series(dates1)
+
+type(dates[0])
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;pandas._libs.tslibs.timestamps.Timestamp
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Plotting the Adjusted Close Stock Prices over the last year:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;plt.figure(figsize=(13,8))
+plt.style.use(&#39;fivethirtyeight&#39;)
+plt.plot(dates1,adj_close)
+plt.title(&amp;quot;Tesla Adjusted Close Prices&amp;quot;,loc=&#39;left&#39;)
+plt.rcParams.update({&#39;font.size&#39;: 14})
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-plot-of-adjusted-close-stock-prices&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://vishnubharadwaj00.github.io/img/TeslaStockPredictor_20_0.png&#34; data-caption=&#34;Plot of Adjusted Close Stock Prices&#34;&gt;
+
+
+  &lt;img src=&#34;https://vishnubharadwaj00.github.io/img/TeslaStockPredictor_20_0.png&#34; alt=&#34;&#34;  &gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    Plot of Adjusted Close Stock Prices
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+There&amp;rsquo;s a huge up-tick in the price sometime after January 2020, which was when Tesla announced strong fourth-quarter financials, which exceeded all expectations.&lt;/p&gt;
+&lt;p&gt;The dip in the price in March corresponds to the COVID-19 pandemic and the financial crisis that it brought with it.&lt;/p&gt;
+&lt;p&gt;It does seem to be on the rise now, so it will be interesting to see if the model can predict all these ups and downs.&lt;/p&gt;
+&lt;p&gt;Creating Series and Time arrays, and converting them to the right type:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;series = np.array(adj_close.values)
+time = np.array(dates)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;series=pd.to_numeric(series,errors=&#39;coerce&#39;,downcast=&#39;float&#39;)
+series
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;array([238.69, 234.01, 244.1 , 255.03, 255.34, 247.06, 244.84, 241.98,
+       239.52, 227.01, 232.31, 231.95, 228.33, 211.03, 205.36, 205.08,
+       192.73, 195.49, 190.63, 188.7 , 189.86, 188.22, 185.16, 178.97,
+       193.6 , 196.59, 205.95, 204.5 , 212.88, 217.1 , 209.26, 213.91,
+       214.92, 225.03, 224.74, 226.43, 219.62, 221.86, 223.64, 219.76,
+       219.27, 222.84, 223.46, 227.17, 224.55, 234.9 , 233.1 , 230.34,
+       230.06, 238.92, 238.6 , 245.08, 253.5 , 252.38, 254.86, 253.54,
+       258.18, 255.68, 260.17, 264.88, 228.82, 228.04, 235.77, 242.26,
+       241.61, 233.85, 234.34, 228.32, 230.75, 233.42, 238.3 , 235.01,
+       229.01, 235.  , 219.62, 215.64, 219.94, 226.83, 225.86, 220.83,
+       222.15, 211.4 , 215.  , 214.08, 215.59, 221.71, 225.61, 225.01,
+       220.68, 229.58, 227.45, 231.79, 235.54, 247.1 , 245.87, 245.2 ,
+       242.81, 244.79, 243.49, 246.6 , 240.62, 241.23, 223.21, 228.7 ,
+       242.56, 242.13, 240.87, 244.69, 243.13, 233.03, 231.43, 237.72,
+       240.05, 244.53, 244.74, 247.89, 256.96, 257.89, 259.75, 261.97,
+       256.95, 253.5 , 255.58, 254.68, 299.68, 328.13, 327.71, 316.22,
+       315.01, 314.92, 313.31, 317.47, 317.22, 326.58, 335.54, 337.14,
+       345.09, 349.93, 346.11, 349.35, 352.17, 349.99, 359.52, 352.22,
+       354.83, 333.04, 336.34, 328.92, 331.29, 329.94, 334.87, 336.2 ,
+       333.03, 330.37, 335.89, 339.53, 348.84, 352.7 , 359.68, 358.39,
+       381.5 , 378.99, 393.15, 404.04, 405.59, 419.22, 425.25, 430.94,
+       430.38, 414.7 , 418.33, 430.26, 443.01, 451.54, 469.06, 492.14,
+       481.34, 478.15, 524.86, 537.92, 518.5 , 513.49, 510.5 , 547.2 ,
+       569.56, 572.2 , 564.82, 558.02, 566.9 , 580.99, 640.81, 650.57,
+       780.  , 887.06, 734.7 , 748.96, 748.07, 771.28, 774.38, 767.29,
+       804.  , 800.03, 858.4 , 917.42, 899.41, 901.  , 833.79, 799.91,
+       778.8 , 679.  , 667.99, 743.62, 745.51, 749.5 , 724.54, 703.48,
+       608.  , 645.33, 634.23, 560.55, 546.62, 445.07, 430.2 , 361.22,
+       427.64, 427.53, 434.29, 505.  , 539.25, 528.16, 514.36, 502.13,
+       524.  , 481.56, 454.47, 480.01, 516.24, 545.45, 548.84, 573.  ,
+       650.95, 709.89, 729.83, 745.21, 753.89, 746.36, 686.72, 732.11,
+       705.63, 725.15, 798.75, 769.12, 800.51], dtype=float32)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;series.dtype
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;dtype(&#39;float32&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;There are about 250 tuples, so a 80-20 split is somewhere around 210 for training set and 40 for testing set. The window size (for creating a windowed_dataset) and batch size can also be specified here.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;split_time = 210
+adj_train = series[:split_time]
+adj_valid = series[split_time:]
+dates_train=dates[:split_time]
+dates_valid=dates[split_time:]
+
+window_size = 16
+batch_size = 32
+shuffle_buffer_size = 50
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;A function for creating a windowed dataset can be specified here. This is particularly helpful because it helps to create specific sized data slices, to train on them, make predictions, and subsequently learn from those predictions as well.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;def windowed_dataset(series, window_size, batch_size, shuffle_buffer):
+    series = tf.expand_dims(series, axis=-1)
+    ds = tf.data.Dataset.from_tensor_slices(series)
+    ds = ds.window(window_size + 1, shift=1, drop_remainder=True)
+    ds = ds.flat_map(lambda w: w.batch(window_size + 1))
+    ds = ds.shuffle(shuffle_buffer)
+    ds = ds.map(lambda w: (w[:-1], w[1:]))
+    return ds.batch(batch_size).prefetch(1)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;A function for forecasting data, given the series and the model can be specified here:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;def model_forecast(model, series, window_size):
+    ds = tf.data.Dataset.from_tensor_slices(series)
+    ds = ds.window(window_size, shift=1, drop_remainder=True)
+    ds = ds.flat_map(lambda w: w.batch(window_size))
+    ds = ds.batch(32).prefetch(1)
+    forecast = model.predict(ds)
+    return forecast
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Creating our windowed training set:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;tf.keras.backend.clear_session()
+tf.random.set_seed(51)
+np.random.seed(51)
+window_size = 64
+batch_size = 256
+train_set = windowed_dataset(adj_train, window_size, batch_size, shuffle_buffer_size)
+print(train_set)
+print(adj_train.shape)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;PrefetchDataset shapes: ((None, None, 1), (None, None, 1)), types: (tf.float32, tf.float32)&amp;gt;
+(210,)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Specifying the layers of our Keras model.&lt;/p&gt;
+&lt;p&gt;It has 1 Convolutional Layer, which complements the windowing of the dataset. Simply through extensive trial and error, the configuration of 2 LSTMs (64 and 32 nodes), and 3 Dense Layers (24, 12 and 1 nodes) was selected here.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;model = tf.keras.models.Sequential([
+  tf.keras.layers.Conv1D(filters=60, kernel_size=5,
+                      strides=1, padding=&amp;quot;causal&amp;quot;,
+                      activation=&amp;quot;relu&amp;quot;,
+                      input_shape=[None, 1]),
+  tf.keras.layers.LSTM(64, return_sequences=True),
+  tf.keras.layers.LSTM(32, return_sequences=True),
+  tf.keras.layers.Dense(24, activation=&amp;quot;relu&amp;quot;),
+  tf.keras.layers.Dense(12, activation=&amp;quot;relu&amp;quot;),
+  tf.keras.layers.Dense(1),
+  tf.keras.layers.Lambda(lambda x: x * 400)
+])
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Before actually running our model in its entirity, it might help to specify a learning rate, so the model can be run for a specified number of epochs, and seeing how the model does, a optimized learning rate can be found. This hyperparameter tuning will prove to be very useful later.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;lr_schedule = tf.keras.callbacks.LearningRateScheduler(
+    lambda epoch: 1e-8 * 10**(epoch / 20))
+optimizer = tf.keras.optimizers.SGD(lr=1e-8, momentum=0.9)
+model.compile(loss=tf.keras.losses.Huber(),
+              optimizer=optimizer,
+              metrics=[&amp;quot;mae&amp;quot;])
+history = model.fit(train_set, epochs=100, callbacks=[lr_schedule])
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;Epoch 1/100
+1/1 [==============================] - 0s 40ms/step - loss: 269.6010 - mae: 270.1010 - lr: 1.0000e-08
+Epoch 2/100
+1/1 [==============================] - 0s 2ms/step - loss: 269.5738 - mae: 270.0738 - lr: 1.1220e-08
+Epoch 3/100
+1/1 [==============================] - 0s 2ms/step - loss: 269.5186 - mae: 270.0186 - lr: 1.2589e-08
+Epoch 4/100
+1/1 [==============================] - 0s 2ms/step - loss: 269.4341 - mae: 269.9341 - lr: 1.4125e-08
+Epoch 5/100
+1/1 [==============================] - 0s 2ms/step - loss: 269.3180 - mae: 269.8180 - lr: 1.5849e-08
+....
+....
+....
+Epoch 96/100
+1/1 [==============================] - 0s 2ms/step - loss: 72.6451 - mae: 73.1451 - lr: 5.6234e-04
+Epoch 97/100
+1/1 [==============================] - 0s 2ms/step - loss: 117.5780 - mae: 118.0779 - lr: 6.3096e-04
+Epoch 98/100
+1/1 [==============================] - 0s 2ms/step - loss: 81.4628 - mae: 81.9628 - lr: 7.0795e-04
+Epoch 99/100
+1/1 [==============================] - 0s 2ms/step - loss: 105.4503 - mae: 105.9502 - lr: 7.9433e-04
+Epoch 100/100
+1/1 [==============================] - 0s 2ms/step - loss: 81.7803 - mae: 82.2790 - lr: 8.9125e-04
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Plotting the results of the limited run of the model:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;plt.title(&amp;quot;Loss vs Learning Rate&amp;quot;)
+plt.xlabel(&amp;quot;Loss&amp;quot;)
+plt.ylabel(&amp;quot;Learning Rate&amp;quot;)
+plt.semilogx(history.history[&amp;quot;lr&amp;quot;], history.history[&amp;quot;loss&amp;quot;])
+#plt.axis([1e-8, 1e-3,135,250])
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;[&amp;lt;matplotlib.lines.Line2D at 0x7f3e82620048&amp;gt;]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-plot-of-loss-vs-learning-rate&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://vishnubharadwaj00.github.io/img/TeslaStockPredictor_39_1.png&#34; data-caption=&#34;Plot of Loss vs Learning Rate&#34;&gt;
+
+
+  &lt;img src=&#34;https://vishnubharadwaj00.github.io/img/TeslaStockPredictor_39_1.png&#34; alt=&#34;&#34;  &gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    Plot of Loss vs Learning Rate
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+There&amp;rsquo;s a huge dip in the learning rate somewhere between $10^-7$ and $10^-6$, which helps the gradient descent process in training, helping the model to learn quickly and more effectively, so that can be fixed as the learning rate, and the model is run completely this time:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;tf.keras.backend.clear_session()
+tf.random.set_seed(51)
+np.random.seed(51)
+model = tf.keras.models.Sequential([
+  tf.keras.layers.Conv1D(filters=60, kernel_size=5,
+                      strides=1, padding=&amp;quot;causal&amp;quot;,
+                      activation=&amp;quot;relu&amp;quot;,
+                      input_shape=[None, 1]),
+  tf.keras.layers.LSTM(256, return_sequences=True),
+  tf.keras.layers.LSTM(128, return_sequences=True),
+  tf.keras.layers.Dense(128, activation=&amp;quot;relu&amp;quot;),
+  tf.keras.layers.Dense(64, activation=&amp;quot;relu&amp;quot;),
+  tf.keras.layers.Dense(1),
+  tf.keras.layers.Lambda(lambda x: x * 500)
+])
+
+
+
+optimizer = tf.keras.optimizers.SGD(lr=3e-7, momentum=0.9)
+model.compile(loss=tf.keras.losses.Huber(),
+              optimizer=optimizer,
+              metrics=[&amp;quot;mae&amp;quot;])
+history = model.fit(train_set,epochs=350)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;Epoch 1/350
+1/1 [==============================] - 0s 7ms/step - loss: 330.9964 - mae: 331.4964
+Epoch 2/350
+1/1 [==============================] - 0s 901us/step - loss: 314.5646 - mae: 315.0646
+Epoch 3/350
+1/1 [==============================] - 0s 849us/step - loss: 295.7275 - mae: 296.2275
+Epoch 4/350
+1/1 [==============================] - 0s 986us/step - loss: 277.2317 - mae: 277.7317
+Epoch 5/350
+1/1 [==============================] - 0s 835us/step - loss: 244.2985 - mae: 244.7985
+Epoch 6/350
+1/1 [==============================] - 0s 860us/step - loss: 225.8815 - mae: 226.3815
+Epoch 7/350
+1/1 [==============================] - 0s 836us/step - loss: 208.5272 - mae: 209.0272
+Epoch 8/350
+1/1 [==============================] - 0s 2ms/step - loss: 184.0172 - mae: 184.5172
+Epoch 9/350
+1/1 [==============================] - 0s 895us/step - loss: 158.5788 - mae: 159.0788
+Epoch 10/350
+1/1 [==============================] - 0s 988us/step - loss: 140.6364 - mae: 141.1363
+...
+...
+...
+Epoch 101/350
+1/1 [==============================] - 0s 927us/step - loss: 48.9045 - mae: 49.4025
+Epoch 102/350
+1/1 [==============================] - 0s 833us/step - loss: 47.7830 - mae: 48.2795
+Epoch 103/350
+1/1 [==============================] - 0s 844us/step - loss: 47.8659 - mae: 48.3605
+Epoch 104/350
+1/1 [==============================] - 0s 1ms/step - loss: 48.0967 - mae: 48.5908
+Epoch 105/350
+1/1 [==============================] - 0s 832us/step - loss: 46.6607 - mae: 47.1546
+...
+...
+...
+Epoch 200/350
+1/1 [==============================] - 0s 2ms/step - loss: 25.1572 - mae: 25.6457
+Epoch 201/350
+1/1 [==============================] - 0s 842us/step - loss: 25.0279 - mae: 25.5159
+Epoch 202/350
+1/1 [==============================] - 0s 1ms/step - loss: 25.0110 - mae: 25.4993
+Epoch 203/350
+1/1 [==============================] - 0s 889us/step - loss: 24.9164 - mae: 25.4044
+Epoch 204/350
+1/1 [==============================] - 0s 933us/step - loss: 24.9017 - mae: 25.3895
+Epoch 205/350
+1/1 [==============================] - 0s 1ms/step - loss: 24.7882 - mae: 25.2767
+...
+...
+...
+Epoch 300/350
+1/1 [==============================] - 0s 1ms/step - loss: 22.3528 - mae: 22.8462
+Epoch 301/350
+1/1 [==============================] - 0s 844us/step - loss: 20.8384 - mae: 21.3259
+Epoch 302/350
+1/1 [==============================] - 0s 779us/step - loss: 19.6541 - mae: 20.1386
+Epoch 303/350
+1/1 [==============================] - 0s 820us/step - loss: 19.2455 - mae: 19.7316
+Epoch 304/350
+1/1 [==============================] - 0s 1ms/step - loss: 19.0995 - mae: 19.5838
+Epoch 305/350
+1/1 [==============================] - 0s 922us/step - loss: 19.0408 - mae: 19.5255
+...
+...
+...
+Epoch 345/350
+1/1 [==============================] - 0s 914us/step - loss: 19.7900 - mae: 20.2793
+Epoch 346/350
+1/1 [==============================] - 0s 836us/step - loss: 18.8462 - mae: 19.3341
+Epoch 347/350
+1/1 [==============================] - 0s 963us/step - loss: 18.4283 - mae: 18.9135
+Epoch 348/350
+1/1 [==============================] - 0s 852us/step - loss: 18.3297 - mae: 18.8162
+Epoch 349/350
+1/1 [==============================] - 0s 963us/step - loss: 18.4796 - mae: 18.9658
+Epoch 350/350
+1/1 [==============================] - 0s 1ms/step - loss: 19.0140 - mae: 19.5016
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The MAE (Mean Absolute Error) seems pretty low after running it for 350 epochs, which is an excellent sign. It started at ~330 and ended around ~19. Now we can build a forecast using the model_forecast function specified earlier:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;rnn_forecast = model_forecast(model, series[..., np.newaxis], window_size)
+rnn_forecast = rnn_forecast[split_time - window_size:-1,-1, 0]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;There are mainly 2 metrics used for evaluating the accuracy of time series data, Mean Absolute Error and Root Mean Squared Error.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;n = tf.keras.metrics.MeanAbsoluteError()
+n.update_state(adj_valid, rnn_forecast)
+print(&#39;Mean Absolute Error: &#39;, n.result().numpy())
+m = tf.keras.metrics.RootMeanSquaredError()
+m.update_state(adj_valid, rnn_forecast)
+print(&#39;Root Mean Squared Error: &#39;, m.result().numpy())
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;Mean Absolute Error:  152.27446
+Root Mean Squared Error:  171.10997
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Considering the fact that there was only 250 data points, and a pretty simple RNN built, a MAE of 150 and RMSE of 171 is extremely good. With more data, and a bigger model, it&amp;rsquo;s very possible to reduce these numbers.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Plotting the predicted data against what actually happened:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;plt.figure(figsize=(20, 6))
+plt.style.use(&#39;fivethirtyeight&#39;)
+plt.title(&amp;quot;Predictions vs Reality&amp;quot;, loc=&amp;quot;left&amp;quot;)
+plt.plot(dates_valid, adj_valid, label=&amp;quot;Actual&amp;quot;)
+plt.plot(dates_valid, rnn_forecast, label= &amp;quot;Prediction&amp;quot;)
+plt.legend()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;matplotlib.legend.Legend at 0x7f12360679e8&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-plot-of-predicted-vs-actual&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://vishnubharadwaj00.github.io/img/TeslaStockPredictor_47_1.png&#34; data-caption=&#34;Plot of Predicted vs Actual&#34;&gt;
+
+
+  &lt;img src=&#34;https://vishnubharadwaj00.github.io/img/TeslaStockPredictor_47_1.png&#34; alt=&#34;&#34;  &gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    Plot of Predicted vs Actual
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;The model seemed to have gotten it pretty spot-on. It dips when the actual value dipped and seems to be on the rise, as is the case towards the end.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Detecting Pneumonia with Chest X-Ray Images</title>
+      <link>https://vishnubharadwaj00.github.io/project/chestxray/</link>
+      <pubDate>Wed, 08 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>https://vishnubharadwaj00.github.io/project/chestxray/</guid>
+      <description>&lt;p&gt;&lt;em&gt;Full code can be accessed at the 
+&lt;a href=&#34;https://github.com/vishnubharadwaj00/PneumoniaDetection&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Github repository&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Healthcare is an extremely important part of the technological revolution, with deep learning techniques being applied to more and more medical problems.&lt;/p&gt;
+&lt;p&gt;This dataset for the detection of pneumonia, using chest x-ray images (&lt;a href=&#34;https://www.kaggle.com/paultimothymooney/chest-xray-pneumonia&#34;&gt;https://www.kaggle.com/paultimothymooney/chest-xray-pneumonia&lt;/a&gt;) is used for binary classification (whether the person is normal or has pneumonia).&lt;/p&gt;
+&lt;p&gt;This notebook was executed in a Google Colab environment, and used transfer learning from a ResNet50 architecture, and after just 10 epochs of training, I was able to achieve &lt;strong&gt;&amp;gt;80% accuracy&lt;/strong&gt;. Some minor tweaks and additional architectural changes can definitely increase the accuracy to close to 90% and maybe, even beyond that.&lt;/p&gt;
+&lt;p&gt;Using this very simple code, we can use the Kaggle API to download the dataset into our environment.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;import os
+os.environ[&#39;KAGGLE_USERNAME&#39;] = &amp;quot;##########&amp;quot; # username from the json file
+os.environ[&#39;KAGGLE_KEY&#39;] = &amp;quot;###################&amp;quot; # key from the json file
+!kaggle datasets download -d paultimothymooney/chest-xray-pneumonia
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;Downloading chest-xray-pneumonia.zip to /content
+100% 2.29G/2.29G [00:30&amp;lt;00:00, 24.3MB/s]
+100% 2.29G/2.29G [00:30&amp;lt;00:00, 80.1MB/s]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Next, the file has to be unzipped (it is in zip format) and the directories are specified for the train, test and validation sets, as well as the normal and pneumonia directories for the train and validation sets.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;import zipfile
+local_zip = &#39;/content/chest-xray-pneumonia.zip&#39;
+zip_ref = zipfile.ZipFile(local_zip, &#39;r&#39;)
+zip_ref.extractall(&#39;/content&#39;)
+zip_ref.close()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;base_dir = &#39;/content/chest_xray&#39;
+train_dir = os.path.join(base_dir, &#39;train&#39;)
+validation_dir = os.path.join(base_dir, &#39;val&#39;)
+test_dir = os.path.join(base_dir, &#39;test&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;train_normal_dir = os.path.join(train_dir,&#39;NORMAL&#39;)
+train_pneu_dir = os.path.join(train_dir,&#39;PNEUMONIA&#39;)
+validation_normal_dir = os.path.join(validation_dir,&#39;NORMAL&#39;)
+validation_pneu_dir = os.path.join(validation_dir,&#39;PNEUMONIA&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;print(&#39;total training normal images:&#39;, len(os.listdir(train_normal_dir)))
+print(&#39;total training pneu images:&#39;, len(os.listdir(train_pneu_dir)))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;total training normal images: 1341
+total training pneu images: 3875
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;There are 1341 normal images and 3875 pneumonia images in the training set, which seems to be more than sufficient.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;import tensorflow as tf
+from tensorflow.keras import layers
+from tensorflow.keras import Model
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We specify a constant image size to make things uniform for the model to input. We then input the ResNet50 architecture, and ensure it cannot be trained, and that we retain all the weights.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;img_size=[224,224]
+model=tf.keras.applications.resnet50.ResNet50(input_shape=img_size + [3], weights=&#39;imagenet&#39;, include_top=False)
+model.trainable = False
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;Downloading data from https://storage.googleapis.com/tensorflow/keras-applications/resnet/resnet50_weights_tf_dim_ordering_tf_kernels_notop.h5
+94773248/94765736 [==============================] - 1s 0us/step
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The last layer of the architecture is the &amp;lsquo;conv5_block3_out&amp;rsquo;, with a shape of (7,7,2048) which we will use later.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;last_layer = model.get_layer(&#39;conv5_block3_out&#39;)
+print(&#39;last layer output shape: &#39;, last_layer.output_shape)
+last_output = last_layer.output
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;last layer output shape:  (None, 7, 7, 2048)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We then specify 2 last layers, a dense layer with 1024 nodes, with a 20% dropout rate to prevent overfitting, as well as a final dense layer with a single node and a sigmoid activation (which outputs 0 or 1 to classify)&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;x = layers.Flatten()(last_output)
+x = layers.Dense(1024, activation=&#39;relu&#39;)(x)
+x = layers.Dropout(0.2)(x)
+x = layers.Dense  (1, activation=&#39;sigmoid&#39;)(x)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;amodel=Model(model.input,x)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The layers of our new model (amodel) and their shapes can be seen using the summary() function.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;amodel.summary()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;Model: &amp;quot;model_2&amp;quot;
+__________________________________________________________________________________________________
+Layer (type)                    Output Shape         Param #     Connected to
+==================================================================================================
+input_2 (InputLayer)            [(None, 224, 224, 3) 0
+__________________________________________________________________________________________________
+conv1_pad (ZeroPadding2D)       (None, 230, 230, 3)  0           input_2[0][0]
+__________________________________________________________________________________________________
+conv1_conv (Conv2D)             (None, 112, 112, 64) 9472        conv1_pad[0][0]
+__________________________________________________________________________________________________
+conv1_bn (BatchNormalization)   (None, 112, 112, 64) 256         conv1_conv[0][0]
+__________________________________________________________________________________________________
+conv1_relu (Activation)         (None, 112, 112, 64) 0           conv1_bn[0][0]
+__________________________________________________________________________________________________
+pool1_pad (ZeroPadding2D)       (None, 114, 114, 64) 0           conv1_relu[0][0]
+__________________________________________________________________________________________________
+pool1_pool (MaxPooling2D)       (None, 56, 56, 64)   0           pool1_pad[0][0]
+__________________________________________________________________________________________________
+conv2_block1_1_conv (Conv2D)    (None, 56, 56, 64)   4160        pool1_pool[0][0]
+__________________________________________________________________________________________________
+conv2_block1_1_bn (BatchNormali (None, 56, 56, 64)   256         conv2_block1_1_conv[0][0]
+__________________________________________________________________________________________________
+conv2_block1_1_relu (Activation (None, 56, 56, 64)   0           conv2_block1_1_bn[0][0]
+__________________________________________________________________________________________________
+conv2_block1_2_conv (Conv2D)    (None, 56, 56, 64)   36928       conv2_block1_1_relu[0][0]
+__________________________________________________________________________________________________
+conv2_block1_2_bn (BatchNormali (None, 56, 56, 64)   256         conv2_block1_2_conv[0][0]
+__________________________________________________________________________________________________
+conv2_block1_2_relu (Activation (None, 56, 56, 64)   0           conv2_block1_2_bn[0][0]
+__________________________________________________________________________________________________
+conv2_block1_0_conv (Conv2D)    (None, 56, 56, 256)  16640       pool1_pool[0][0]
+__________________________________________________________________________________________________
+conv2_block1_3_conv (Conv2D)    (None, 56, 56, 256)  16640       conv2_block1_2_relu[0][0]
+__________________________________________________________________________________________________
+conv2_block1_0_bn (BatchNormali (None, 56, 56, 256)  1024        conv2_block1_0_conv[0][0]
+__________________________________________________________________________________________________
+conv2_block1_3_bn (BatchNormali (None, 56, 56, 256)  1024        conv2_block1_3_conv[0][0]
+__________________________________________________________________________________________________
+conv2_block1_add (Add)          (None, 56, 56, 256)  0           conv2_block1_0_bn[0][0]
+                                                                 conv2_block1_3_bn[0][0]
+__________________________________________________________________________________________________
+conv2_block1_out (Activation)   (None, 56, 56, 256)  0           conv2_block1_add[0][0]
+__________________________________________________________________________________________________
+conv2_block2_1_conv (Conv2D)    (None, 56, 56, 64)   16448       conv2_block1_out[0][0]
+__________________________________________________________________________________________________
+conv2_block2_1_bn (BatchNormali (None, 56, 56, 64)   256         conv2_block2_1_conv[0][0]
+__________________________________________________________________________________________________
+conv2_block2_1_relu (Activation (None, 56, 56, 64)   0           conv2_block2_1_bn[0][0]
+__________________________________________________________________________________________________
+conv2_block2_2_conv (Conv2D)    (None, 56, 56, 64)   36928       conv2_block2_1_relu[0][0]
+__________________________________________________________________________________________________
+conv2_block2_2_bn (BatchNormali (None, 56, 56, 64)   256         conv2_block2_2_conv[0][0]
+__________________________________________________________________________________________________
+conv2_block2_2_relu (Activation (None, 56, 56, 64)   0           conv2_block2_2_bn[0][0]
+__________________________________________________________________________________________________
+conv2_block2_3_conv (Conv2D)    (None, 56, 56, 256)  16640       conv2_block2_2_relu[0][0]
+__________________________________________________________________________________________________
+conv2_block2_3_bn (BatchNormali (None, 56, 56, 256)  1024        conv2_block2_3_conv[0][0]
+__________________________________________________________________________________________________
+conv2_block2_add (Add)          (None, 56, 56, 256)  0           conv2_block1_out[0][0]
+                                                                 conv2_block2_3_bn[0][0]
+__________________________________________________________________________________________________
+conv2_block2_out (Activation)   (None, 56, 56, 256)  0           conv2_block2_add[0][0]
+__________________________________________________________________________________________________
+conv2_block3_1_conv (Conv2D)    (None, 56, 56, 64)   16448       conv2_block2_out[0][0]
+__________________________________________________________________________________________________
+conv2_block3_1_bn (BatchNormali (None, 56, 56, 64)   256         conv2_block3_1_conv[0][0]
+__________________________________________________________________________________________________
+conv2_block3_1_relu (Activation (None, 56, 56, 64)   0           conv2_block3_1_bn[0][0]
+__________________________________________________________________________________________________
+conv2_block3_2_conv (Conv2D)    (None, 56, 56, 64)   36928       conv2_block3_1_relu[0][0]
+__________________________________________________________________________________________________
+conv2_block3_2_bn (BatchNormali (None, 56, 56, 64)   256         conv2_block3_2_conv[0][0]
+__________________________________________________________________________________________________
+conv2_block3_2_relu (Activation (None, 56, 56, 64)   0           conv2_block3_2_bn[0][0]
+__________________________________________________________________________________________________
+conv2_block3_3_conv (Conv2D)    (None, 56, 56, 256)  16640       conv2_block3_2_relu[0][0]
+__________________________________________________________________________________________________
+conv2_block3_3_bn (BatchNormali (None, 56, 56, 256)  1024        conv2_block3_3_conv[0][0]
+__________________________________________________________________________________________________
+conv2_block3_add (Add)          (None, 56, 56, 256)  0           conv2_block2_out[0][0]
+                                                                 conv2_block3_3_bn[0][0]
+__________________________________________________________________________________________________
+conv2_block3_out (Activation)   (None, 56, 56, 256)  0           conv2_block3_add[0][0]
+__________________________________________________________________________________________________
+conv3_block1_1_conv (Conv2D)    (None, 28, 28, 128)  32896       conv2_block3_out[0][0]
+__________________________________________________________________________________________________
+conv3_block1_1_bn (BatchNormali (None, 28, 28, 128)  512         conv3_block1_1_conv[0][0]
+__________________________________________________________________________________________________
+conv3_block1_1_relu (Activation (None, 28, 28, 128)  0           conv3_block1_1_bn[0][0]
+__________________________________________________________________________________________________
+conv3_block1_2_conv (Conv2D)    (None, 28, 28, 128)  147584      conv3_block1_1_relu[0][0]
+__________________________________________________________________________________________________
+conv3_block1_2_bn (BatchNormali (None, 28, 28, 128)  512         conv3_block1_2_conv[0][0]
+__________________________________________________________________________________________________
+conv3_block1_2_relu (Activation (None, 28, 28, 128)  0           conv3_block1_2_bn[0][0]
+__________________________________________________________________________________________________
+conv3_block1_0_conv (Conv2D)    (None, 28, 28, 512)  131584      conv2_block3_out[0][0]
+__________________________________________________________________________________________________
+conv3_block1_3_conv (Conv2D)    (None, 28, 28, 512)  66048       conv3_block1_2_relu[0][0]
+__________________________________________________________________________________________________
+conv3_block1_0_bn (BatchNormali (None, 28, 28, 512)  2048        conv3_block1_0_conv[0][0]
+__________________________________________________________________________________________________
+conv3_block1_3_bn (BatchNormali (None, 28, 28, 512)  2048        conv3_block1_3_conv[0][0]
+__________________________________________________________________________________________________
+conv3_block1_add (Add)          (None, 28, 28, 512)  0           conv3_block1_0_bn[0][0]
+                                                                 conv3_block1_3_bn[0][0]
+__________________________________________________________________________________________________
+conv3_block1_out (Activation)   (None, 28, 28, 512)  0           conv3_block1_add[0][0]
+__________________________________________________________________________________________________
+conv3_block2_1_conv (Conv2D)    (None, 28, 28, 128)  65664       conv3_block1_out[0][0]
+__________________________________________________________________________________________________
+conv3_block2_1_bn (BatchNormali (None, 28, 28, 128)  512         conv3_block2_1_conv[0][0]
+__________________________________________________________________________________________________
+conv3_block2_1_relu (Activation (None, 28, 28, 128)  0           conv3_block2_1_bn[0][0]
+__________________________________________________________________________________________________
+conv3_block2_2_conv (Conv2D)    (None, 28, 28, 128)  147584      conv3_block2_1_relu[0][0]
+__________________________________________________________________________________________________
+conv3_block2_2_bn (BatchNormali (None, 28, 28, 128)  512         conv3_block2_2_conv[0][0]
+__________________________________________________________________________________________________
+conv3_block2_2_relu (Activation (None, 28, 28, 128)  0           conv3_block2_2_bn[0][0]
+__________________________________________________________________________________________________
+conv3_block2_3_conv (Conv2D)    (None, 28, 28, 512)  66048       conv3_block2_2_relu[0][0]
+__________________________________________________________________________________________________
+conv3_block2_3_bn (BatchNormali (None, 28, 28, 512)  2048        conv3_block2_3_conv[0][0]
+__________________________________________________________________________________________________
+conv3_block2_add (Add)          (None, 28, 28, 512)  0           conv3_block1_out[0][0]
+                                                                 conv3_block2_3_bn[0][0]
+__________________________________________________________________________________________________
+conv3_block2_out (Activation)   (None, 28, 28, 512)  0           conv3_block2_add[0][0]
+__________________________________________________________________________________________________
+conv3_block3_1_conv (Conv2D)    (None, 28, 28, 128)  65664       conv3_block2_out[0][0]
+__________________________________________________________________________________________________
+conv3_block3_1_bn (BatchNormali (None, 28, 28, 128)  512         conv3_block3_1_conv[0][0]
+__________________________________________________________________________________________________
+conv3_block3_1_relu (Activation (None, 28, 28, 128)  0           conv3_block3_1_bn[0][0]
+__________________________________________________________________________________________________
+conv3_block3_2_conv (Conv2D)    (None, 28, 28, 128)  147584      conv3_block3_1_relu[0][0]
+__________________________________________________________________________________________________
+conv3_block3_2_bn (BatchNormali (None, 28, 28, 128)  512         conv3_block3_2_conv[0][0]
+__________________________________________________________________________________________________
+conv3_block3_2_relu (Activation (None, 28, 28, 128)  0           conv3_block3_2_bn[0][0]
+__________________________________________________________________________________________________
+conv3_block3_3_conv (Conv2D)    (None, 28, 28, 512)  66048       conv3_block3_2_relu[0][0]
+__________________________________________________________________________________________________
+conv3_block3_3_bn (BatchNormali (None, 28, 28, 512)  2048        conv3_block3_3_conv[0][0]
+__________________________________________________________________________________________________
+conv3_block3_add (Add)          (None, 28, 28, 512)  0           conv3_block2_out[0][0]
+                                                                 conv3_block3_3_bn[0][0]
+__________________________________________________________________________________________________
+conv3_block3_out (Activation)   (None, 28, 28, 512)  0           conv3_block3_add[0][0]
+__________________________________________________________________________________________________
+conv3_block4_1_conv (Conv2D)    (None, 28, 28, 128)  65664       conv3_block3_out[0][0]
+__________________________________________________________________________________________________
+conv3_block4_1_bn (BatchNormali (None, 28, 28, 128)  512         conv3_block4_1_conv[0][0]
+__________________________________________________________________________________________________
+conv3_block4_1_relu (Activation (None, 28, 28, 128)  0           conv3_block4_1_bn[0][0]
+__________________________________________________________________________________________________
+conv3_block4_2_conv (Conv2D)    (None, 28, 28, 128)  147584      conv3_block4_1_relu[0][0]
+__________________________________________________________________________________________________
+conv3_block4_2_bn (BatchNormali (None, 28, 28, 128)  512         conv3_block4_2_conv[0][0]
+__________________________________________________________________________________________________
+conv3_block4_2_relu (Activation (None, 28, 28, 128)  0           conv3_block4_2_bn[0][0]
+__________________________________________________________________________________________________
+conv3_block4_3_conv (Conv2D)    (None, 28, 28, 512)  66048       conv3_block4_2_relu[0][0]
+__________________________________________________________________________________________________
+conv3_block4_3_bn (BatchNormali (None, 28, 28, 512)  2048        conv3_block4_3_conv[0][0]
+__________________________________________________________________________________________________
+conv3_block4_add (Add)          (None, 28, 28, 512)  0           conv3_block3_out[0][0]
+                                                                 conv3_block4_3_bn[0][0]
+__________________________________________________________________________________________________
+conv3_block4_out (Activation)   (None, 28, 28, 512)  0           conv3_block4_add[0][0]
+__________________________________________________________________________________________________
+conv4_block1_1_conv (Conv2D)    (None, 14, 14, 256)  131328      conv3_block4_out[0][0]
+__________________________________________________________________________________________________
+conv4_block1_1_bn (BatchNormali (None, 14, 14, 256)  1024        conv4_block1_1_conv[0][0]
+__________________________________________________________________________________________________
+conv4_block1_1_relu (Activation (None, 14, 14, 256)  0           conv4_block1_1_bn[0][0]
+__________________________________________________________________________________________________
+conv4_block1_2_conv (Conv2D)    (None, 14, 14, 256)  590080      conv4_block1_1_relu[0][0]
+__________________________________________________________________________________________________
+conv4_block1_2_bn (BatchNormali (None, 14, 14, 256)  1024        conv4_block1_2_conv[0][0]
+__________________________________________________________________________________________________
+conv4_block1_2_relu (Activation (None, 14, 14, 256)  0           conv4_block1_2_bn[0][0]
+__________________________________________________________________________________________________
+conv4_block1_0_conv (Conv2D)    (None, 14, 14, 1024) 525312      conv3_block4_out[0][0]
+__________________________________________________________________________________________________
+conv4_block1_3_conv (Conv2D)    (None, 14, 14, 1024) 263168      conv4_block1_2_relu[0][0]
+__________________________________________________________________________________________________
+conv4_block1_0_bn (BatchNormali (None, 14, 14, 1024) 4096        conv4_block1_0_conv[0][0]
+__________________________________________________________________________________________________
+conv4_block1_3_bn (BatchNormali (None, 14, 14, 1024) 4096        conv4_block1_3_conv[0][0]
+__________________________________________________________________________________________________
+conv4_block1_add (Add)          (None, 14, 14, 1024) 0           conv4_block1_0_bn[0][0]
+                                                                 conv4_block1_3_bn[0][0]
+__________________________________________________________________________________________________
+conv4_block1_out (Activation)   (None, 14, 14, 1024) 0           conv4_block1_add[0][0]
+__________________________________________________________________________________________________
+conv4_block2_1_conv (Conv2D)    (None, 14, 14, 256)  262400      conv4_block1_out[0][0]
+__________________________________________________________________________________________________
+conv4_block2_1_bn (BatchNormali (None, 14, 14, 256)  1024        conv4_block2_1_conv[0][0]
+__________________________________________________________________________________________________
+conv4_block2_1_relu (Activation (None, 14, 14, 256)  0           conv4_block2_1_bn[0][0]
+__________________________________________________________________________________________________
+conv4_block2_2_conv (Conv2D)    (None, 14, 14, 256)  590080      conv4_block2_1_relu[0][0]
+__________________________________________________________________________________________________
+conv4_block2_2_bn (BatchNormali (None, 14, 14, 256)  1024        conv4_block2_2_conv[0][0]
+__________________________________________________________________________________________________
+conv4_block2_2_relu (Activation (None, 14, 14, 256)  0           conv4_block2_2_bn[0][0]
+__________________________________________________________________________________________________
+conv4_block2_3_conv (Conv2D)    (None, 14, 14, 1024) 263168      conv4_block2_2_relu[0][0]
+__________________________________________________________________________________________________
+conv4_block2_3_bn (BatchNormali (None, 14, 14, 1024) 4096        conv4_block2_3_conv[0][0]
+__________________________________________________________________________________________________
+conv4_block2_add (Add)          (None, 14, 14, 1024) 0           conv4_block1_out[0][0]
+                                                                 conv4_block2_3_bn[0][0]
+__________________________________________________________________________________________________
+conv4_block2_out (Activation)   (None, 14, 14, 1024) 0           conv4_block2_add[0][0]
+__________________________________________________________________________________________________
+conv4_block3_1_conv (Conv2D)    (None, 14, 14, 256)  262400      conv4_block2_out[0][0]
+__________________________________________________________________________________________________
+conv4_block3_1_bn (BatchNormali (None, 14, 14, 256)  1024        conv4_block3_1_conv[0][0]
+__________________________________________________________________________________________________
+conv4_block3_1_relu (Activation (None, 14, 14, 256)  0           conv4_block3_1_bn[0][0]
+__________________________________________________________________________________________________
+conv4_block3_2_conv (Conv2D)    (None, 14, 14, 256)  590080      conv4_block3_1_relu[0][0]
+__________________________________________________________________________________________________
+conv4_block3_2_bn (BatchNormali (None, 14, 14, 256)  1024        conv4_block3_2_conv[0][0]
+__________________________________________________________________________________________________
+conv4_block3_2_relu (Activation (None, 14, 14, 256)  0           conv4_block3_2_bn[0][0]
+__________________________________________________________________________________________________
+conv4_block3_3_conv (Conv2D)    (None, 14, 14, 1024) 263168      conv4_block3_2_relu[0][0]
+__________________________________________________________________________________________________
+conv4_block3_3_bn (BatchNormali (None, 14, 14, 1024) 4096        conv4_block3_3_conv[0][0]
+__________________________________________________________________________________________________
+conv4_block3_add (Add)          (None, 14, 14, 1024) 0           conv4_block2_out[0][0]
+                                                                 conv4_block3_3_bn[0][0]
+__________________________________________________________________________________________________
+conv4_block3_out (Activation)   (None, 14, 14, 1024) 0           conv4_block3_add[0][0]
+__________________________________________________________________________________________________
+conv4_block4_1_conv (Conv2D)    (None, 14, 14, 256)  262400      conv4_block3_out[0][0]
+__________________________________________________________________________________________________
+conv4_block4_1_bn (BatchNormali (None, 14, 14, 256)  1024        conv4_block4_1_conv[0][0]
+__________________________________________________________________________________________________
+conv4_block4_1_relu (Activation (None, 14, 14, 256)  0           conv4_block4_1_bn[0][0]
+__________________________________________________________________________________________________
+conv4_block4_2_conv (Conv2D)    (None, 14, 14, 256)  590080      conv4_block4_1_relu[0][0]
+__________________________________________________________________________________________________
+conv4_block4_2_bn (BatchNormali (None, 14, 14, 256)  1024        conv4_block4_2_conv[0][0]
+__________________________________________________________________________________________________
+conv4_block4_2_relu (Activation (None, 14, 14, 256)  0           conv4_block4_2_bn[0][0]
+__________________________________________________________________________________________________
+conv4_block4_3_conv (Conv2D)    (None, 14, 14, 1024) 263168      conv4_block4_2_relu[0][0]
+__________________________________________________________________________________________________
+conv4_block4_3_bn (BatchNormali (None, 14, 14, 1024) 4096        conv4_block4_3_conv[0][0]
+__________________________________________________________________________________________________
+conv4_block4_add (Add)          (None, 14, 14, 1024) 0           conv4_block3_out[0][0]
+                                                                 conv4_block4_3_bn[0][0]
+__________________________________________________________________________________________________
+conv4_block4_out (Activation)   (None, 14, 14, 1024) 0           conv4_block4_add[0][0]
+__________________________________________________________________________________________________
+conv4_block5_1_conv (Conv2D)    (None, 14, 14, 256)  262400      conv4_block4_out[0][0]
+__________________________________________________________________________________________________
+conv4_block5_1_bn (BatchNormali (None, 14, 14, 256)  1024        conv4_block5_1_conv[0][0]
+__________________________________________________________________________________________________
+conv4_block5_1_relu (Activation (None, 14, 14, 256)  0           conv4_block5_1_bn[0][0]
+__________________________________________________________________________________________________
+conv4_block5_2_conv (Conv2D)    (None, 14, 14, 256)  590080      conv4_block5_1_relu[0][0]
+__________________________________________________________________________________________________
+conv4_block5_2_bn (BatchNormali (None, 14, 14, 256)  1024        conv4_block5_2_conv[0][0]
+__________________________________________________________________________________________________
+conv4_block5_2_relu (Activation (None, 14, 14, 256)  0           conv4_block5_2_bn[0][0]
+__________________________________________________________________________________________________
+conv4_block5_3_conv (Conv2D)    (None, 14, 14, 1024) 263168      conv4_block5_2_relu[0][0]
+__________________________________________________________________________________________________
+conv4_block5_3_bn (BatchNormali (None, 14, 14, 1024) 4096        conv4_block5_3_conv[0][0]
+__________________________________________________________________________________________________
+conv4_block5_add (Add)          (None, 14, 14, 1024) 0           conv4_block4_out[0][0]
+                                                                 conv4_block5_3_bn[0][0]
+__________________________________________________________________________________________________
+conv4_block5_out (Activation)   (None, 14, 14, 1024) 0           conv4_block5_add[0][0]
+__________________________________________________________________________________________________
+conv4_block6_1_conv (Conv2D)    (None, 14, 14, 256)  262400      conv4_block5_out[0][0]
+__________________________________________________________________________________________________
+conv4_block6_1_bn (BatchNormali (None, 14, 14, 256)  1024        conv4_block6_1_conv[0][0]
+__________________________________________________________________________________________________
+conv4_block6_1_relu (Activation (None, 14, 14, 256)  0           conv4_block6_1_bn[0][0]
+__________________________________________________________________________________________________
+conv4_block6_2_conv (Conv2D)    (None, 14, 14, 256)  590080      conv4_block6_1_relu[0][0]
+__________________________________________________________________________________________________
+conv4_block6_2_bn (BatchNormali (None, 14, 14, 256)  1024        conv4_block6_2_conv[0][0]
+__________________________________________________________________________________________________
+conv4_block6_2_relu (Activation (None, 14, 14, 256)  0           conv4_block6_2_bn[0][0]
+__________________________________________________________________________________________________
+conv4_block6_3_conv (Conv2D)    (None, 14, 14, 1024) 263168      conv4_block6_2_relu[0][0]
+__________________________________________________________________________________________________
+conv4_block6_3_bn (BatchNormali (None, 14, 14, 1024) 4096        conv4_block6_3_conv[0][0]
+__________________________________________________________________________________________________
+conv4_block6_add (Add)          (None, 14, 14, 1024) 0           conv4_block5_out[0][0]
+                                                                 conv4_block6_3_bn[0][0]
+__________________________________________________________________________________________________
+conv4_block6_out (Activation)   (None, 14, 14, 1024) 0           conv4_block6_add[0][0]
+__________________________________________________________________________________________________
+conv5_block1_1_conv (Conv2D)    (None, 7, 7, 512)    524800      conv4_block6_out[0][0]
+__________________________________________________________________________________________________
+conv5_block1_1_bn (BatchNormali (None, 7, 7, 512)    2048        conv5_block1_1_conv[0][0]
+__________________________________________________________________________________________________
+conv5_block1_1_relu (Activation (None, 7, 7, 512)    0           conv5_block1_1_bn[0][0]
+__________________________________________________________________________________________________
+conv5_block1_2_conv (Conv2D)    (None, 7, 7, 512)    2359808     conv5_block1_1_relu[0][0]
+__________________________________________________________________________________________________
+conv5_block1_2_bn (BatchNormali (None, 7, 7, 512)    2048        conv5_block1_2_conv[0][0]
+__________________________________________________________________________________________________
+conv5_block1_2_relu (Activation (None, 7, 7, 512)    0           conv5_block1_2_bn[0][0]
+__________________________________________________________________________________________________
+conv5_block1_0_conv (Conv2D)    (None, 7, 7, 2048)   2099200     conv4_block6_out[0][0]
+__________________________________________________________________________________________________
+conv5_block1_3_conv (Conv2D)    (None, 7, 7, 2048)   1050624     conv5_block1_2_relu[0][0]
+__________________________________________________________________________________________________
+conv5_block1_0_bn (BatchNormali (None, 7, 7, 2048)   8192        conv5_block1_0_conv[0][0]
+__________________________________________________________________________________________________
+conv5_block1_3_bn (BatchNormali (None, 7, 7, 2048)   8192        conv5_block1_3_conv[0][0]
+__________________________________________________________________________________________________
+conv5_block1_add (Add)          (None, 7, 7, 2048)   0           conv5_block1_0_bn[0][0]
+                                                                 conv5_block1_3_bn[0][0]
+__________________________________________________________________________________________________
+conv5_block1_out (Activation)   (None, 7, 7, 2048)   0           conv5_block1_add[0][0]
+__________________________________________________________________________________________________
+conv5_block2_1_conv (Conv2D)    (None, 7, 7, 512)    1049088     conv5_block1_out[0][0]
+__________________________________________________________________________________________________
+conv5_block2_1_bn (BatchNormali (None, 7, 7, 512)    2048        conv5_block2_1_conv[0][0]
+__________________________________________________________________________________________________
+conv5_block2_1_relu (Activation (None, 7, 7, 512)    0           conv5_block2_1_bn[0][0]
+__________________________________________________________________________________________________
+conv5_block2_2_conv (Conv2D)    (None, 7, 7, 512)    2359808     conv5_block2_1_relu[0][0]
+__________________________________________________________________________________________________
+conv5_block2_2_bn (BatchNormali (None, 7, 7, 512)    2048        conv5_block2_2_conv[0][0]
+__________________________________________________________________________________________________
+conv5_block2_2_relu (Activation (None, 7, 7, 512)    0           conv5_block2_2_bn[0][0]
+__________________________________________________________________________________________________
+conv5_block2_3_conv (Conv2D)    (None, 7, 7, 2048)   1050624     conv5_block2_2_relu[0][0]
+__________________________________________________________________________________________________
+conv5_block2_3_bn (BatchNormali (None, 7, 7, 2048)   8192        conv5_block2_3_conv[0][0]
+__________________________________________________________________________________________________
+conv5_block2_add (Add)          (None, 7, 7, 2048)   0           conv5_block1_out[0][0]
+                                                                 conv5_block2_3_bn[0][0]
+__________________________________________________________________________________________________
+conv5_block2_out (Activation)   (None, 7, 7, 2048)   0           conv5_block2_add[0][0]
+__________________________________________________________________________________________________
+conv5_block3_1_conv (Conv2D)    (None, 7, 7, 512)    1049088     conv5_block2_out[0][0]
+__________________________________________________________________________________________________
+conv5_block3_1_bn (BatchNormali (None, 7, 7, 512)    2048        conv5_block3_1_conv[0][0]
+__________________________________________________________________________________________________
+conv5_block3_1_relu (Activation (None, 7, 7, 512)    0           conv5_block3_1_bn[0][0]
+__________________________________________________________________________________________________
+conv5_block3_2_conv (Conv2D)    (None, 7, 7, 512)    2359808     conv5_block3_1_relu[0][0]
+__________________________________________________________________________________________________
+conv5_block3_2_bn (BatchNormali (None, 7, 7, 512)    2048        conv5_block3_2_conv[0][0]
+__________________________________________________________________________________________________
+conv5_block3_2_relu (Activation (None, 7, 7, 512)    0           conv5_block3_2_bn[0][0]
+__________________________________________________________________________________________________
+conv5_block3_3_conv (Conv2D)    (None, 7, 7, 2048)   1050624     conv5_block3_2_relu[0][0]
+__________________________________________________________________________________________________
+conv5_block3_3_bn (BatchNormali (None, 7, 7, 2048)   8192        conv5_block3_3_conv[0][0]
+__________________________________________________________________________________________________
+conv5_block3_add (Add)          (None, 7, 7, 2048)   0           conv5_block2_out[0][0]
+                                                                 conv5_block3_3_bn[0][0]
+__________________________________________________________________________________________________
+conv5_block3_out (Activation)   (None, 7, 7, 2048)   0           conv5_block3_add[0][0]
+__________________________________________________________________________________________________
+flatten_1 (Flatten)             (None, 100352)       0           conv5_block3_out[0][0]
+__________________________________________________________________________________________________
+dense_2 (Dense)                 (None, 1024)         102761472   flatten_1[0][0]
+__________________________________________________________________________________________________
+dropout_1 (Dropout)             (None, 1024)         0           dense_2[0][0]
+__________________________________________________________________________________________________
+dense_3 (Dense)                 (None, 1)            1025        dropout_1[0][0]
+==================================================================================================
+Total params: 126,350,209
+Trainable params: 102,762,497
+Non-trainable params: 23,587,712
+__________________________________________________________________________________________________
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;from tensorflow.keras.optimizers import RMSprop
+amodel.compile(optimizer = RMSprop(lr=0.0001),
+              loss = &#39;binary_crossentropy&#39;,
+              metrics = [&#39;accuracy&#39;])
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Compiling the model using RMSProp as the optimizer and a binary_crossentropy loss because of the 2 classes.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Next, we use the ImageDataGenerator function in keras to import the images and perform some augmentation on them, as well as to specify some arguments.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;from tensorflow.keras.preprocessing.image import ImageDataGenerator
+train_datagen = ImageDataGenerator(rescale = 1./255.,
+                                   rotation_range = 40,
+                                   width_shift_range = 0.2,
+                                   height_shift_range = 0.2,
+                                   shear_range = 0.2,
+                                   zoom_range = 0.2,
+                                   horizontal_flip = True)
+
+test_datagen = ImageDataGenerator( rescale = 1.0/255. )
+
+train_generator = train_datagen.flow_from_directory(train_dir,
+                                                    batch_size = 20,
+                                                    class_mode = &#39;binary&#39;,
+                                                    target_size = (224, 224))
+
+validation_generator =  test_datagen.flow_from_directory( validation_dir,
+                                                          batch_size  = 20,
+                                                          class_mode  = &#39;binary&#39;,
+                                                          target_size = (224, 224))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;Found 5216 images belonging to 2 classes.
+Found 16 images belonging to 2 classes.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;There are 5216 training images and 16 validation images.&lt;/p&gt;
+&lt;p&gt;All that&amp;rsquo;s left is to run the model for just 10 epochs.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;history = amodel.fit(
+            train_generator,
+            validation_data = validation_generator,
+            steps_per_epoch = 100,
+            epochs = 10,
+            validation_steps = 50,
+            verbose = 2)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;Epoch 1/10
+100/100 - 47s - loss: 0.8222 - accuracy: 0.6995 - val_loss: 0.6554 - val_accuracy: 0.5625
+Epoch 2/10
+100/100 - 45s - loss: 0.5184 - accuracy: 0.7490 - val_loss: 0.6276 - val_accuracy: 0.6250
+Epoch 3/10
+100/100 - 46s - loss: 0.4954 - accuracy: 0.7555 - val_loss: 0.7007 - val_accuracy: 0.5625
+Epoch 4/10
+100/100 - 46s - loss: 0.4552 - accuracy: 0.7710 - val_loss: 0.9272 - val_accuracy: 0.5625
+Epoch 5/10
+100/100 - 45s - loss: 0.4410 - accuracy: 0.7835 - val_loss: 0.9437 - val_accuracy: 0.5625
+Epoch 6/10
+100/100 - 45s - loss: 0.4338 - accuracy: 0.7871 - val_loss: 0.5694 - val_accuracy: 0.6250
+Epoch 7/10
+100/100 - 45s - loss: 0.4113 - accuracy: 0.7920 - val_loss: 0.9337 - val_accuracy: 0.5625
+Epoch 8/10
+100/100 - 45s - loss: 0.4150 - accuracy: 0.8001 - val_loss: 0.9175 - val_accuracy: 0.5625
+Epoch 9/10
+100/100 - 45s - loss: 0.4003 - accuracy: 0.8055 - val_loss: 0.7112 - val_accuracy: 0.6875
+Epoch 10/10
+100/100 - 46s - loss: 0.3825 - accuracy: 0.8155 - val_loss: 0.6212 - val_accuracy: 0.6250
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We get 81% accuracy after 10 epochs. Validation accuracy is around 62%. Other architectures such as VGG16 or VGG19 can also be used, and may increase the accuracy.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;We can plot the training and validation accuracy and see how training occurred.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;import matplotlib.pyplot as plt
+acc = history.history[&#39;accuracy&#39;]
+val_acc = history.history[&#39;val_accuracy&#39;]
+loss = history.history[&#39;loss&#39;]
+val_loss = history.history[&#39;val_loss&#39;]
+
+epochs = range(len(acc))
+
+plt.plot(epochs, acc, &#39;r&#39;, label=&#39;Training accuracy&#39;)
+plt.plot(epochs, val_acc, &#39;b&#39;, label=&#39;Validation accuracy&#39;)
+plt.title(&#39;Training and validation accuracy&#39;)
+plt.legend(loc=0)
+plt.figure()
+
+
+plt.show()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://vishnubharadwaj00.github.io/projectimages/ChestXRayResNet50_files/ChestXRayResNet50_25_0.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;Figure size 432x288 with 0 Axes&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Training accuracy seems to be steadily increasing, but validation accuracy seems to have peaks and valleys, but overall it does increase. This might be a sign of some overfitting, but definitely not a large amount of overfitting.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Bird Sound Classifier</title>
+      <link>https://vishnubharadwaj00.github.io/project/birdsound/</link>
+      <pubDate>Tue, 24 Sep 2019 00:00:00 +0000</pubDate>
+      <guid>https://vishnubharadwaj00.github.io/project/birdsound/</guid>
+      <description>&lt;p&gt;&lt;em&gt;Full code can be accessed at the 
+&lt;a href=&#34;https://github.com/vishnubharadwaj00/BirdSoundClassifier&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Github repository&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;h1 id=&#34;bird-sound-classifier&#34;&gt;&lt;strong&gt;Bird Sound Classifier&lt;/strong&gt;&lt;/h1&gt;
+&lt;p&gt;fast.ai&amp;rsquo;s courses and software make it extremely easy to start working on difficult projects very quickly. This is just another example of that.&lt;/p&gt;
+&lt;p&gt;This is a Bird Sound Classifying Deep Learning model, which takes in bird sounds, converts them into images (spectograms), and then classifies those images based on what type of bird call it is.&lt;/p&gt;
+&lt;p&gt;The data is from: &lt;a href=&#34;https://datadryad.org/resource/doi:10.5061/dryad.4g8b7/1&#34;&gt;https://datadryad.org/resource/doi:10.5061/dryad.4g8b7/1&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;There are 6 types of bird calls: distance,hat,kackle,song,stack,tet.&lt;/p&gt;
+&lt;p&gt;This model gets around 80% accuracy, which is not bad at all for something that relies on so many different factors.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Libraries&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The necessary libraries and functions have to be imported:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;from fastai.vision import *
+%reload_ext autoreload
+%autoreload 2
+%matplotlib inline
+from fastai import *
+import matplotlib.pyplot as plt
+from matplotlib.pyplot import specgram
+import librosa
+import numpy as np
+import librosa.display
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Since this was done on Google&amp;rsquo;s Colab environment, it is necessary to link up Google Drive to the project, so that the data can be imported.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;from google.colab import drive
+drive.mount(&#39;/content/gdrive&#39;, force_remount=True)
+root_dir = &amp;quot;/content/gdrive/My Drive/&amp;quot;
+base_dir = root_dir + &#39;bird-recognition&#39;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;Mounted at /content/gdrive
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;path = Path(base_dir+&#39;/wav_files_playback&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;Creating spectograms:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Next, a very simple function, create_fold_spectrograms, which takes in the folder name as input, and creates spectrograms in corresponding folders in a seperate path. This uses the librosa package. The code is similar to the one used in: &lt;a href=&#34;https://github.com/etown/dl1/blob/master/UrbanSoundClassification.ipynb&#34;&gt;https://github.com/etown/dl1/blob/master/UrbanSoundClassification.ipynb&lt;/a&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;def create_fold_spectrograms(folder):
+    spectrogram_path = Path(base_dir+&#39;/specto&#39;)
+    audio_path = path
+    os.makedirs(spectrogram_path/folder,exist_ok=True)
+    for audio_file in list(Path(audio_path/f&#39;{folder}&#39;).glob(&#39;*.wav&#39;)):
+        samples, sample_rate = librosa.load(audio_file)
+        fig = plt.figure(figsize=[0.72,0.72])
+        ax = fig.add_subplot(111)
+        ax.axes.get_xaxis().set_visible(False)
+        ax.axes.get_yaxis().set_visible(False)
+        ax.set_frame_on(False)
+        filename  = spectrogram_path/folder/Path(audio_file).name.replace(&#39;.wav&#39;,&#39;.png&#39;)
+        S = librosa.feature.melspectrogram(y=samples, sr=sample_rate)
+        librosa.display.specshow(librosa.power_to_db(S, ref=np.max))
+        plt.savefig(filename, dpi=400, bbox_inches=&#39;tight&#39;,pad_inches=0)
+        plt.close(&#39;all&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;folds=[&#39;distance&#39;,&#39;hat&#39;,&#39;kackle&#39;,&#39;song&#39;,&#39;stack&#39;,&#39;tet&#39;]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;for i in folds:
+  create_fold_spectrograms(str(i))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;Data Bunch&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Once, the sound files are converted into image files, the data can be extracted from the folders and seperated into training and validation sets.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;np.random.seed(42)
+spectrogram_path = Path(base_dir+&#39;/specto&#39;)
+tfms = get_transforms(do_flip=False)
+# don&#39;t use any transformations because it doesn&#39;t make sense in the case of a spectrogram
+# i.e. flipping a spectrogram changes the meaning
+data = ImageDataBunch.from_folder(spectrogram_path, train=&amp;quot;.&amp;quot;, ds_tfms=tfms, valid_pct=0.2, size=224)
+data.normalize(imagenet_stats)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;ImageDataBunch;
+
+Train: LabelList (152 items)
+x: ImageList
+Image (3, 224, 224),Image (3, 224, 224),Image (3, 224, 224),Image (3, 224, 224),Image (3, 224, 224)
+y: CategoryList
+distance,distance,distance,distance,distance
+Path: /content/gdrive/My Drive/bird-recognition/specto;
+
+Valid: LabelList (37 items)
+x: ImageList
+Image (3, 224, 224),Image (3, 224, 224),Image (3, 224, 224),Image (3, 224, 224),Image (3, 224, 224)
+y: CategoryList
+tet,tet,distance,distance,hat
+Path: /content/gdrive/My Drive/bird-recognition/specto;
+
+Test: None
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;data.show_batch(rows=3,figsize=(7,7))
+&lt;/code&gt;&lt;/pre&gt;
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure &gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://vishnubharadwaj00.github.io/img/BirdSoundClassifier_12_0.png&#34; &gt;
+
+
+  &lt;img src=&#34;https://vishnubharadwaj00.github.io/img/BirdSoundClassifier_12_0.png&#34; alt=&#34;&#34;  &gt;
+&lt;/a&gt;
+
+
+
+&lt;/figure&gt;
+
+&lt;pre&gt;&lt;code&gt;data.classes, data.c, len(data.train_ds), len(data.valid_ds)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;([&#39;distance&#39;, &#39;hat&#39;, &#39;kackle&#39;, &#39;song&#39;, &#39;stack&#39;, &#39;tet&#39;], 6, 152, 37)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We can see that there are 6 different classes, and a good split between training and validation sets.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Training&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Next, cnn_learner can be used, with a resnet34 architecture, to train the model:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;learn = cnn_learner(data, models.resnet34, metrics=[error_rate,accuracy])
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;Downloading: &amp;quot;https://download.pytorch.org/models/resnet34-333f7ec4.pth&amp;quot; to /root/.cache/torch/checkpoints/resnet34-333f7ec4.pth
+100%|██████████| 87306240/87306240 [00:00&amp;lt;00:00, 101948611.46it/s]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;learn.fit_one_cycle(6,max_lr=slice(3e-03))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;table border=&#34;1&#34; class=&#34;dataframe&#34;&gt;
+  &lt;thead&gt;
+    &lt;tr style=&#34;text-align: left;&#34;&gt;
+      &lt;th&gt;epoch&lt;/th&gt;
+      &lt;th&gt;train_loss&lt;/th&gt;
+      &lt;th&gt;valid_loss&lt;/th&gt;
+      &lt;th&gt;error_rate&lt;/th&gt;
+      &lt;th&gt;accuracy&lt;/th&gt;
+      &lt;th&gt;time&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;0.438323&lt;/td&gt;
+      &lt;td&gt;0.588238&lt;/td&gt;
+      &lt;td&gt;0.189189&lt;/td&gt;
+      &lt;td&gt;0.810811&lt;/td&gt;
+      &lt;td&gt;00:03&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;0.361946&lt;/td&gt;
+      &lt;td&gt;0.716108&lt;/td&gt;
+      &lt;td&gt;0.324324&lt;/td&gt;
+      &lt;td&gt;0.675676&lt;/td&gt;
+      &lt;td&gt;00:03&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;2&lt;/td&gt;
+      &lt;td&gt;0.333349&lt;/td&gt;
+      &lt;td&gt;1.141138&lt;/td&gt;
+      &lt;td&gt;0.297297&lt;/td&gt;
+      &lt;td&gt;0.702703&lt;/td&gt;
+      &lt;td&gt;00:03&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;3&lt;/td&gt;
+      &lt;td&gt;0.290415&lt;/td&gt;
+      &lt;td&gt;1.483750&lt;/td&gt;
+      &lt;td&gt;0.297297&lt;/td&gt;
+      &lt;td&gt;0.702703&lt;/td&gt;
+      &lt;td&gt;00:03&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;4&lt;/td&gt;
+      &lt;td&gt;0.271594&lt;/td&gt;
+      &lt;td&gt;1.513314&lt;/td&gt;
+      &lt;td&gt;0.324324&lt;/td&gt;
+      &lt;td&gt;0.675676&lt;/td&gt;
+      &lt;td&gt;00:03&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;5&lt;/td&gt;
+      &lt;td&gt;0.240999&lt;/td&gt;
+      &lt;td&gt;1.303614&lt;/td&gt;
+      &lt;td&gt;0.297297&lt;/td&gt;
+      &lt;td&gt;0.702703&lt;/td&gt;
+      &lt;td&gt;00:03&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;There&amp;rsquo;s only about 70% accuracy, which can be made higher with the right learning rate:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;learn.lr_find()
+learn.recorder.plot()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;LR Finder is complete, type {learner_name}.recorder.plot() to see the graph.
+&lt;/code&gt;&lt;/pre&gt;
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure &gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://vishnubharadwaj00.github.io/img/BirdSoundClassifier_19_2.png&#34; &gt;
+
+
+  &lt;img src=&#34;https://vishnubharadwaj00.github.io/img/BirdSoundClassifier_19_2.png&#34; alt=&#34;&#34;  &gt;
+&lt;/a&gt;
+
+
+
+&lt;/figure&gt;
+
+&lt;pre&gt;&lt;code&gt;learn.unfreeze()
+learn.fit_one_cycle(6,max_lr=slice(3e-03))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;table border=&#34;1&#34; class=&#34;dataframe&#34;&gt;
+  &lt;thead&gt;
+    &lt;tr style=&#34;text-align: left;&#34;&gt;
+      &lt;th&gt;epoch&lt;/th&gt;
+      &lt;th&gt;train_loss&lt;/th&gt;
+      &lt;th&gt;valid_loss&lt;/th&gt;
+      &lt;th&gt;error_rate&lt;/th&gt;
+      &lt;th&gt;accuracy&lt;/th&gt;
+      &lt;th&gt;time&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;0.089979&lt;/td&gt;
+      &lt;td&gt;1.076153&lt;/td&gt;
+      &lt;td&gt;0.324324&lt;/td&gt;
+      &lt;td&gt;0.675676&lt;/td&gt;
+      &lt;td&gt;00:03&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;0.085291&lt;/td&gt;
+      &lt;td&gt;0.820889&lt;/td&gt;
+      &lt;td&gt;0.243243&lt;/td&gt;
+      &lt;td&gt;0.756757&lt;/td&gt;
+      &lt;td&gt;00:03&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;2&lt;/td&gt;
+      &lt;td&gt;0.080007&lt;/td&gt;
+      &lt;td&gt;0.758169&lt;/td&gt;
+      &lt;td&gt;0.189189&lt;/td&gt;
+      &lt;td&gt;0.810811&lt;/td&gt;
+      &lt;td&gt;00:03&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;3&lt;/td&gt;
+      &lt;td&gt;0.099773&lt;/td&gt;
+      &lt;td&gt;0.824883&lt;/td&gt;
+      &lt;td&gt;0.216216&lt;/td&gt;
+      &lt;td&gt;0.783784&lt;/td&gt;
+      &lt;td&gt;00:03&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;4&lt;/td&gt;
+      &lt;td&gt;0.106347&lt;/td&gt;
+      &lt;td&gt;0.963399&lt;/td&gt;
+      &lt;td&gt;0.243243&lt;/td&gt;
+      &lt;td&gt;0.756757&lt;/td&gt;
+      &lt;td&gt;00:03&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;5&lt;/td&gt;
+      &lt;td&gt;0.101405&lt;/td&gt;
+      &lt;td&gt;0.916323&lt;/td&gt;
+      &lt;td&gt;0.216216&lt;/td&gt;
+      &lt;td&gt;0.783784&lt;/td&gt;
+      &lt;td&gt;00:03&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;78% accuracy is the final accuracy. With some tinkering, this can be increased to slightly above 80% as well.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Interpreting Results:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Using the ClassificationInterpretation function, the results of the training model can be interepreted:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;interp=ClassificationInterpretation.from_learner(learn)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;interp.plot_confusion_matrix()
+&lt;/code&gt;&lt;/pre&gt;
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure &gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://vishnubharadwaj00.github.io/img/BirdSoundClassifier_24_0.png&#34; &gt;
+
+
+  &lt;img src=&#34;https://vishnubharadwaj00.github.io/img/BirdSoundClassifier_24_0.png&#34; alt=&#34;&#34;  &gt;
+&lt;/a&gt;
+
+
+
+&lt;/figure&gt;
+
+&lt;pre&gt;&lt;code&gt;interp.most_confused(min_val=2)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;[(&#39;tet&#39;, &#39;hat&#39;, 5), (&#39;tet&#39;, &#39;stack&#39;, 2)]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;From this, it is evident that tet is the one causing the most problem, with it being misclassified 7 times, and only correctly classified once. Otherwise, the model is almost fully accurate.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Laptop Brand Classifier</title>
+      <link>https://vishnubharadwaj00.github.io/project/laptop/</link>
+      <pubDate>Tue, 24 Sep 2019 00:00:00 +0000</pubDate>
+      <guid>https://vishnubharadwaj00.github.io/project/laptop/</guid>
+      <description>&lt;p&gt;&lt;em&gt;Full code can be accessed at the 
+&lt;a href=&#34;https://github.com/vishnubharadwaj00/LaptopBrandRecognition&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Github repository&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;h1 id=&#34;what-brand-is-this-laptop&#34;&gt;&lt;strong&gt;What brand is this laptop?&lt;/strong&gt;&lt;/h1&gt;
+&lt;p&gt;Based on Lesson 2 of fast.ai&amp;rsquo;s Deep Learning course, it is possible to scrape images of the internet (particularly Google Images) to build our own classifier, which is actually extremely useful and can be applied to any number of applications.&lt;/p&gt;
+&lt;p&gt;Here, I chose a really simple problem, to classify laptops based on their brands using images of them. Although it may not seem so simple, since all laptops look similar to a certain extent, the highly efficient Deep Learning models will beg to differ.&lt;/p&gt;
+&lt;p&gt;This model gets around &lt;strong&gt;83% accuracy&lt;/strong&gt;, which is a very good result considering how similar laptops from different brands look.&lt;/p&gt;
+&lt;p&gt;This is the code used to carry out this task:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;from fastai.vision import *
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;After going on Google Images, and searching for whatever images we want (e.g Macbooks), we can insert a simple Javascript command into the browser:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;urls = Array.from(document.querySelectorAll(&amp;quot;.rg_di .rg_meta&amp;quot;)).map(
+  (el) =&amp;gt; JSON.parse(el.textContent).ou
+);
+window.open(&amp;quot;data:text/csv;charset=utf-8,&amp;quot; + escape(urls.join(&amp;quot;\n&amp;quot;)));
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Next, we create the necessary folder and file name for the data to be imported into.&lt;/p&gt;
+&lt;p&gt;I am using Google&amp;rsquo;s Colab so all the images will be stored in Google Drive, from which the images are easily accesible.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;from google.colab import drive
+drive.mount(&#39;/content/gdrive&#39;, force_remount=True)
+root_dir = &amp;quot;/content/gdrive/My Drive/&amp;quot;
+base_dir = root_dir + &#39;fastai-v3&#39;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;Go to this URL in a browser: https://accounts.google.com/o/oauth2/auth?client_id=947318989803-6bn6qk8qdgf4n4g3pfee6491hc0brc4i.apps.googleusercontent.com&amp;amp;redirect_uri=urn%3Aietf%3Awg%3Aoauth%3A2.0%3Aoob&amp;amp;scope=email%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fdocs.test%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fdrive%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fdrive.photos.readonly%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fpeopleapi.readonly&amp;amp;response_type=code
+
+Enter your authorization code:
+··········
+Mounted at /content/gdrive
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;folder = &#39;macbook&#39;
+file = &#39;macbook.txt&#39;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;folder = &#39;hp&#39;
+file = &#39;hp.txt&#39;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;folder = &#39;lenovo&#39;
+file = &#39;lenovo.txt&#39;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Code has to be run once for every category.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;path = Path(base_dir+&#39;/data/images&#39;)
+dest = path/folder
+dest.mkdir(parents=True, exist_ok=True)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;path.ls()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;[PosixPath(&#39;/content/gdrive/My Drive/fastai-v3/data/images/macbook.txt&#39;),
+ PosixPath(&#39;/content/gdrive/My Drive/fastai-v3/data/images/macbook&#39;),
+ PosixPath(&#39;/content/gdrive/My Drive/fastai-v3/data/images/lenovo.txt&#39;),
+ PosixPath(&#39;/content/gdrive/My Drive/fastai-v3/data/images/hp&#39;),
+ PosixPath(&#39;/content/gdrive/My Drive/fastai-v3/data/images/hp.txt&#39;),
+ PosixPath(&#39;/content/gdrive/My Drive/fastai-v3/data/images/lenovo&#39;),
+ PosixPath(&#39;/content/gdrive/My Drive/fastai-v3/data/images/models&#39;),
+ PosixPath(&#39;/content/gdrive/My Drive/fastai-v3/data/images/cleaned.csv&#39;),
+ PosixPath(&#39;/content/gdrive/My Drive/fastai-v3/data/images/export.pkl&#39;),
+ PosixPath(&#39;/content/gdrive/My Drive/fastai-v3/data/images/mactest.jpg&#39;)]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Next, the files (txt files with urls of images) has to be uploaded into Drive.&lt;/p&gt;
+&lt;p&gt;Once that is done, the images can be downloaded into Drive, into the specified folders, from the urls using the download_images function.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;download_images(path/file, dest, max_pics=200)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;classes = [&#39;macbook&#39;,&#39;hp&#39;,&#39;lenovo&#39;]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We can remove any images that cannot be opened:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;for c in classes:
+    print(c)
+    verify_images(path/c, delete=True, max_size=500)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Next, we can extract the images from the folders, and seperate them into training and validation sets, using the ImageDataBunch function.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;np.random.seed(42)
+data = ImageDataBunch.from_folder(path, train=&amp;quot;.&amp;quot;, valid_pct=0.2,
+        ds_tfms=get_transforms(), size=224, num_workers=4).normalize(imagenet_stats)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;/usr/local/lib/python3.6/dist-packages/fastai/data_block.py:534: UserWarning: You are labelling your items with CategoryList.
+Your valid set contained the following unknown labels, the corresponding items have been discarded.
+images
+  if getattr(ds, &#39;warn&#39;, False): warn(ds.warn)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Looking at some of the pictures:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;data.show_batch(rows=3, figsize=(7,8))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://vishnubharadwaj00.github.io/projectimages/LaptopBrandClassifier_files/LaptopBrandClassifier_19_0.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;data.classes, data.c, len(data.train_ds), len(data.valid_ds)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;([&#39;hp&#39;, &#39;lenovo&#39;, &#39;macbook&#39;], 3, 306, 75)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Training the model, using the cnn_learner function:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;learn = cnn_learner(data, models.resnet34, metrics=error_rate)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;Downloading: &amp;quot;https://download.pytorch.org/models/resnet34-333f7ec4.pth&amp;quot; to /root/.cache/torch/checkpoints/resnet34-333f7ec4.pth
+100%|██████████| 87306240/87306240 [00:00&amp;lt;00:00, 162957184.69it/s]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;learn.fit_one_cycle(5)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;table border=&#34;1&#34; class=&#34;dataframe&#34;&gt;
+  &lt;thead&gt;
+    &lt;tr style=&#34;text-align: left;&#34;&gt;
+      &lt;th&gt;epoch&lt;/th&gt;
+      &lt;th&gt;train_loss&lt;/th&gt;
+      &lt;th&gt;valid_loss&lt;/th&gt;
+      &lt;th&gt;error_rate&lt;/th&gt;
+      &lt;th&gt;time&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;1.305020&lt;/td&gt;
+      &lt;td&gt;0.848843&lt;/td&gt;
+      &lt;td&gt;0.346667&lt;/td&gt;
+      &lt;td&gt;00:54&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;1.121091&lt;/td&gt;
+      &lt;td&gt;0.731948&lt;/td&gt;
+      &lt;td&gt;0.293333&lt;/td&gt;
+      &lt;td&gt;00:06&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;2&lt;/td&gt;
+      &lt;td&gt;0.956481&lt;/td&gt;
+      &lt;td&gt;0.663035&lt;/td&gt;
+      &lt;td&gt;0.293333&lt;/td&gt;
+      &lt;td&gt;00:05&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;3&lt;/td&gt;
+      &lt;td&gt;0.809013&lt;/td&gt;
+      &lt;td&gt;0.651194&lt;/td&gt;
+      &lt;td&gt;0.266667&lt;/td&gt;
+      &lt;td&gt;00:05&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;4&lt;/td&gt;
+      &lt;td&gt;0.718085&lt;/td&gt;
+      &lt;td&gt;0.661706&lt;/td&gt;
+      &lt;td&gt;0.240000&lt;/td&gt;
+      &lt;td&gt;00:05&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;pre&gt;&lt;code&gt;learn.lr_find(start_lr=1e-5, end_lr=1e-1)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;LR Finder is complete, type {learner_name}.recorder.plot() to see the graph.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Interpreting the results:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;learn.recorder.plot()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://vishnubharadwaj00.github.io/projectimages/LaptopBrandClassifier_files/LaptopBrandClassifier_26_0.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;learn.fit_one_cycle(2,max_lr=slice(1e-03,1e-02))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;table border=&#34;1&#34; class=&#34;dataframe&#34;&gt;
+  &lt;thead&gt;
+    &lt;tr style=&#34;text-align: left;&#34;&gt;
+      &lt;th&gt;epoch&lt;/th&gt;
+      &lt;th&gt;train_loss&lt;/th&gt;
+      &lt;th&gt;valid_loss&lt;/th&gt;
+      &lt;th&gt;error_rate&lt;/th&gt;
+      &lt;th&gt;time&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;0.152411&lt;/td&gt;
+      &lt;td&gt;0.790561&lt;/td&gt;
+      &lt;td&gt;0.173333&lt;/td&gt;
+      &lt;td&gt;00:05&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;0.102961&lt;/td&gt;
+      &lt;td&gt;0.861176&lt;/td&gt;
+      &lt;td&gt;0.186667&lt;/td&gt;
+      &lt;td&gt;00:05&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;pre&gt;&lt;code&gt;interp = ClassificationInterpretation.from_learner(learn)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;interp.plot_confusion_matrix()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://vishnubharadwaj00.github.io/projectimages/LaptopBrandClassifier_files/LaptopBrandClassifier_29_0.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;interp.most_confused(min_val=2)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;[(&#39;lenovo&#39;, &#39;hp&#39;, 4),
+ (&#39;hp&#39;, &#39;macbook&#39;, 3),
+ (&#39;lenovo&#39;, &#39;macbook&#39;, 3),
+ (&#39;macbook&#39;, &#39;hp&#39;, 3)]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Lenovo&amp;rsquo;s are being mistaken for HP&amp;rsquo;s 4 times, but the reverse doesn&amp;rsquo;t seem to happen. Macbooks are the ones that are creating most of the error.&lt;/p&gt;
+&lt;p&gt;Using an unused picture, and checking if our model can predict what laptop brand it is:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;learn.export()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;defaults.device = torch.device(&#39;cpu&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;img = open_image(path/&#39;mactest.jpg&#39;)
+img
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://vishnubharadwaj00.github.io/projectimages/LaptopBrandClassifier_files/LaptopBrandClassifier_34_0.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;learn = load_learner(path)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;pred_class,pred_idx,outputs = learn.predict(img)
+pred_class
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;Category macbook
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;img1  = open_image(path/&#39;hptest.jpg&#39;)
+img1
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://vishnubharadwaj00.github.io/projectimages/LaptopBrandClassifier_files/LaptopBrandClassifier_37_0.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;pred_class,pred_idx,outputs = learn.predict(img1)
+pred_class
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;Category hp
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The model is able to predict these new images perfectly as well.&lt;/p&gt;
+&lt;p&gt;A very simple application to do something pretty complex.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
