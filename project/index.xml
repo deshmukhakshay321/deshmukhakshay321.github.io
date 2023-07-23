@@ -1,38 +1,38 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Projects | Vishnu Bharadwaj</title>
-    <link>https://vishnubharadwaj00.github.io/project/</link>
-      <atom:link href="https://vishnubharadwaj00.github.io/project/index.xml" rel="self" type="application/rss+xml" />
+    <title>Projects | Akshay Deshmukh</title>
+    <link>https://deshmukhakshay321.github.io/project/</link>
+      <atom:link href="https://deshmukhakshay321.github.io/project/index.xml" rel="self" type="application/rss+xml" />
     <description>Projects</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Mon, 03 Aug 2020 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>https://vishnubharadwaj00.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <url>https://deshmukhakshay321.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
       <title>Projects</title>
-      <link>https://vishnubharadwaj00.github.io/project/</link>
+      <link>https://deshmukhakshay321.github.io/project/</link>
     </image>
     
     <item>
       <title>Satellite Image Classifier</title>
-      <link>https://vishnubharadwaj00.github.io/project/satelliteimage/</link>
+      <link>https://deshmukhakshay321.github.io/project/satelliteimage/</link>
       <pubDate>Mon, 03 Aug 2020 00:00:00 +0000</pubDate>
-      <guid>https://vishnubharadwaj00.github.io/project/satelliteimage/</guid>
+      <guid>https://deshmukhakshay321.github.io/project/satelliteimage/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Data Science Salary Predictor</title>
-      <link>https://vishnubharadwaj00.github.io/project/datasciencesalarypred/</link>
+      <link>https://deshmukhakshay321.github.io/project/datasciencesalarypred/</link>
       <pubDate>Sat, 13 Jun 2020 00:00:00 +0000</pubDate>
-      <guid>https://vishnubharadwaj00.github.io/project/datasciencesalarypred/</guid>
+      <guid>https://deshmukhakshay321.github.io/project/datasciencesalarypred/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Tesla Stock Prediction using Web Scraping and Recurrent Neural Networks</title>
-      <link>https://vishnubharadwaj00.github.io/project/tesla-stock-predictor/</link>
+      <link>https://deshmukhakshay321.github.io/project/tesla-stock-predictor/</link>
       <pubDate>Mon, 20 Apr 2020 00:00:00 +0000</pubDate>
-      <guid>https://vishnubharadwaj00.github.io/project/tesla-stock-predictor/</guid>
+      <guid>https://deshmukhakshay321.github.io/project/tesla-stock-predictor/</guid>
       <description>&lt;hr&gt;
 &lt;p&gt;Stock Prediction is a versatile and extensive field on its own. With increasingly sophisticated computational capabilities, Stock Prediction is becoming a more and more important application of fields like Machine Learning, Deep Learning and AI.&lt;/p&gt;
 &lt;hr&gt;
@@ -578,10 +578,10 @@ plt.rcParams.update({&#39;font.size&#39;: 14})
 &lt;figure id=&#34;figure-plot-of-adjusted-close-stock-prices&#34;&gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://vishnubharadwaj00.github.io/img/TeslaStockPredictor_20_0.png&#34; data-caption=&#34;Plot of Adjusted Close Stock Prices&#34;&gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://deshmukhakshay321.github.io/img/TeslaStockPredictor_20_0.png&#34; data-caption=&#34;Plot of Adjusted Close Stock Prices&#34;&gt;
 
 
-  &lt;img src=&#34;https://vishnubharadwaj00.github.io/img/TeslaStockPredictor_20_0.png&#34; alt=&#34;&#34;  &gt;
+  &lt;img src=&#34;https://deshmukhakshay321.github.io/img/TeslaStockPredictor_20_0.png&#34; alt=&#34;&#34;  &gt;
 &lt;/a&gt;
 
 
@@ -761,10 +761,10 @@ plt.semilogx(history.history[&amp;quot;lr&amp;quot;], history.history[&amp;quot;
 &lt;figure id=&#34;figure-plot-of-loss-vs-learning-rate&#34;&gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://vishnubharadwaj00.github.io/img/TeslaStockPredictor_39_1.png&#34; data-caption=&#34;Plot of Loss vs Learning Rate&#34;&gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://deshmukhakshay321.github.io/img/TeslaStockPredictor_39_1.png&#34; data-caption=&#34;Plot of Loss vs Learning Rate&#34;&gt;
 
 
-  &lt;img src=&#34;https://vishnubharadwaj00.github.io/img/TeslaStockPredictor_39_1.png&#34; alt=&#34;&#34;  &gt;
+  &lt;img src=&#34;https://deshmukhakshay321.github.io/img/TeslaStockPredictor_39_1.png&#34; alt=&#34;&#34;  &gt;
 &lt;/a&gt;
 
 
@@ -928,10 +928,10 @@ plt.legend()
 &lt;figure id=&#34;figure-plot-of-predicted-vs-actual&#34;&gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://vishnubharadwaj00.github.io/img/TeslaStockPredictor_47_1.png&#34; data-caption=&#34;Plot of Predicted vs Actual&#34;&gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://deshmukhakshay321.github.io/img/TeslaStockPredictor_47_1.png&#34; data-caption=&#34;Plot of Predicted vs Actual&#34;&gt;
 
 
-  &lt;img src=&#34;https://vishnubharadwaj00.github.io/img/TeslaStockPredictor_47_1.png&#34; alt=&#34;&#34;  &gt;
+  &lt;img src=&#34;https://deshmukhakshay321.github.io/img/TeslaStockPredictor_47_1.png&#34; alt=&#34;&#34;  &gt;
 &lt;/a&gt;
 
 
@@ -950,11 +950,11 @@ plt.legend()
     
     <item>
       <title>Detecting Pneumonia with Chest X-Ray Images</title>
-      <link>https://vishnubharadwaj00.github.io/project/chestxray/</link>
+      <link>https://deshmukhakshay321.github.io/project/chestxray/</link>
       <pubDate>Wed, 08 Apr 2020 00:00:00 +0000</pubDate>
-      <guid>https://vishnubharadwaj00.github.io/project/chestxray/</guid>
+      <guid>https://deshmukhakshay321.github.io/project/chestxray/</guid>
       <description>&lt;p&gt;&lt;em&gt;Full code can be accessed at the 
-&lt;a href=&#34;https://github.com/vishnubharadwaj00/PneumoniaDetection&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Github repository&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;a href=&#34;https://github.com/deshmukhakshay321/PneumoniaDetection&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Github repository&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Healthcare is an extremely important part of the technological revolution, with deep learning techniques being applied to more and more medical problems.&lt;/p&gt;
 &lt;p&gt;This dataset for the detection of pneumonia, using chest x-ray images (&lt;a href=&#34;https://www.kaggle.com/paultimothymooney/chest-xray-pneumonia&#34;&gt;https://www.kaggle.com/paultimothymooney/chest-xray-pneumonia&lt;/a&gt;) is used for binary classification (whether the person is normal or has pneumonia).&lt;/p&gt;
 &lt;p&gt;This notebook was executed in a Google Colab environment, and used transfer learning from a ResNet50 architecture, and after just 10 epochs of training, I was able to achieve &lt;strong&gt;&amp;gt;80% accuracy&lt;/strong&gt;. Some minor tweaks and additional architectural changes can definitely increase the accuracy to close to 90% and maybe, even beyond that.&lt;/p&gt;
@@ -1488,7 +1488,7 @@ plt.figure()
 
 plt.show()
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://vishnubharadwaj00.github.io/projectimages/ChestXRayResNet50_files/ChestXRayResNet50_25_0.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://deshmukhakshay321.github.io/projectimages/ChestXRayResNet50_files/ChestXRayResNet50_25_0.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;&amp;lt;Figure size 432x288 with 0 Axes&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Training accuracy seems to be steadily increasing, but validation accuracy seems to have peaks and valleys, but overall it does increase. This might be a sign of some overfitting, but definitely not a large amount of overfitting.&lt;/p&gt;
@@ -1497,11 +1497,11 @@ plt.show()
     
     <item>
       <title>Bird Sound Classifier</title>
-      <link>https://vishnubharadwaj00.github.io/project/birdsound/</link>
+      <link>https://deshmukhakshay321.github.io/project/birdsound/</link>
       <pubDate>Tue, 24 Sep 2019 00:00:00 +0000</pubDate>
-      <guid>https://vishnubharadwaj00.github.io/project/birdsound/</guid>
+      <guid>https://deshmukhakshay321.github.io/project/birdsound/</guid>
       <description>&lt;p&gt;&lt;em&gt;Full code can be accessed at the 
-&lt;a href=&#34;https://github.com/vishnubharadwaj00/BirdSoundClassifier&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Github repository&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;a href=&#34;https://github.com/deshmukhakshay321/BirdSoundClassifier&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Github repository&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;h1 id=&#34;bird-sound-classifier&#34;&gt;&lt;strong&gt;Bird Sound Classifier&lt;/strong&gt;&lt;/h1&gt;
 &lt;p&gt;fast.ai&amp;rsquo;s courses and software make it extremely easy to start working on difficult projects very quickly. This is just another example of that.&lt;/p&gt;
 &lt;p&gt;This is a Bird Sound Classifying Deep Learning model, which takes in bird sounds, converts them into images (spectograms), and then classifies those images based on what type of bird call it is.&lt;/p&gt;
@@ -1605,10 +1605,10 @@ Test: None
 &lt;figure &gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://vishnubharadwaj00.github.io/img/BirdSoundClassifier_12_0.png&#34; &gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://deshmukhakshay321.github.io/img/BirdSoundClassifier_12_0.png&#34; &gt;
 
 
-  &lt;img src=&#34;https://vishnubharadwaj00.github.io/img/BirdSoundClassifier_12_0.png&#34; alt=&#34;&#34;  &gt;
+  &lt;img src=&#34;https://deshmukhakshay321.github.io/img/BirdSoundClassifier_12_0.png&#34; alt=&#34;&#34;  &gt;
 &lt;/a&gt;
 
 
@@ -1717,10 +1717,10 @@ learn.recorder.plot()
 &lt;figure &gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://vishnubharadwaj00.github.io/img/BirdSoundClassifier_19_2.png&#34; &gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://deshmukhakshay321.github.io/img/BirdSoundClassifier_19_2.png&#34; &gt;
 
 
-  &lt;img src=&#34;https://vishnubharadwaj00.github.io/img/BirdSoundClassifier_19_2.png&#34; alt=&#34;&#34;  &gt;
+  &lt;img src=&#34;https://deshmukhakshay321.github.io/img/BirdSoundClassifier_19_2.png&#34; alt=&#34;&#34;  &gt;
 &lt;/a&gt;
 
 
@@ -1819,10 +1819,10 @@ learn.fit_one_cycle(6,max_lr=slice(3e-03))
 &lt;figure &gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://vishnubharadwaj00.github.io/img/BirdSoundClassifier_24_0.png&#34; &gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://deshmukhakshay321.github.io/img/BirdSoundClassifier_24_0.png&#34; &gt;
 
 
-  &lt;img src=&#34;https://vishnubharadwaj00.github.io/img/BirdSoundClassifier_24_0.png&#34; alt=&#34;&#34;  &gt;
+  &lt;img src=&#34;https://deshmukhakshay321.github.io/img/BirdSoundClassifier_24_0.png&#34; alt=&#34;&#34;  &gt;
 &lt;/a&gt;
 
 
@@ -1841,11 +1841,11 @@ learn.fit_one_cycle(6,max_lr=slice(3e-03))
     
     <item>
       <title>Laptop Brand Classifier</title>
-      <link>https://vishnubharadwaj00.github.io/project/laptop/</link>
+      <link>https://deshmukhakshay321.github.io/project/laptop/</link>
       <pubDate>Tue, 24 Sep 2019 00:00:00 +0000</pubDate>
-      <guid>https://vishnubharadwaj00.github.io/project/laptop/</guid>
+      <guid>https://deshmukhakshay321.github.io/project/laptop/</guid>
       <description>&lt;p&gt;&lt;em&gt;Full code can be accessed at the 
-&lt;a href=&#34;https://github.com/vishnubharadwaj00/LaptopBrandRecognition&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Github repository&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;a href=&#34;https://github.com/deshmukhakshay321/LaptopBrandRecognition&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Github repository&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;h1 id=&#34;what-brand-is-this-laptop&#34;&gt;&lt;strong&gt;What brand is this laptop?&lt;/strong&gt;&lt;/h1&gt;
 &lt;p&gt;Based on Lesson 2 of fast.ai&amp;rsquo;s Deep Learning course, it is possible to scrape images of the internet (particularly Google Images) to build our own classifier, which is actually extremely useful and can be applied to any number of applications.&lt;/p&gt;
 &lt;p&gt;Here, I chose a really simple problem, to classify laptops based on their brands using images of them. Although it may not seem so simple, since all laptops look similar to a certain extent, the highly efficient Deep Learning models will beg to differ.&lt;/p&gt;
@@ -1923,7 +1923,7 @@ images
 &lt;p&gt;Looking at some of the pictures:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;data.show_batch(rows=3, figsize=(7,8))
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://vishnubharadwaj00.github.io/projectimages/LaptopBrandClassifier_files/LaptopBrandClassifier_19_0.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://deshmukhakshay321.github.io/projectimages/LaptopBrandClassifier_files/LaptopBrandClassifier_19_0.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;data.classes, data.c, len(data.train_ds), len(data.valid_ds)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;([&#39;hp&#39;, &#39;lenovo&#39;, &#39;macbook&#39;], 3, 306, 75)
@@ -1991,7 +1991,7 @@ images
 &lt;p&gt;Interpreting the results:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;learn.recorder.plot()
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://vishnubharadwaj00.github.io/projectimages/LaptopBrandClassifier_files/LaptopBrandClassifier_26_0.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://deshmukhakshay321.github.io/projectimages/LaptopBrandClassifier_files/LaptopBrandClassifier_26_0.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;learn.fit_one_cycle(2,max_lr=slice(1e-03,1e-02))
 &lt;/code&gt;&lt;/pre&gt;
 &lt;table border=&#34;1&#34; class=&#34;dataframe&#34;&gt;
@@ -2025,7 +2025,7 @@ images
 &lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;interp.plot_confusion_matrix()
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://vishnubharadwaj00.github.io/projectimages/LaptopBrandClassifier_files/LaptopBrandClassifier_29_0.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://deshmukhakshay321.github.io/projectimages/LaptopBrandClassifier_files/LaptopBrandClassifier_29_0.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;interp.most_confused(min_val=2)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;[(&#39;lenovo&#39;, &#39;hp&#39;, 4),
@@ -2042,7 +2042,7 @@ images
 &lt;pre&gt;&lt;code&gt;img = open_image(path/&#39;mactest.jpg&#39;)
 img
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://vishnubharadwaj00.github.io/projectimages/LaptopBrandClassifier_files/LaptopBrandClassifier_34_0.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://deshmukhakshay321.github.io/projectimages/LaptopBrandClassifier_files/LaptopBrandClassifier_34_0.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;learn = load_learner(path)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;pred_class,pred_idx,outputs = learn.predict(img)
@@ -2053,7 +2053,7 @@ pred_class
 &lt;pre&gt;&lt;code&gt;img1  = open_image(path/&#39;hptest.jpg&#39;)
 img1
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://vishnubharadwaj00.github.io/projectimages/LaptopBrandClassifier_files/LaptopBrandClassifier_37_0.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://deshmukhakshay321.github.io/projectimages/LaptopBrandClassifier_files/LaptopBrandClassifier_37_0.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;pred_class,pred_idx,outputs = learn.predict(img1)
 pred_class
 &lt;/code&gt;&lt;/pre&gt;
@@ -2066,11 +2066,11 @@ pred_class
     
     <item>
       <title>What makes a good movie, asked Bayes</title>
-      <link>https://vishnubharadwaj00.github.io/project/bayes/</link>
+      <link>https://deshmukhakshay321.github.io/project/bayes/</link>
       <pubDate>Thu, 19 Sep 2019 00:00:00 +0000</pubDate>
-      <guid>https://vishnubharadwaj00.github.io/project/bayes/</guid>
+      <guid>https://deshmukhakshay321.github.io/project/bayes/</guid>
       <description>&lt;p&gt;&lt;em&gt;Full code can be accessed at the 
-&lt;a href=&#34;https://github.com/vishnubharadwaj00/What-makes-a-good-movie-asked-Bayes&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Github repository&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;a href=&#34;https://github.com/deshmukhakshay321/What-makes-a-good-movie-asked-Bayes&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Github repository&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;h1 id=&#34;how-to-make-a-good-movie&#34;&gt;How to make a good movie&lt;/h1&gt;
 &lt;h2 id=&#34;setup&#34;&gt;Setup&lt;/h2&gt;
 &lt;h3 id=&#34;load-packages&#34;&gt;Load packages&lt;/h3&gt;
@@ -2301,11 +2301,11 @@ round(audinterval,3)
     
     <item>
       <title>Literacy Rate Analysis using GSS Data</title>
-      <link>https://vishnubharadwaj00.github.io/project/litrates/</link>
+      <link>https://deshmukhakshay321.github.io/project/litrates/</link>
       <pubDate>Thu, 15 Aug 2019 00:00:00 +0000</pubDate>
-      <guid>https://vishnubharadwaj00.github.io/project/litrates/</guid>
+      <guid>https://deshmukhakshay321.github.io/project/litrates/</guid>
       <description>&lt;p&gt;&lt;em&gt;Full code can be accessed at the 
-&lt;a href=&#34;https://github.com/vishnubharadwaj00/Literacy-Rate-Analysis-Using-GSS-Dataset&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Github repository&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;a href=&#34;https://github.com/deshmukhakshay321/Literacy-Rate-Analysis-Using-GSS-Dataset&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Github repository&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;h2 id=&#34;setup&#34;&gt;Setup&lt;/h2&gt;
 &lt;h3 id=&#34;load-packages&#34;&gt;Load packages&lt;/h3&gt;
 &lt;p&gt;For this project, we require ggplot2 and gridExtra package for the plots, dplyr for data manipulation and statsr for the statistical functions used in this course. These three packages contain a wide range of functions to be used, and should encompass all the functions we require to do this project:&lt;/p&gt;
