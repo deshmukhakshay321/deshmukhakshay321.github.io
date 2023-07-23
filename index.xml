@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Vishnu Bharadwaj</title>
-    <link>https://vishnubharadwaj00.github.io/</link>
-      <atom:link href="https://vishnubharadwaj00.github.io/index.xml" rel="self" type="application/rss+xml" />
-    <description>Vishnu Bharadwaj</description>
+    <title>Akshay Deshmukh</title>
+    <link>https://deshmukhakshay321.github.io/cloneakshay123/</link>
+      <atom:link href="https://deshmukhakshay321.github.io/cloneakshay123/index.xml" rel="self" type="application/rss+xml" />
+    <description>Akshay Deshmukh</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Sat, 01 Jun 2030 13:00:00 +0000</lastBuildDate>
     <image>
-      <url>https://vishnubharadwaj00.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
-      <title>Vishnu Bharadwaj</title>
-      <link>https://vishnubharadwaj00.github.io/</link>
+      <url>https://deshmukhakshay321.github.io/cloneakshay123/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <title>Akshay Deshmukh</title>
+      <link>https://deshmukhakshay321.github.io/cloneakshay123/</link>
     </image>
     
     <item>
       <title>Example Page 1</title>
-      <link>https://vishnubharadwaj00.github.io/courses/example/example1/</link>
+      <link>https://deshmukhakshay321.github.io/cloneakshay123/courses/example/example1/</link>
       <pubDate>Sun, 05 May 2019 00:00:00 +0100</pubDate>
-      <guid>https://vishnubharadwaj00.github.io/courses/example/example1/</guid>
+      <guid>https://deshmukhakshay321.github.io/cloneakshay123/courses/example/example1/</guid>
       <description>&lt;p&gt;In this tutorial, I&amp;rsquo;ll share my top 10 tips for getting started with Academic:&lt;/p&gt;
 &lt;h2 id=&#34;tip-1&#34;&gt;Tip 1&lt;/h2&gt;
 &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellus ac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum. Sed ac faucibus dolor, scelerisque sollicitudin nisi. Cras purus urna, suscipit quis sapien eu, pulvinar tempor diam. Quisque risus orci, mollis id ante sit amet, gravida egestas nisl. Sed ac tempus magna. Proin in dui enim. Donec condimentum, sem id dapibus fringilla, tellus enim condimentum arcu, nec volutpat est felis vel metus. Vestibulum sit amet erat at nulla eleifend gravida.&lt;/p&gt;
@@ -35,9 +35,9 @@
     
     <item>
       <title>Example Page 2</title>
-      <link>https://vishnubharadwaj00.github.io/courses/example/example2/</link>
+      <link>https://deshmukhakshay321.github.io/cloneakshay123/courses/example/example2/</link>
       <pubDate>Sun, 05 May 2019 00:00:00 +0100</pubDate>
-      <guid>https://vishnubharadwaj00.github.io/courses/example/example2/</guid>
+      <guid>https://deshmukhakshay321.github.io/cloneakshay123/courses/example/example2/</guid>
       <description>&lt;p&gt;Here are some more tips for getting started with Academic:&lt;/p&gt;
 &lt;h2 id=&#34;tip-3&#34;&gt;Tip 3&lt;/h2&gt;
 &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellus ac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum. Sed ac faucibus dolor, scelerisque sollicitudin nisi. Cras purus urna, suscipit quis sapien eu, pulvinar tempor diam. Quisque risus orci, mollis id ante sit amet, gravida egestas nisl. Sed ac tempus magna. Proin in dui enim. Donec condimentum, sem id dapibus fringilla, tellus enim condimentum arcu, nec volutpat est felis vel metus. Vestibulum sit amet erat at nulla eleifend gravida.&lt;/p&gt;
@@ -56,9 +56,9 @@
     
     <item>
       <title>Example Talk</title>
-      <link>https://vishnubharadwaj00.github.io/talk/example/</link>
+      <link>https://deshmukhakshay321.github.io/cloneakshay123/talk/example/</link>
       <pubDate>Sat, 01 Jun 2030 13:00:00 +0000</pubDate>
-      <guid>https://vishnubharadwaj00.github.io/talk/example/</guid>
+      <guid>https://deshmukhakshay321.github.io/cloneakshay123/talk/example/</guid>
       <description>&lt;div class=&#34;alert alert-note&#34;&gt;
   &lt;div&gt;
     Click on the &lt;strong&gt;Slides&lt;/strong&gt; button above to view the built-in slides feature.
@@ -77,18 +77,18 @@
     </item>
     
     <item>
-      <title>Satellite Image Classifier</title>
-      <link>https://vishnubharadwaj00.github.io/project/satelliteimage/</link>
+      <title>Satellite  Classifier</title>
+      <link>https://deshmukhakshay321.github.io/cloneakshay123/project/satelliteimage/</link>
       <pubDate>Mon, 03 Aug 2020 00:00:00 +0000</pubDate>
-      <guid>https://vishnubharadwaj00.github.io/project/satelliteimage/</guid>
+      <guid>https://deshmukhakshay321.github.io/cloneakshay123/project/satelliteimage/</guid>
       <description></description>
     </item>
     
     <item>
       <title>How NOT to Build a Data Science Project</title>
-      <link>https://vishnubharadwaj00.github.io/post/datascienceprojectmistakes/</link>
+      <link>https://deshmukhakshay321.github.io/cloneakshay123/post/datascienceprojectmistakes/</link>
       <pubDate>Tue, 28 Jul 2020 13:49:43 +0000</pubDate>
-      <guid>https://vishnubharadwaj00.github.io/post/datascienceprojectmistakes/</guid>
+      <guid>https://deshmukhakshay321.github.io/cloneakshay123/post/datascienceprojectmistakes/</guid>
       <description>&lt;p&gt;(Originally published on 
 &lt;a href=&#34;https://towardsdatascience.com/how-not-to-build-a-data-science-project-baa494d98da4&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Towards Data Science&lt;/a&gt;)&lt;/p&gt;
 &lt;p&gt;I knew I was doing something wrong.&lt;/p&gt;
@@ -175,10 +175,10 @@
 &lt;figure id=&#34;figure-the-data-science-life-cycle-credits-chanin-nantasenamatdata-professor&#34;&gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://vishnubharadwaj00.github.io/img/0__SgzHN6H7R46HAtPa.jpeg&#34; data-caption=&#34;The Data Science Life Cycle (Credits: Chanin Nantasenamat/Data Professor)&#34;&gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://deshmukhakshay321.github.io/cloneakshay123/img/0__SgzHN6H7R46HAtPa.jpeg&#34; data-caption=&#34;The Data Science Life Cycle (Credits: Chanin Nantasenamat/Data Professor)&#34;&gt;
 
 
-  &lt;img src=&#34;https://vishnubharadwaj00.github.io/img/0__SgzHN6H7R46HAtPa.jpeg&#34; alt=&#34;&#34;  &gt;
+  &lt;img src=&#34;https://deshmukhakshay321.github.io/cloneakshay123/img/0__SgzHN6H7R46HAtPa.jpeg&#34; alt=&#34;&#34;  &gt;
 &lt;/a&gt;
 
 
@@ -220,9 +220,9 @@
     
     <item>
       <title>How Cal Newport Saved my CS Career</title>
-      <link>https://vishnubharadwaj00.github.io/post/calnewport/</link>
+      <link>https://deshmukhakshay321.github.io/cloneakshay123/post/calnewport/</link>
       <pubDate>Thu, 16 Jul 2020 12:35:17 +0000</pubDate>
-      <guid>https://vishnubharadwaj00.github.io/post/calnewport/</guid>
+      <guid>https://deshmukhakshay321.github.io/cloneakshay123/post/calnewport/</guid>
       <description>&lt;p&gt;(Originally published on 
 &lt;a href=&#34;https://blog.usejournal.com/how-cal-newport-saved-my-cs-career-141028f4cd34&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Noteworthy&lt;/a&gt;)&lt;/p&gt;
 &lt;p&gt;I was struggling.&lt;/p&gt;
@@ -298,17 +298,17 @@
     
     <item>
       <title>Data Science Salary Predictor</title>
-      <link>https://vishnubharadwaj00.github.io/project/datasciencesalarypred/</link>
+      <link>https://deshmukhakshay321.github.io/cloneakshay123/project/datasciencesalarypred/</link>
       <pubDate>Sat, 13 Jun 2020 00:00:00 +0000</pubDate>
-      <guid>https://vishnubharadwaj00.github.io/project/datasciencesalarypred/</guid>
+      <guid>https://deshmukhakshay321.github.io/cloneakshay123/project/datasciencesalarypred/</guid>
       <description></description>
     </item>
     
     <item>
       <title>10 Unique Visualizations of the NBA</title>
-      <link>https://vishnubharadwaj00.github.io/post/nbaviz/</link>
+      <link>https://deshmukhakshay321.github.io/cloneakshay123/post/nbaviz/</link>
       <pubDate>Sat, 06 Jun 2020 09:07:47 +0000</pubDate>
-      <guid>https://vishnubharadwaj00.github.io/post/nbaviz/</guid>
+      <guid>https://deshmukhakshay321.github.io/cloneakshay123/post/nbaviz/</guid>
       <description>&lt;p&gt;(Originally published on 
 &lt;a href=&#34;https://towardsdatascience.com/10-unique-visualizations-of-the-nba-b981cfdb78bf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Towards Data Science&lt;/a&gt;)&lt;/p&gt;
 &lt;h3 id=&#34;i-miss-thenba&#34;&gt;I miss the NBA.&lt;/h3&gt;
@@ -344,10 +344,10 @@
 &lt;figure id=&#34;figure-number-of-players-from-each-college-whove-played-in-thenba&#34;&gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://vishnubharadwaj00.github.io/img/1__jbDeKg469x6AO8FAjmE9CQ.png&#34; data-caption=&#34;Number of Players from each College who’ve played in the NBA&#34;&gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://deshmukhakshay321.github.io/cloneakshay123/img/1__jbDeKg469x6AO8FAjmE9CQ.png&#34; data-caption=&#34;Number of Players from each College who’ve played in the NBA&#34;&gt;
 
 
-  &lt;img src=&#34;https://vishnubharadwaj00.github.io/img/1__jbDeKg469x6AO8FAjmE9CQ.png&#34; alt=&#34;&#34;  &gt;
+  &lt;img src=&#34;https://deshmukhakshay321.github.io/cloneakshay123/img/1__jbDeKg469x6AO8FAjmE9CQ.png&#34; alt=&#34;&#34;  &gt;
 &lt;/a&gt;
 
 
@@ -386,10 +386,10 @@
 &lt;figure id=&#34;figure-draft-round-vs-average-games-played-per-season&#34;&gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://vishnubharadwaj00.github.io/img/1__pKRHxrVqgwC5g6ulRoNEvw.png&#34; data-caption=&#34;Draft Round vs Average Games Played per Season&#34;&gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://deshmukhakshay321.github.io/cloneakshay123/img/1__pKRHxrVqgwC5g6ulRoNEvw.png&#34; data-caption=&#34;Draft Round vs Average Games Played per Season&#34;&gt;
 
 
-  &lt;img src=&#34;https://vishnubharadwaj00.github.io/img/1__pKRHxrVqgwC5g6ulRoNEvw.png&#34; alt=&#34;&#34;  &gt;
+  &lt;img src=&#34;https://deshmukhakshay321.github.io/cloneakshay123/img/1__pKRHxrVqgwC5g6ulRoNEvw.png&#34; alt=&#34;&#34;  &gt;
 &lt;/a&gt;
 
 
@@ -430,10 +430,10 @@
 &lt;figure id=&#34;figure-nbas-biggest-players-in-terms-of-height-cm-and-weight-kg&#34;&gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://vishnubharadwaj00.github.io/img/1__5L9t9imjrLqwCuwJXdWHvw.png&#34; data-caption=&#34;NBA’s biggest players, in terms of Height (cm) and Weight (kg)&#34;&gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://deshmukhakshay321.github.io/cloneakshay123/img/1__5L9t9imjrLqwCuwJXdWHvw.png&#34; data-caption=&#34;NBA’s biggest players, in terms of Height (cm) and Weight (kg)&#34;&gt;
 
 
-  &lt;img src=&#34;https://vishnubharadwaj00.github.io/img/1__5L9t9imjrLqwCuwJXdWHvw.png&#34; alt=&#34;&#34;  &gt;
+  &lt;img src=&#34;https://deshmukhakshay321.github.io/cloneakshay123/img/1__5L9t9imjrLqwCuwJXdWHvw.png&#34; alt=&#34;&#34;  &gt;
 &lt;/a&gt;
 
 
@@ -475,10 +475,10 @@
 &lt;figure id=&#34;figure-average-net-rating-for-all-teams-since-1996&#34;&gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://vishnubharadwaj00.github.io/img/1__2esyA2thxLOcaMY__rhSbFw.png&#34; data-caption=&#34;Average Net Rating for all teams since 1996&#34;&gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://deshmukhakshay321.github.io/cloneakshay123/img/1__2esyA2thxLOcaMY__rhSbFw.png&#34; data-caption=&#34;Average Net Rating for all teams since 1996&#34;&gt;
 
 
-  &lt;img src=&#34;https://vishnubharadwaj00.github.io/img/1__2esyA2thxLOcaMY__rhSbFw.png&#34; alt=&#34;&#34;  &gt;
+  &lt;img src=&#34;https://deshmukhakshay321.github.io/cloneakshay123/img/1__2esyA2thxLOcaMY__rhSbFw.png&#34; alt=&#34;&#34;  &gt;
 &lt;/a&gt;
 
 
@@ -517,10 +517,10 @@
 &lt;figure id=&#34;figure-total-points-vs-total-assists-color-indicates-total-gamesplayed&#34;&gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://vishnubharadwaj00.github.io/img/1__H2__qI8wfkXE7AYxBsSyd8w.png&#34; data-caption=&#34;Total Points vs Total Assists (Color indicates Total Games Played)&#34;&gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://deshmukhakshay321.github.io/cloneakshay123/img/1__H2__qI8wfkXE7AYxBsSyd8w.png&#34; data-caption=&#34;Total Points vs Total Assists (Color indicates Total Games Played)&#34;&gt;
 
 
-  &lt;img src=&#34;https://vishnubharadwaj00.github.io/img/1__H2__qI8wfkXE7AYxBsSyd8w.png&#34; alt=&#34;&#34;  &gt;
+  &lt;img src=&#34;https://deshmukhakshay321.github.io/cloneakshay123/img/1__H2__qI8wfkXE7AYxBsSyd8w.png&#34; alt=&#34;&#34;  &gt;
 &lt;/a&gt;
 
 
@@ -558,10 +558,10 @@
 &lt;figure id=&#34;figure-scoring-efficiency--vs--of-assists-contributed-color-indicates-average-games-played-perseason&#34;&gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://vishnubharadwaj00.github.io/img/1__LoH8Mml8qN6j97fDkeS__AA.png&#34; data-caption=&#34;Scoring Efficiency % vs % of Assists Contributed (Color indicates Average games played per Season)&#34;&gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://deshmukhakshay321.github.io/cloneakshay123/img/1__LoH8Mml8qN6j97fDkeS__AA.png&#34; data-caption=&#34;Scoring Efficiency % vs % of Assists Contributed (Color indicates Average games played per Season)&#34;&gt;
 
 
-  &lt;img src=&#34;https://vishnubharadwaj00.github.io/img/1__LoH8Mml8qN6j97fDkeS__AA.png&#34; alt=&#34;&#34;  &gt;
+  &lt;img src=&#34;https://deshmukhakshay321.github.io/cloneakshay123/img/1__LoH8Mml8qN6j97fDkeS__AA.png&#34; alt=&#34;&#34;  &gt;
 &lt;/a&gt;
 
 
@@ -598,10 +598,10 @@
 &lt;figure id=&#34;figure-scoring-efficiency--vs-play-usage--color-indicates-average-games-played-perseason&#34;&gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://vishnubharadwaj00.github.io/img/1__L8m__h4qAeyf2L1hX9uq6mQ.png&#34; data-caption=&#34;Scoring Efficiency % vs Play Usage % (Color indicates Average games played per Season)&#34;&gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://deshmukhakshay321.github.io/cloneakshay123/img/1__L8m__h4qAeyf2L1hX9uq6mQ.png&#34; data-caption=&#34;Scoring Efficiency % vs Play Usage % (Color indicates Average games played per Season)&#34;&gt;
 
 
-  &lt;img src=&#34;https://vishnubharadwaj00.github.io/img/1__L8m__h4qAeyf2L1hX9uq6mQ.png&#34; alt=&#34;&#34;  &gt;
+  &lt;img src=&#34;https://deshmukhakshay321.github.io/cloneakshay123/img/1__L8m__h4qAeyf2L1hX9uq6mQ.png&#34; alt=&#34;&#34;  &gt;
 &lt;/a&gt;
 
 
@@ -642,10 +642,10 @@
 &lt;figure id=&#34;figure-average-offensive-rebound--vs-average-defensive-rebound--color-indicates-average-games-played-perseason&#34;&gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://vishnubharadwaj00.github.io/img/1__J__bshpoWo7kVCuVHRheu8w.png&#34; data-caption=&#34;Average Offensive Rebound % vs Average Defensive Rebound % (Color indicates Average Games played per Season)&#34;&gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://deshmukhakshay321.github.io/cloneakshay123/img/1__J__bshpoWo7kVCuVHRheu8w.png&#34; data-caption=&#34;Average Offensive Rebound % vs Average Defensive Rebound % (Color indicates Average Games played per Season)&#34;&gt;
 
 
-  &lt;img src=&#34;https://vishnubharadwaj00.github.io/img/1__J__bshpoWo7kVCuVHRheu8w.png&#34; alt=&#34;&#34;  &gt;
+  &lt;img src=&#34;https://deshmukhakshay321.github.io/cloneakshay123/img/1__J__bshpoWo7kVCuVHRheu8w.png&#34; alt=&#34;&#34;  &gt;
 &lt;/a&gt;
 
 
@@ -685,10 +685,10 @@
 &lt;figure id=&#34;figure-number-of-seasons-averaging-the-most-common-doubledouble&#34;&gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://vishnubharadwaj00.github.io/img/1__uu6YsO4n2nOQo3N3__3prHw.png&#34; data-caption=&#34;Number of Seasons averaging the “Most Common” Double Double&#34;&gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://deshmukhakshay321.github.io/cloneakshay123/img/1__uu6YsO4n2nOQo3N3__3prHw.png&#34; data-caption=&#34;Number of Seasons averaging the “Most Common” Double Double&#34;&gt;
 
 
-  &lt;img src=&#34;https://vishnubharadwaj00.github.io/img/1__uu6YsO4n2nOQo3N3__3prHw.png&#34; alt=&#34;&#34;  &gt;
+  &lt;img src=&#34;https://deshmukhakshay321.github.io/cloneakshay123/img/1__uu6YsO4n2nOQo3N3__3prHw.png&#34; alt=&#34;&#34;  &gt;
 &lt;/a&gt;
 
 
@@ -728,10 +728,10 @@
 &lt;figure id=&#34;figure-points-rebounds-and-assists-over-time-199697-to201920&#34;&gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://vishnubharadwaj00.github.io/img/1__UJ1vqbbMDBGjc11__2qBdRQ.png&#34; data-caption=&#34;Points, Rebounds and Assists Over Time (1996–97 to 2019–20)&#34;&gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://deshmukhakshay321.github.io/cloneakshay123/img/1__UJ1vqbbMDBGjc11__2qBdRQ.png&#34; data-caption=&#34;Points, Rebounds and Assists Over Time (1996–97 to 2019–20)&#34;&gt;
 
 
-  &lt;img src=&#34;https://vishnubharadwaj00.github.io/img/1__UJ1vqbbMDBGjc11__2qBdRQ.png&#34; alt=&#34;&#34;  &gt;
+  &lt;img src=&#34;https://deshmukhakshay321.github.io/cloneakshay123/img/1__UJ1vqbbMDBGjc11__2qBdRQ.png&#34; alt=&#34;&#34;  &gt;
 &lt;/a&gt;
 
 
@@ -759,17 +759,17 @@ This increase in points could be attributed to the rise of the 3-Pointer revolut
     
     <item>
       <title>Statistical Analysis of Literacy Rates using Indian Census Data</title>
-      <link>https://vishnubharadwaj00.github.io/publication/journal-article/</link>
+      <link>https://deshmukhakshay321.github.io/cloneakshay123/publication/journal-article/</link>
       <pubDate>Fri, 15 May 2020 00:00:00 +0000</pubDate>
-      <guid>https://vishnubharadwaj00.github.io/publication/journal-article/</guid>
+      <guid>https://deshmukhakshay321.github.io/cloneakshay123/publication/journal-article/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Tesla Stock Prediction using Web Scraping and Recurrent Neural Networks</title>
-      <link>https://vishnubharadwaj00.github.io/project/tesla-stock-predictor/</link>
+      <link>https://deshmukhakshay321.github.io/cloneakshay123/project/tesla-stock-predictor/</link>
       <pubDate>Mon, 20 Apr 2020 00:00:00 +0000</pubDate>
-      <guid>https://vishnubharadwaj00.github.io/project/tesla-stock-predictor/</guid>
+      <guid>https://deshmukhakshay321.github.io/cloneakshay123/project/tesla-stock-predictor/</guid>
       <description>&lt;hr&gt;
 &lt;p&gt;Stock Prediction is a versatile and extensive field on its own. With increasingly sophisticated computational capabilities, Stock Prediction is becoming a more and more important application of fields like Machine Learning, Deep Learning and AI.&lt;/p&gt;
 &lt;hr&gt;
@@ -1315,10 +1315,10 @@ plt.rcParams.update({&#39;font.size&#39;: 14})
 &lt;figure id=&#34;figure-plot-of-adjusted-close-stock-prices&#34;&gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://vishnubharadwaj00.github.io/img/TeslaStockPredictor_20_0.png&#34; data-caption=&#34;Plot of Adjusted Close Stock Prices&#34;&gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://deshmukhakshay321.github.io/cloneakshay123/img/TeslaStockPredictor_20_0.png&#34; data-caption=&#34;Plot of Adjusted Close Stock Prices&#34;&gt;
 
 
-  &lt;img src=&#34;https://vishnubharadwaj00.github.io/img/TeslaStockPredictor_20_0.png&#34; alt=&#34;&#34;  &gt;
+  &lt;img src=&#34;https://deshmukhakshay321.github.io/cloneakshay123/img/TeslaStockPredictor_20_0.png&#34; alt=&#34;&#34;  &gt;
 &lt;/a&gt;
 
 
@@ -1498,10 +1498,10 @@ plt.semilogx(history.history[&amp;quot;lr&amp;quot;], history.history[&amp;quot;
 &lt;figure id=&#34;figure-plot-of-loss-vs-learning-rate&#34;&gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://vishnubharadwaj00.github.io/img/TeslaStockPredictor_39_1.png&#34; data-caption=&#34;Plot of Loss vs Learning Rate&#34;&gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://deshmukhakshay321.github.io/cloneakshay123/img/TeslaStockPredictor_39_1.png&#34; data-caption=&#34;Plot of Loss vs Learning Rate&#34;&gt;
 
 
-  &lt;img src=&#34;https://vishnubharadwaj00.github.io/img/TeslaStockPredictor_39_1.png&#34; alt=&#34;&#34;  &gt;
+  &lt;img src=&#34;https://deshmukhakshay321.github.io/cloneakshay123/img/TeslaStockPredictor_39_1.png&#34; alt=&#34;&#34;  &gt;
 &lt;/a&gt;
 
 
@@ -1665,10 +1665,10 @@ plt.legend()
 &lt;figure id=&#34;figure-plot-of-predicted-vs-actual&#34;&gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://vishnubharadwaj00.github.io/img/TeslaStockPredictor_47_1.png&#34; data-caption=&#34;Plot of Predicted vs Actual&#34;&gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://deshmukhakshay321.github.io/cloneakshay123/img/TeslaStockPredictor_47_1.png&#34; data-caption=&#34;Plot of Predicted vs Actual&#34;&gt;
 
 
-  &lt;img src=&#34;https://vishnubharadwaj00.github.io/img/TeslaStockPredictor_47_1.png&#34; alt=&#34;&#34;  &gt;
+  &lt;img src=&#34;https://deshmukhakshay321.github.io/cloneakshay123/img/TeslaStockPredictor_47_1.png&#34; alt=&#34;&#34;  &gt;
 &lt;/a&gt;
 
 
@@ -1687,9 +1687,9 @@ plt.legend()
     
     <item>
       <title>Detecting Pneumonia with Chest X-Ray Images</title>
-      <link>https://vishnubharadwaj00.github.io/project/chestxray/</link>
+      <link>https://deshmukhakshay321.github.io/cloneakshay123/project/chestxray/</link>
       <pubDate>Wed, 08 Apr 2020 00:00:00 +0000</pubDate>
-      <guid>https://vishnubharadwaj00.github.io/project/chestxray/</guid>
+      <guid>https://deshmukhakshay321.github.io/cloneakshay123/project/chestxray/</guid>
       <description>&lt;p&gt;&lt;em&gt;Full code can be accessed at the 
 &lt;a href=&#34;https://github.com/vishnubharadwaj00/PneumoniaDetection&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Github repository&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Healthcare is an extremely important part of the technological revolution, with deep learning techniques being applied to more and more medical problems.&lt;/p&gt;
@@ -2225,7 +2225,7 @@ plt.figure()
 
 plt.show()
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://vishnubharadwaj00.github.io/projectimages/ChestXRayResNet50_files/ChestXRayResNet50_25_0.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://deshmukhakshay321.github.io/cloneakshay123/projectimages/ChestXRayResNet50_files/ChestXRayResNet50_25_0.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;&amp;lt;Figure size 432x288 with 0 Axes&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Training accuracy seems to be steadily increasing, but validation accuracy seems to have peaks and valleys, but overall it does increase. This might be a sign of some overfitting, but definitely not a large amount of overfitting.&lt;/p&gt;
@@ -2234,9 +2234,9 @@ plt.show()
     
     <item>
       <title>Bird Sound Classifier</title>
-      <link>https://vishnubharadwaj00.github.io/project/birdsound/</link>
+      <link>https://deshmukhakshay321.github.io/cloneakshay123/project/birdsound/</link>
       <pubDate>Tue, 24 Sep 2019 00:00:00 +0000</pubDate>
-      <guid>https://vishnubharadwaj00.github.io/project/birdsound/</guid>
+      <guid>https://deshmukhakshay321.github.io/cloneakshay123/project/birdsound/</guid>
       <description>&lt;p&gt;&lt;em&gt;Full code can be accessed at the 
 &lt;a href=&#34;https://github.com/vishnubharadwaj00/BirdSoundClassifier&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Github repository&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;h1 id=&#34;bird-sound-classifier&#34;&gt;&lt;strong&gt;Bird Sound Classifier&lt;/strong&gt;&lt;/h1&gt;
@@ -2342,10 +2342,10 @@ Test: None
 &lt;figure &gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://vishnubharadwaj00.github.io/img/BirdSoundClassifier_12_0.png&#34; &gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://deshmukhakshay321.github.io/cloneakshay123/img/BirdSoundClassifier_12_0.png&#34; &gt;
 
 
-  &lt;img src=&#34;https://vishnubharadwaj00.github.io/img/BirdSoundClassifier_12_0.png&#34; alt=&#34;&#34;  &gt;
+  &lt;img src=&#34;https://deshmukhakshay321.github.io/cloneakshay123/img/BirdSoundClassifier_12_0.png&#34; alt=&#34;&#34;  &gt;
 &lt;/a&gt;
 
 
@@ -2454,10 +2454,10 @@ learn.recorder.plot()
 &lt;figure &gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://vishnubharadwaj00.github.io/img/BirdSoundClassifier_19_2.png&#34; &gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://deshmukhakshay321.github.io/cloneakshay123/img/BirdSoundClassifier_19_2.png&#34; &gt;
 
 
-  &lt;img src=&#34;https://vishnubharadwaj00.github.io/img/BirdSoundClassifier_19_2.png&#34; alt=&#34;&#34;  &gt;
+  &lt;img src=&#34;https://deshmukhakshay321.github.io/cloneakshay123/img/BirdSoundClassifier_19_2.png&#34; alt=&#34;&#34;  &gt;
 &lt;/a&gt;
 
 
@@ -2556,10 +2556,10 @@ learn.fit_one_cycle(6,max_lr=slice(3e-03))
 &lt;figure &gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://vishnubharadwaj00.github.io/img/BirdSoundClassifier_24_0.png&#34; &gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://deshmukhakshay321.github.io/cloneakshay123/img/BirdSoundClassifier_24_0.png&#34; &gt;
 
 
-  &lt;img src=&#34;https://vishnubharadwaj00.github.io/img/BirdSoundClassifier_24_0.png&#34; alt=&#34;&#34;  &gt;
+  &lt;img src=&#34;https://deshmukhakshay321.github.io/cloneakshay123/img/BirdSoundClassifier_24_0.png&#34; alt=&#34;&#34;  &gt;
 &lt;/a&gt;
 
 
@@ -2578,9 +2578,9 @@ learn.fit_one_cycle(6,max_lr=slice(3e-03))
     
     <item>
       <title>Laptop Brand Classifier</title>
-      <link>https://vishnubharadwaj00.github.io/project/laptop/</link>
+      <link>https://deshmukhakshay321.github.io/cloneakshay123/project/laptop/</link>
       <pubDate>Tue, 24 Sep 2019 00:00:00 +0000</pubDate>
-      <guid>https://vishnubharadwaj00.github.io/project/laptop/</guid>
+      <guid>https://deshmukhakshay321.github.io/cloneakshay123/project/laptop/</guid>
       <description>&lt;p&gt;&lt;em&gt;Full code can be accessed at the 
 &lt;a href=&#34;https://github.com/vishnubharadwaj00/LaptopBrandRecognition&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Github repository&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;h1 id=&#34;what-brand-is-this-laptop&#34;&gt;&lt;strong&gt;What brand is this laptop?&lt;/strong&gt;&lt;/h1&gt;
@@ -2660,7 +2660,7 @@ images
 &lt;p&gt;Looking at some of the pictures:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;data.show_batch(rows=3, figsize=(7,8))
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://vishnubharadwaj00.github.io/projectimages/LaptopBrandClassifier_files/LaptopBrandClassifier_19_0.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://deshmukhakshay321.github.io/cloneakshay123/projectimages/LaptopBrandClassifier_files/LaptopBrandClassifier_19_0.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;data.classes, data.c, len(data.train_ds), len(data.valid_ds)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;([&#39;hp&#39;, &#39;lenovo&#39;, &#39;macbook&#39;], 3, 306, 75)
@@ -2728,7 +2728,7 @@ images
 &lt;p&gt;Interpreting the results:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;learn.recorder.plot()
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://vishnubharadwaj00.github.io/projectimages/LaptopBrandClassifier_files/LaptopBrandClassifier_26_0.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://deshmukhakshay321.github.io/cloneakshay123/projectimages/LaptopBrandClassifier_files/LaptopBrandClassifier_26_0.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;learn.fit_one_cycle(2,max_lr=slice(1e-03,1e-02))
 &lt;/code&gt;&lt;/pre&gt;
 &lt;table border=&#34;1&#34; class=&#34;dataframe&#34;&gt;
@@ -2762,7 +2762,7 @@ images
 &lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;interp.plot_confusion_matrix()
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://vishnubharadwaj00.github.io/projectimages/LaptopBrandClassifier_files/LaptopBrandClassifier_29_0.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://deshmukhakshay321.github.io/cloneakshay123/projectimages/LaptopBrandClassifier_files/LaptopBrandClassifier_29_0.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;interp.most_confused(min_val=2)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;[(&#39;lenovo&#39;, &#39;hp&#39;, 4),
@@ -2779,7 +2779,7 @@ images
 &lt;pre&gt;&lt;code&gt;img = open_image(path/&#39;mactest.jpg&#39;)
 img
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://vishnubharadwaj00.github.io/projectimages/LaptopBrandClassifier_files/LaptopBrandClassifier_34_0.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://deshmukhakshay321.github.io/cloneakshay123/projectimages/LaptopBrandClassifier_files/LaptopBrandClassifier_34_0.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;learn = load_learner(path)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;pred_class,pred_idx,outputs = learn.predict(img)
@@ -2790,7 +2790,7 @@ pred_class
 &lt;pre&gt;&lt;code&gt;img1  = open_image(path/&#39;hptest.jpg&#39;)
 img1
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://vishnubharadwaj00.github.io/projectimages/LaptopBrandClassifier_files/LaptopBrandClassifier_37_0.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://deshmukhakshay321.github.io/cloneakshay123/projectimages/LaptopBrandClassifier_files/LaptopBrandClassifier_37_0.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;pred_class,pred_idx,outputs = learn.predict(img1)
 pred_class
 &lt;/code&gt;&lt;/pre&gt;
@@ -2803,9 +2803,9 @@ pred_class
     
     <item>
       <title>What makes a good movie, asked Bayes</title>
-      <link>https://vishnubharadwaj00.github.io/project/bayes/</link>
+      <link>https://deshmukhakshay321.github.io/cloneakshay123/project/bayes/</link>
       <pubDate>Thu, 19 Sep 2019 00:00:00 +0000</pubDate>
-      <guid>https://vishnubharadwaj00.github.io/project/bayes/</guid>
+      <guid>https://deshmukhakshay321.github.io/cloneakshay123/project/bayes/</guid>
       <description>&lt;p&gt;&lt;em&gt;Full code can be accessed at the 
 &lt;a href=&#34;https://github.com/vishnubharadwaj00/What-makes-a-good-movie-asked-Bayes&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Github repository&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;h1 id=&#34;how-to-make-a-good-movie&#34;&gt;How to make a good movie&lt;/h1&gt;
@@ -3038,9 +3038,9 @@ round(audinterval,3)
     
     <item>
       <title>Literacy Rate Analysis using GSS Data</title>
-      <link>https://vishnubharadwaj00.github.io/project/litrates/</link>
+      <link>https://deshmukhakshay321.github.io/cloneakshay123/project/litrates/</link>
       <pubDate>Thu, 15 Aug 2019 00:00:00 +0000</pubDate>
-      <guid>https://vishnubharadwaj00.github.io/project/litrates/</guid>
+      <guid>https://deshmukhakshay321.github.io/cloneakshay123/project/litrates/</guid>
       <description>&lt;p&gt;&lt;em&gt;Full code can be accessed at the 
 &lt;a href=&#34;https://github.com/vishnubharadwaj00/Literacy-Rate-Analysis-Using-GSS-Dataset&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Github repository&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;h2 id=&#34;setup&#34;&gt;Setup&lt;/h2&gt;
@@ -3239,9 +3239,9 @@ $\mu_{1972}-\mu_{2012} \ne 0$&lt;/p&gt;
     
     <item>
       <title>Slides</title>
-      <link>https://vishnubharadwaj00.github.io/slides/example/</link>
+      <link>https://deshmukhakshay321.github.io/cloneakshay123/slides/example/</link>
       <pubDate>Tue, 05 Feb 2019 00:00:00 +0000</pubDate>
-      <guid>https://vishnubharadwaj00.github.io/slides/example/</guid>
+      <guid>https://deshmukhakshay321.github.io/cloneakshay123/slides/example/</guid>
       <description>&lt;h1 id=&#34;create-slides-in-markdown-with-academic&#34;&gt;Create slides in Markdown with Academic&lt;/h1&gt;
 &lt;p&gt;
 &lt;a href=&#34;https://sourcethemes.com/academic/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Academic&lt;/a&gt; | 
@@ -3373,9 +3373,9 @@ Three
     
     <item>
       <title>The Football Revolution and Why It’s Almost Here</title>
-      <link>https://vishnubharadwaj00.github.io/post/footballrevolution/</link>
+      <link>https://deshmukhakshay321.github.io/cloneakshay123/post/footballrevolution/</link>
       <pubDate>Mon, 02 Jul 2018 12:10:02 +0000</pubDate>
-      <guid>https://vishnubharadwaj00.github.io/post/footballrevolution/</guid>
+      <guid>https://deshmukhakshay321.github.io/cloneakshay123/post/footballrevolution/</guid>
       <description>&lt;p&gt;This World Cup season, the whole world, football fans or not, are abuzz about the ongoing tournament being held in Russia. (Ah yes, that football.) So why not learn a bit more about ‘The Beautiful Game’ to try and show off to your die-hard football friends and family members, eh?&lt;/p&gt;
 &lt;p&gt;Let’s start somewhere completely unrelated.&lt;/p&gt;
 &lt;p&gt;Brad Pitt.&lt;/p&gt;
@@ -3399,10 +3399,10 @@ Three
 &lt;figure &gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://vishnubharadwaj00.github.io/img/0__hYYRCQ0jHL32T5WG.jpg&#34; &gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://deshmukhakshay321.github.io/cloneakshay123/img/0__hYYRCQ0jHL32T5WG.jpg&#34; &gt;
 
 
-  &lt;img src=&#34;https://vishnubharadwaj00.github.io/img/0__hYYRCQ0jHL32T5WG.jpg&#34; alt=&#34;&#34;  &gt;
+  &lt;img src=&#34;https://deshmukhakshay321.github.io/cloneakshay123/img/0__hYYRCQ0jHL32T5WG.jpg&#34; alt=&#34;&#34;  &gt;
 &lt;/a&gt;
 
 
@@ -3434,10 +3434,10 @@ Three
 &lt;figure id=&#34;figure-brad-pitt-in-moneyball-2011&#34;&gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://vishnubharadwaj00.github.io/img/1__CrOuAJrcAi__5D5mwMNA9FQ.jpeg&#34; data-caption=&#34;Brad Pitt in Moneyball (2011)&#34;&gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://deshmukhakshay321.github.io/cloneakshay123/img/1__CrOuAJrcAi__5D5mwMNA9FQ.jpeg&#34; data-caption=&#34;Brad Pitt in Moneyball (2011)&#34;&gt;
 
 
-  &lt;img src=&#34;https://vishnubharadwaj00.github.io/img/1__CrOuAJrcAi__5D5mwMNA9FQ.jpeg&#34; alt=&#34;&#34;  &gt;
+  &lt;img src=&#34;https://deshmukhakshay321.github.io/cloneakshay123/img/1__CrOuAJrcAi__5D5mwMNA9FQ.jpeg&#34; alt=&#34;&#34;  &gt;
 &lt;/a&gt;
 
 
@@ -3471,10 +3471,10 @@ Three
 &lt;figure id=&#34;figure-the-record-breaking-2002-oaklandas&#34;&gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://vishnubharadwaj00.github.io/img/1__oHTrEKZeP85WYQcC7L3Uxg.jpeg&#34; data-caption=&#34;The record breaking 2002 Oakland A’s&#34;&gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://deshmukhakshay321.github.io/cloneakshay123/img/1__oHTrEKZeP85WYQcC7L3Uxg.jpeg&#34; data-caption=&#34;The record breaking 2002 Oakland A’s&#34;&gt;
 
 
-  &lt;img src=&#34;https://vishnubharadwaj00.github.io/img/1__oHTrEKZeP85WYQcC7L3Uxg.jpeg&#34; alt=&#34;&#34;  &gt;
+  &lt;img src=&#34;https://deshmukhakshay321.github.io/cloneakshay123/img/1__oHTrEKZeP85WYQcC7L3Uxg.jpeg&#34; alt=&#34;&#34;  &gt;
 &lt;/a&gt;
 
 
@@ -3508,10 +3508,10 @@ Three
 &lt;figure id=&#34;figure-oakland-as-had-the-3rd-lowest-budget-in-theleague&#34;&gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://vishnubharadwaj00.github.io/img/1__801pKgbYtI1GoZqtYf4fDQ.png&#34; data-caption=&#34;Oakland A’s had the 3rd lowest budget in the league&#34;&gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://deshmukhakshay321.github.io/cloneakshay123/img/1__801pKgbYtI1GoZqtYf4fDQ.png&#34; data-caption=&#34;Oakland A’s had the 3rd lowest budget in the league&#34;&gt;
 
 
-  &lt;img src=&#34;https://vishnubharadwaj00.github.io/img/1__801pKgbYtI1GoZqtYf4fDQ.png&#34; alt=&#34;&#34;  &gt;
+  &lt;img src=&#34;https://deshmukhakshay321.github.io/cloneakshay123/img/1__801pKgbYtI1GoZqtYf4fDQ.png&#34; alt=&#34;&#34;  &gt;
 &lt;/a&gt;
 
 
@@ -3556,10 +3556,10 @@ Three
 &lt;figure &gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://vishnubharadwaj00.github.io/img/1__uSlhcWavKzce5XIAqZDmrQ.jpeg&#34; &gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://deshmukhakshay321.github.io/cloneakshay123/img/1__uSlhcWavKzce5XIAqZDmrQ.jpeg&#34; &gt;
 
 
-  &lt;img src=&#34;https://vishnubharadwaj00.github.io/img/1__uSlhcWavKzce5XIAqZDmrQ.jpeg&#34; alt=&#34;&#34;  &gt;
+  &lt;img src=&#34;https://deshmukhakshay321.github.io/cloneakshay123/img/1__uSlhcWavKzce5XIAqZDmrQ.jpeg&#34; alt=&#34;&#34;  &gt;
 &lt;/a&gt;
 
 
@@ -3589,10 +3589,10 @@ Three
 &lt;figure id=&#34;figure-john-w-henry-owner-of-the-boston-red-sox-and-liverpool-fc&#34;&gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://vishnubharadwaj00.github.io/img/1__Fzv0LD7__0KxJnsICC9LuaA.jpeg&#34; data-caption=&#34;John W. Henry, owner of the Boston Red Sox and Liverpool FC&#34;&gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://deshmukhakshay321.github.io/cloneakshay123/img/1__Fzv0LD7__0KxJnsICC9LuaA.jpeg&#34; data-caption=&#34;John W. Henry, owner of the Boston Red Sox and Liverpool FC&#34;&gt;
 
 
-  &lt;img src=&#34;https://vishnubharadwaj00.github.io/img/1__Fzv0LD7__0KxJnsICC9LuaA.jpeg&#34; alt=&#34;&#34;  &gt;
+  &lt;img src=&#34;https://deshmukhakshay321.github.io/cloneakshay123/img/1__Fzv0LD7__0KxJnsICC9LuaA.jpeg&#34; alt=&#34;&#34;  &gt;
 &lt;/a&gt;
 
 
@@ -3627,10 +3627,10 @@ Three
 &lt;figure id=&#34;figure-jose-enrique-had-a-disappointing-spell-at-liverpool&#34;&gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://vishnubharadwaj00.github.io/img/1__deEVoKILe4VP__yGRHIe7hw.jpeg&#34; data-caption=&#34;Jose Enrique had a disappointing spell at Liverpool&#34;&gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://deshmukhakshay321.github.io/cloneakshay123/img/1__deEVoKILe4VP__yGRHIe7hw.jpeg&#34; data-caption=&#34;Jose Enrique had a disappointing spell at Liverpool&#34;&gt;
 
 
-  &lt;img src=&#34;https://vishnubharadwaj00.github.io/img/1__deEVoKILe4VP__yGRHIe7hw.jpeg&#34; alt=&#34;&#34;  &gt;
+  &lt;img src=&#34;https://deshmukhakshay321.github.io/cloneakshay123/img/1__deEVoKILe4VP__yGRHIe7hw.jpeg&#34; alt=&#34;&#34;  &gt;
 &lt;/a&gt;
 
 
@@ -3667,10 +3667,10 @@ Three
 &lt;figure id=&#34;figure-fc-midtjylland-pulled-off-an-impossible-feat-purely-with-statistics&#34;&gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://vishnubharadwaj00.github.io/img/1__w79V1PhJkboWmSYzFKRtLw.jpeg&#34; data-caption=&#34;FC Midtjylland pulled off an impossible feat purely with statistics&#34;&gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://deshmukhakshay321.github.io/cloneakshay123/img/1__w79V1PhJkboWmSYzFKRtLw.jpeg&#34; data-caption=&#34;FC Midtjylland pulled off an impossible feat purely with statistics&#34;&gt;
 
 
-  &lt;img src=&#34;https://vishnubharadwaj00.github.io/img/1__w79V1PhJkboWmSYzFKRtLw.jpeg&#34; alt=&#34;&#34;  &gt;
+  &lt;img src=&#34;https://deshmukhakshay321.github.io/cloneakshay123/img/1__w79V1PhJkboWmSYzFKRtLw.jpeg&#34; alt=&#34;&#34;  &gt;
 &lt;/a&gt;
 
 
@@ -3706,10 +3706,10 @@ Three
 &lt;figure id=&#34;figure-matthew-benhamleft-with-rasmusankersen&#34;&gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://vishnubharadwaj00.github.io/img/1____jY5rV9U__L9DaZ9zIBWGXQ.jpeg&#34; data-caption=&#34;Matthew Benham(left) with Rasmus Ankersen&#34;&gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://deshmukhakshay321.github.io/cloneakshay123/img/1____jY5rV9U__L9DaZ9zIBWGXQ.jpeg&#34; data-caption=&#34;Matthew Benham(left) with Rasmus Ankersen&#34;&gt;
 
 
-  &lt;img src=&#34;https://vishnubharadwaj00.github.io/img/1____jY5rV9U__L9DaZ9zIBWGXQ.jpeg&#34; alt=&#34;&#34;  &gt;
+  &lt;img src=&#34;https://deshmukhakshay321.github.io/cloneakshay123/img/1____jY5rV9U__L9DaZ9zIBWGXQ.jpeg&#34; alt=&#34;&#34;  &gt;
 &lt;/a&gt;
 
 
@@ -3747,10 +3747,10 @@ Three
 &lt;figure id=&#34;figure-the-trio-that-won-leicester-the-premier-leaguel-to-r-kante-vardymahrez&#34;&gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://vishnubharadwaj00.github.io/img/1__U5xkYHZ__lcZda6g5aFFz__w.jpeg&#34; data-caption=&#34;The trio that won Leicester the Premier League(L to R: Kante, Vardy, Mahrez)&#34;&gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://deshmukhakshay321.github.io/cloneakshay123/img/1__U5xkYHZ__lcZda6g5aFFz__w.jpeg&#34; data-caption=&#34;The trio that won Leicester the Premier League(L to R: Kante, Vardy, Mahrez)&#34;&gt;
 
 
-  &lt;img src=&#34;https://vishnubharadwaj00.github.io/img/1__U5xkYHZ__lcZda6g5aFFz__w.jpeg&#34; alt=&#34;&#34;  &gt;
+  &lt;img src=&#34;https://deshmukhakshay321.github.io/cloneakshay123/img/1__U5xkYHZ__lcZda6g5aFFz__w.jpeg&#34; alt=&#34;&#34;  &gt;
 &lt;/a&gt;
 
 
@@ -3787,10 +3787,10 @@ Three
 &lt;figure id=&#34;figure-image-of-ball-movement-patterns-in-the-20-premier-league-teams-in-the-201011season&#34;&gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://vishnubharadwaj00.github.io/img/1__dtZE__VuNFKfsEF5t184PXQ.png&#34; data-caption=&#34;Image of ball movement patterns in the 20 Premier League teams in the 2010–11 season&#34;&gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://deshmukhakshay321.github.io/cloneakshay123/img/1__dtZE__VuNFKfsEF5t184PXQ.png&#34; data-caption=&#34;Image of ball movement patterns in the 20 Premier League teams in the 2010–11 season&#34;&gt;
 
 
-  &lt;img src=&#34;https://vishnubharadwaj00.github.io/img/1__dtZE__VuNFKfsEF5t184PXQ.png&#34; alt=&#34;&#34;  &gt;
+  &lt;img src=&#34;https://deshmukhakshay321.github.io/cloneakshay123/img/1__dtZE__VuNFKfsEF5t184PXQ.png&#34; alt=&#34;&#34;  &gt;
 &lt;/a&gt;
 
 
@@ -3825,10 +3825,10 @@ Three
 &lt;figure &gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://vishnubharadwaj00.github.io/img/1__YAu__sgUdlSSg5qnEQlMwMg.jpeg&#34; &gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://deshmukhakshay321.github.io/cloneakshay123/img/1__YAu__sgUdlSSg5qnEQlMwMg.jpeg&#34; &gt;
 
 
-  &lt;img src=&#34;https://vishnubharadwaj00.github.io/img/1__YAu__sgUdlSSg5qnEQlMwMg.jpeg&#34; alt=&#34;&#34;  &gt;
+  &lt;img src=&#34;https://deshmukhakshay321.github.io/cloneakshay123/img/1__YAu__sgUdlSSg5qnEQlMwMg.jpeg&#34; alt=&#34;&#34;  &gt;
 &lt;/a&gt;
 
 
@@ -3841,18 +3841,18 @@ Three
     
     <item>
       <title>Privacy Policy</title>
-      <link>https://vishnubharadwaj00.github.io/privacy/</link>
+      <link>https://deshmukhakshay321.github.io/cloneakshay123/privacy/</link>
       <pubDate>Thu, 28 Jun 2018 00:00:00 +0100</pubDate>
-      <guid>https://vishnubharadwaj00.github.io/privacy/</guid>
+      <guid>https://deshmukhakshay321.github.io/cloneakshay123/privacy/</guid>
       <description>&lt;p&gt;&amp;hellip;&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Terms</title>
-      <link>https://vishnubharadwaj00.github.io/terms/</link>
+      <link>https://deshmukhakshay321.github.io/cloneakshay123/terms/</link>
       <pubDate>Thu, 28 Jun 2018 00:00:00 +0100</pubDate>
-      <guid>https://vishnubharadwaj00.github.io/terms/</guid>
+      <guid>https://deshmukhakshay321.github.io/cloneakshay123/terms/</guid>
       <description>&lt;p&gt;&amp;hellip;&lt;/p&gt;
 </description>
     </item>
